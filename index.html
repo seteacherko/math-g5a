@@ -1530,7 +1530,7 @@ function answer(sp,{onPick}={}){
 }
 
 /* one practice question: prompt + answer + check + feedback */
-function qa({prompt,spec,hint,onDone,onWrong,why,num,fallback}){
+function qa({prompt,spec,hint,onDone,onWrong,why,num,fallback,noReveal}){
   const wrap=h('<div class="step"></div>');
   if(num)wrap.append(h(`<div class="step-n">第 ${num} 步</div>`));
   const pr=h(`<div class="prompt"><div class="txt">${prompt}</div></div>`);pr.prepend(sayBtn(pr.querySelector('.txt')));wrap.append(pr);
@@ -1550,6 +1550,8 @@ function qa({prompt,spec,hint,onDone,onWrong,why,num,fallback}){
     let special='';
     if(spec.miss&&A.boxes[0]){const v=parseNum(A.boxes[0].value);const mm=spec.miss.find(x=>eq(x.a,v));if(mm)special=mm.m;}
     if(spec.missF&&A.boxes.length){const vs=A.boxes.map(b=>b.value.trim());let i=0;const w=spec.w!=null?(parseNum(vs[i++])||0):0;const n=parseNum(vs[i]),d=vs[i+1]===''?1:parseNum(vs[i+1]);const mm=spec.missF.find(x=>eq(x.v,w+n/d));if(mm)special=mm.m;}
+    /* noReveal: never show the answer here; send the student to the step-by-step guide instead */
+    if(noReveal){msg('bad',`${special?special+'<br>':''}${noReveal()}`);onWrong&&onWrong(tries);return;}
     const tip=hint||(fallback?`想想「我看」的重點：${fallback}`:'');
     if(tries===1)msg('bad',`${special||'差一點點，再試一次。'}${tip?'<br>提示：'+tip:''}`);
     else msg('bad',`${special?special+'<br>':''}答案是 <b>${ansText(spec)}</b>。${why?why+'<br>':''}${A.choice?'請點正確的答案。':A.grid?'請照答案再畫一次。':'請你自己把它填進去。'}`);
@@ -1830,13 +1832,17 @@ function stCan(box,u,l,L,goStage,adv){
     const right=$('.right',sp);const vis=$('.vis-box',card);
     const guide=h(`<button class="btn ghost small" type="button" style="margin-top:.7rem">${ICON.bulb}卡住了？帶我一步一步做</button>`);
     const gsteps=h('<div class="steps" style="margin-top:.8rem" hidden></div>');
-    const el=qa({prompt:p.ask,spec:p.ans,fallback:L.look.key,
-      onWrong(){guide.classList.add('pulse');},
+    let guideUsed=false,guideDone=false;
+    /* 進階挑戰: a wrong answer never shows the answer; the student works it out with the step-by-step guide */
+    const advMsg=()=>!guideUsed?`還不對喔，先不要猜。按下面的「卡住了？帶我一步一步做」，一步一步算出來。`
+      :!guideDone?'先把下面的步驟一步一步做完，就能算出答案。':'對照下面每一步算出來的結果，再檢查一次你的答案。';
+    const el=qa({prompt:p.ask,spec:p.ans,fallback:L.look.key,noReveal:adv?advMsg:null,
+      onWrong(){if(!guideUsed){guide.classList.add('pulse');guide.scrollIntoView({block:'nearest',behavior:store.set.calm?'auto':'smooth'});}},
       onDone(first){stars.push(first);guide.remove();
       const b=h(`<button class="btn" type="button" style="margin-top:1rem">${n+1<N?'下一題':'看結果'}${ICON.next}</button>`);b.onclick=()=>{n++;show();};right.append(b);b.focus({preventScroll:true});}});
     /* fading scaffold: the same problem broken back into the 我做 steps, then the student answers it */
-    guide.onclick=()=>{guide.remove();gsteps.hidden=false;let j=0;
-      const nextG=()=>{if(j>=p.steps.length){gsteps.append(h(`<div class="fb-msg info">${ICON.bulb}<div>步驟都做完了！回到上面，把最後的答案填進去。</div></div>`));el.focusFirst();return;}
+    guide.onclick=()=>{guideUsed=true;guide.remove();gsteps.hidden=false;let j=0;
+      const nextG=()=>{if(j>=p.steps.length){guideDone=true;gsteps.append(h(`<div class="fb-msg info">${ICON.bulb}<div>步驟都做完了！回到上面，把最後的答案填進去。</div></div>`));el.focusFirst();return;}
         const s=p.steps[j];const st=qa({prompt:s.p,spec:s.ans,hint:s.hint,fallback:L.look.key,num:j+1,onDone(){if(s.vis){vis.hidden=false;vis.innerHTML=s.vis;}j++;setTimeout(nextG,300);}});
         gsteps.append(st);st.focusFirst();};
       nextG();};
@@ -1907,7 +1913,6 @@ applySet();render();
 
 <script>
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
-(function(){var t=document.querySelector('.top-in .top-sp');if(t){var a=document.createElement('a');a.className='chip';a.href='../';a.textContent='潛能教室首頁';a.style.textDecoration='none';a.style.color='var(--accent)';a.style.fontWeight='700';t.after(a);}})();
 </script>
 </body>
 </html>
