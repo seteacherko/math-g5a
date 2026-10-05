@@ -1,0 +1,1913 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="五上數學">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#2E6B3F">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>html,body{margin:0}body{padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>五上數學小步走</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: a squared exercise-book page. On a landscape iPad the problem sits on the left, the steps on the right.
+   Palette: forest green — pine accent on a pale leaf-tinted page; units in woodland greens and earth tones. */
+:root{
+  --paper:#F2F6F1; --grid:#DFE9DE; --card:#FFFFFF; --ink:#1C2B21; --mute:#55695B; --line:#C8D7C9;
+  --accent:#2E6B3F; --accent-soft:#E2EFE4; --on-accent:#FFFFFF;
+  --hl:#F6D35B; --hl2:#A9D5A0; --hl3:#E8B48E;
+  --ok:#1F7A4A; --ok-bg:#E1F2E7; --warn:#A84E00; --warn-bg:#FFEFD9;
+  --u1:#2E6B3F; --u2:#8A5A2B; --u3:#4F6F2A; --u4:#23706B; --u5:#85600F; --u6:#3D6A86; --u7:#7A4E6B; --u8:#5B7F47; --u9:#A0522D; --u10:#41604F;
+  --display:"LXGW WenKai TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --num:"Atkinson Hyperlegible","Noto Sans TC","PingFang TC",system-ui,sans-serif;
+  --rad:16px; --head:3.4rem;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111A14; --grid:#18241B; --card:#17231B; --ink:#E4EEE6; --mute:#9CB3A2; --line:#30453A;
+  --accent:#74C38A; --accent-soft:#183222; --on-accent:#0C1A10;
+  --hl:#C9A23A; --hl2:#3F7A48; --hl3:#9A6446;
+  --ok:#6CCB93; --ok-bg:#16301F; --warn:#F2A35A; --warn-bg:#3A2913; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#111A14; --grid:#18241B; --card:#17231B; --ink:#E4EEE6; --mute:#9CB3A2; --line:#30453A;
+  --accent:#74C38A; --accent-soft:#183222; --on-accent:#0C1A10;
+  --hl:#C9A23A; --hl2:#3F7A48; --hl3:#9A6446;
+  --ok:#6CCB93; --ok-bg:#16301F; --warn:#F2A35A; --warn-bg:#3A2913; color-scheme:dark;
+}
+html{font-size:20px;-webkit-text-size-adjust:100%}
+html[data-big]{font-size:24px}
+body{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font-family:var(--body);line-height:1.6;font-size:1rem;-webkit-tap-highlight-color:transparent}
+html[data-calm] body{background-image:none}
+html[data-calm] main, html[data-calm] .top{filter:saturate(.4)}
+html[data-calm] *, html[data-calm] *::before, html[data-calm] *::after{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+mark{background:var(--hl);color:var(--ink);padding:0 .15em;border-radius:4px}
+b{font-weight:700}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.top-in{max-width:1200px;margin:0 auto;padding:.4rem 16px;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;min-height:var(--head)}
+.brand{display:flex;align-items:center;gap:.5rem;color:var(--ink);font-family:var(--display);font-weight:700;font-size:1.15rem;background:none;border:0;padding:.2rem .3rem}
+.brand-mark{width:1.7rem;height:1.7rem;border-radius:7px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--num);font-size:.9rem}
+.top-sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:.35rem;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:.25rem .9rem;font-size:.85rem;min-height:2.4rem}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--ink);font-weight:700}
+.chip svg{width:1.1em;height:1.1em}
+.settings{max-width:1200px;margin:0 auto;padding:0 16px .6rem;display:flex;gap:.5rem;flex-wrap:wrap}
+
+main{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:1rem 4rem}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:2rem}
+h2{font-size:1.45rem}
+.lead{color:var(--mute);margin:.2rem 0 0}
+.crumbs{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:.5rem}
+.link{background:none;border:0;color:var(--accent);font-weight:700;padding:.35rem .2rem;display:inline-flex;align-items:center;gap:.3rem;min-height:2.4rem}
+.link svg{width:1em;height:1em}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:3rem;padding:.5rem 1.3rem;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:var(--on-accent);font-weight:700;font-size:1.05rem}
+.btn.ghost{background:var(--card);color:var(--accent)}
+.btn.small{min-height:2.6rem;font-size:.95rem;padding:.3rem 1rem}
+.btn svg{width:1.1em;height:1.1em}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.45}
+.row{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:1.1rem 1.2rem}
+.say{flex:none;width:2.7rem;height:2.7rem;border-radius:50%;border:2px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--accent)}
+.say svg{width:1.3rem;height:1.3rem}
+.prompt{display:flex;gap:.7rem;align-items:flex-start}
+.prompt .txt{flex:1;min-width:0;font-size:1.15rem}
+.split{display:grid;gap:1rem}
+.split>*{min-width:0}
+
+/* Home */
+.hero{display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:center;margin-bottom:1rem}
+.ring{width:6.5rem;height:6.5rem;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .pct{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--num);font-weight:700;font-size:1.25rem;text-align:center;line-height:1.1}
+.ring .pct small{display:block;font-size:.6rem;color:var(--mute);font-family:var(--body);font-weight:400}
+.howto{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:.6rem 0 1.2rem}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.55rem .8rem}
+.howto b{font-family:var(--display);font-size:1.15rem;display:block}
+.howto span{color:var(--mute);font-size:.85rem}
+.units{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem}
+.unit{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;display:flex;flex-direction:column}
+.unit-head{background:var(--u);color:#fff;padding:.65rem 1rem;display:flex;align-items:center;gap:.8rem}
+.unit-no{font-family:var(--num);font-weight:700;font-size:2rem;line-height:1}
+.unit-name{font-family:var(--display);font-weight:700;font-size:1.12rem;line-height:1.3}
+.unit-body{padding:.7rem 1rem 1rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.glyph{font-family:var(--num);font-weight:700;font-size:1.2rem;color:var(--u);display:flex;align-items:center;gap:.2rem;min-height:2.5rem}
+.topics{color:var(--mute);font-size:.82rem}
+.bar{height:.55rem;background:var(--grid);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--u);border-radius:99px}
+.meta{font-size:.78rem;color:var(--mute);display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+.unit .row{margin-top:auto}
+.unit .btn{flex:1;min-height:2.8rem;font-size:.95rem;padding:.4rem .6rem;background:var(--u);border-color:var(--u);color:#fff}
+.unit .btn.ghost{background:var(--card);color:var(--u)}
+.note{color:var(--mute);font-size:.85rem;margin-top:1.2rem}
+
+/* Unit map */
+.uhead{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
+.badge{background:var(--u);color:#fff;border-radius:14px;font-family:var(--num);font-weight:700;font-size:1.8rem;width:3.4rem;height:3.4rem;display:grid;place-items:center;flex:none}
+.levels{display:grid;gap:.8rem}
+.lvl{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;background:var(--card);border:2px solid var(--line);border-radius:var(--rad);padding:.85rem 1rem;text-align:left;width:100%}
+.lvl.next{border-color:var(--u);box-shadow:0 0 0 4px color-mix(in srgb,var(--u) 18%,transparent)}
+.lvl-no{width:2.8rem;height:2.8rem;border-radius:50%;border:3px solid var(--u);color:var(--u);display:grid;place-items:center;font-family:var(--num);font-weight:700;font-size:1.2rem}
+.lvl.done .lvl-no{background:var(--u);color:#fff}
+.lvl-t{font-family:var(--display);font-weight:700;font-size:1.2rem}
+.lvl-s{color:var(--mute);font-size:.85rem}
+.pips{display:flex;gap:.25rem}
+.pips i{width:.8rem;height:.8rem;border-radius:50%;border:2px solid var(--u)}
+.pips i.on{background:var(--u)}
+.tag{font-size:.75rem;font-weight:700;color:var(--u);display:block}
+
+/* Level */
+.lv-top{display:grid;gap:.6rem;margin-bottom:.9rem}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+.stage{border:2px solid var(--line);background:var(--card);border-radius:12px;padding:.4rem .3rem;font-family:var(--display);font-weight:700;font-size:1.05rem;display:flex;align-items:center;justify-content:center;gap:.3rem;min-height:3rem}
+.stage small{font-family:var(--body);font-weight:400;font-size:.7rem;color:var(--mute);display:block}
+.stage[aria-current="step"]{border-color:var(--u);background:var(--u);color:#fff}
+.stage[aria-current="step"] small{color:#fff}
+.stage .ck{width:1.1rem;height:1.1rem;color:var(--ok)}
+.stage[aria-current="step"] .ck{color:#fff}
+.vis-box{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1rem;margin:.9rem 0 .2rem;overflow-x:auto}
+.vis{width:100%;height:auto;display:block}
+.vis .t{fill:var(--ink);font-family:var(--num);font-weight:700;font-size:17px}
+.vis .tm{fill:var(--mute);font-family:var(--body);font-size:14px}
+.vis .fa{fill:var(--hl)} .vis .fb{fill:var(--hl2)} .vis .fc{fill:var(--hl3)} .vis .fp{fill:var(--card)} .vis .fi{fill:var(--ink)}
+.vis .st{stroke:var(--ink);stroke-width:2} .vis .st1{stroke:var(--ink);stroke-width:1.5} .vis .st3{stroke:var(--ink);stroke-width:3;fill:none}
+.vis .gl{stroke:var(--line);stroke-width:1} .vis .ln2{fill:none;stroke:var(--accent);stroke-width:3.5;stroke-linecap:round}
+.vis .stick{stroke:var(--warn);stroke-width:5;stroke-linecap:round}
+.vis .dash{fill:none;stroke:var(--mute);stroke-width:1.5;stroke-dasharray:5 5}
+.steps{display:grid;gap:.8rem}
+.step{border:2px dashed var(--line);border-radius:14px;padding:.8rem 1rem;background:var(--card)}
+.step.done{border-style:solid;border-color:var(--ok);background:var(--ok-bg)}
+.step-n{font-size:.8rem;font-weight:700;color:var(--u)}
+.ans{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.7rem;font-size:1.25rem;font-family:var(--num)}
+.ans .part{display:inline-flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.box{width:5.2em;min-height:2.7rem;font:inherit;font-weight:700;font-size:1.25rem;text-align:center;border:3px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);padding:.15rem .3rem;caret-color:var(--accent)}
+.box:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.box.ok{border-color:var(--ok);background:var(--ok-bg)}
+.box.bad{border-color:var(--warn);background:var(--warn-bg)}
+.fr .box{width:3.4em;min-height:2.3rem;font-size:1.1rem}
+.choices{gap:.6rem}
+.opt{min-height:3.1rem;min-width:4.6rem;padding:.4rem 1.1rem;border:3px solid var(--line);background:var(--card);border-radius:12px;font-size:1.15rem;font-weight:700;font-family:var(--body);display:inline-flex;align-items:center;justify-content:center;gap:.2rem}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}
+.opt.bad{border-color:var(--warn);background:var(--warn-bg)}
+.opt svg{width:150px;height:auto}
+.fb-msg{margin-top:.6rem;padding:.55rem .9rem;border-radius:10px;font-weight:700;display:flex;gap:.5rem;align-items:flex-start}
+.fb-msg.ok{background:var(--ok-bg);color:var(--ok)}
+.fb-msg.bad{background:var(--warn-bg);color:var(--warn)}
+.fb-msg.info{background:var(--accent-soft);color:var(--ink);font-weight:400}
+.fb-msg svg{width:1.3rem;height:1.3rem;flex:none;margin-top:.15rem}
+.stars{display:flex;gap:.3rem;justify-content:center;margin:.2rem 0 .6rem}
+.stars svg{width:2rem;height:2rem;color:var(--line)}
+.stars svg.on{color:var(--hl)}
+.stamp{text-align:center;padding:1.4rem 1rem}
+.stamp .big{width:5.5rem;height:5.5rem;border-radius:50%;margin:0 auto .6rem;border:5px solid var(--ok);color:var(--ok);display:grid;place-items:center;animation:pop .45s ease-out}
+.stamp .big svg{width:3rem;height:3rem}
+@keyframes pop{from{transform:scale(.5) rotate(-12deg);opacity:.4}to{transform:none;opacity:1}}
+.worked{margin-top:.8rem;border-top:2px dashed var(--line);padding-top:.6rem;display:grid;gap:.35rem;font-size:.95rem}
+.worked div{display:flex;gap:.5rem;flex-wrap:wrap}
+.worked .a{font-weight:700;color:var(--ok)}
+.navrow{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+
+/* 我看: worked example with a visible roadmap of steps */
+.ex-tag{display:inline-block;background:var(--u);color:#fff;font-weight:700;font-size:.8rem;border-radius:6px;padding:.05rem .55rem;margin-bottom:.4rem}
+.clue-head{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.clue-head b{font-family:var(--display);font-size:1.15rem}
+.clue-head span{color:var(--mute);font-size:.85rem}
+.clues{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.clue{border:2px solid var(--line);border-radius:12px;background:var(--card)}
+.clue-k{display:flex;gap:.6rem;align-items:center;width:100%;background:none;border:0;padding:.5rem .7rem;text-align:left;font-weight:700;min-height:2.8rem}
+.clue .n{width:1.9rem;height:1.9rem;flex:none;border-radius:50%;display:grid;place-items:center;font-family:var(--num);font-size:.95rem;border:2px solid var(--u);color:var(--u)}
+.clue-t{padding:0 .8rem .7rem 3.2rem;font-size:1.12rem}
+.clue.todo{border-style:dashed;color:var(--mute)}
+.clue.todo .n{border-color:var(--line);color:var(--mute)}
+.clue.done .n{background:var(--u);color:#fff}
+.clue.cur{border-color:var(--u);box-shadow:0 0 0 4px color-mix(in srgb,var(--u) 16%,transparent)}
+.clue.cur .n{background:var(--u);color:#fff}
+.peek{display:inline-flex;vertical-align:middle}
+.peek-b{min-width:2.8rem;min-height:2.3rem;border:3px dashed var(--accent);border-radius:10px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:1.1rem;padding:0 .5rem;animation:breathe 1.8s ease-in-out infinite}
+@keyframes breathe{50%{box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 22%,transparent)}}
+.peek-v{background:var(--hl);color:var(--ink);border-radius:6px;padding:0 .3rem;font-weight:700}
+.keypt{margin-top:1rem;border:3px solid var(--u);border-radius:14px;padding:.8rem 1rem;background:var(--card)}
+.keypt b.lab{display:block;font-family:var(--display);color:var(--u);font-size:1.05rem}
+.key-txt{font-family:var(--display);font-size:1.35rem;line-height:1.7;margin:.4rem 0 .8rem}
+.read-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.read-btn{--p:0%;background:linear-gradient(90deg,var(--accent) var(--p),color-mix(in srgb,var(--accent) 35%,var(--card)) var(--p));transition:background .9s linear}
+.read-btn:disabled{opacity:1;color:var(--on-accent)}
+.stage.locked{color:var(--mute);border-style:dashed}
+.stage .ck.lk{color:var(--mute)}
+.look-hint{color:var(--mute);font-size:.85rem;margin-top:.6rem}
+
+/* Math bits */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .12em;font-family:var(--num);font-weight:700}
+.fr>span:first-child{border-bottom:2.5px solid currentColor;padding:0 .2em}
+.fr>.box:first-child{border-bottom:3px solid var(--line);margin-bottom:3px}
+.mixed{display:inline-flex;align-items:center;font-family:var(--num);font-weight:700}
+.ladder{border-collapse:collapse;font-family:var(--num);font-weight:700;font-size:1.35rem;margin:auto}
+.ladder td{padding:.15rem .7rem;text-align:center;min-width:2.6rem}
+.ladder tr:not(.last) td.ln{border-bottom:3px solid var(--ink)}
+.ladder tr:not(.last) td.ln.first{border-left:3px solid var(--ink)}
+.ladder .hl{background:var(--hl);border-radius:6px}
+.ladder .lp{color:var(--accent)}
+.ngrid{display:grid;grid-template-columns:repeat(10,2.3rem);gap:.3rem;font-family:var(--num);font-weight:700}
+.ngrid span{height:2.3rem;display:grid;place-items:center;border:2px solid var(--line);border-radius:8px;background:var(--card)}
+.ngrid span.on{background:var(--hl);border-color:var(--ink)}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;font-family:var(--num);font-weight:700;font-size:1.15rem}
+.chips em{font-style:normal;font-family:var(--body);font-size:.85rem;color:var(--mute);min-width:4.5rem}
+.chips span{border:2px solid var(--line);border-radius:8px;padding:.05rem .55rem;background:var(--card)}
+.chips span.on{background:var(--hl);border-color:var(--ink)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table.tb{border-collapse:collapse;font-family:var(--num);font-weight:700;font-size:1.1rem;margin:auto}
+table.tb td,table.tb th{border:2px solid var(--line);padding:.3rem .7rem;text-align:center;background:var(--card)}
+table.tb th{background:var(--accent-soft);font-family:var(--body)}
+table.tb td.q{background:var(--hl);color:var(--ink)}
+.formula{font-family:var(--display);font-size:1.35rem;text-align:center;padding:.6rem 1rem;border:3px solid var(--u);border-radius:14px;background:var(--card)}
+.big-eq{font-family:var(--num);font-weight:700;font-size:1.6rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:.4rem;flex-wrap:wrap}
+.big-eq .arrow{color:var(--accent)}
+
+/* Quiz */
+.qitem{display:grid;grid-template-columns:auto 1fr;gap:.8rem;background:var(--card);border:2px solid var(--line);border-radius:var(--rad);padding:1rem}
+.qitem.right{border-color:var(--ok)}
+.qitem.wrong{border-color:var(--warn)}
+.qno{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--u);color:#fff;display:grid;place-items:center;font-family:var(--num);font-weight:700}
+.qbody{min-width:0;display:grid;gap:.4rem}
+.qlist{display:grid;gap:.9rem}
+.qhead{display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap;justify-content:space-between;margin-bottom:1rem}
+.qopts{display:grid;gap:.5rem}
+.seg{display:inline-flex;border:2px solid var(--u);border-radius:14px;overflow:hidden}
+.seg button{border:0;background:var(--card);color:var(--u);font-weight:700;padding:.5rem 1.2rem;min-height:3rem;font-size:1.05rem}
+.seg button[aria-pressed="true"]{background:var(--u);color:#fff}
+.seg button small{display:block;font-weight:400;font-size:.7rem}
+.ver{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--mute)}
+.score{font-family:var(--num);font-size:2.2rem;font-weight:700;color:var(--u)}
+details.teacher{margin-top:1.6rem;background:var(--card);border:2px solid var(--line);border-radius:var(--rad);padding:.8rem 1rem}
+details.teacher summary{font-weight:700;cursor:pointer;font-family:var(--display);font-size:1.15rem;min-height:2.4rem}
+table.key{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:.8rem}
+table.key th,table.key td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+table.key th{background:var(--accent-soft)}
+
+/* Number pad: docked right under the question being answered */
+.pad{margin-top:.7rem;max-width:330px;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;padding:.5rem;border:2px solid var(--line);border-radius:14px;background:var(--paper)}
+.pad button{min-height:3.1rem;border-radius:11px;border:2px solid var(--line);background:var(--card);font-family:var(--num);font-weight:700;font-size:1.35rem}
+.pad button:active{background:var(--accent-soft)}
+.pad .zero{grid-column:span 2}
+.pad .go{grid-column:span 2;background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-family:var(--body);font-size:1.05rem}
+
+/* grid drawing answer */
+.gridans{display:block}
+.grid-draw{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.grid-draw .vis-box{margin:0;flex:1 1 240px}
+.grid-ctl{display:grid;gap:.5rem;font-family:var(--body);font-size:1.1rem}
+.grid-ctl div{display:flex;align-items:center;gap:.5rem}
+.grid-ctl .opt{min-width:3.1rem;padding:0;font-size:1.5rem}
+.grid-ctl b{font-family:var(--num);font-size:1.5rem;min-width:2rem;text-align:center}
+.gridans.ok .vis{outline:3px solid var(--ok);border-radius:6px}
+.gridans.bad .vis{outline:3px solid var(--warn);border-radius:6px}
+.pulse{animation:breathe 1.6s ease-in-out infinite;border-color:var(--accent)}
+
+/* calculator (teacher can switch it on in 設定) */
+.calc-btn{margin-top:.6rem}
+.calc{margin-top:.7rem;max-width:300px;display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;padding:.5rem;border:2px solid var(--line);border-radius:14px;background:var(--paper)}
+.calc .scr{grid-column:1/-1;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:.3rem .6rem;text-align:right;font-family:var(--num);font-weight:700;font-size:1.4rem;min-height:2.6rem;overflow-x:auto;white-space:nowrap}
+.calc button{min-height:2.8rem;border-radius:10px;border:2px solid var(--line);background:var(--card);font-family:var(--num);font-weight:700;font-size:1.25rem}
+.calc button.op{color:var(--accent)}
+.calc button.eq{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+
+table.tb td,table.tb th{white-space:nowrap;padding:.3rem .55rem}
+/* learning mode */
+.mode-row{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin:.7rem 0 1rem}
+.mode-row>span{font-weight:700;color:var(--mute);font-size:.9rem}
+.pill-mode{margin-left:auto;font-size:.8rem;font-weight:700;color:var(--u);border:2px solid var(--u);border-radius:999px;padding:.05rem .7rem}
+.howto.howto2{grid-template-columns:repeat(2,1fr)}
+.stages.two{grid-template-columns:repeat(2,1fr)}
+
+/* iPad landscape and other wide screens */
+@media (min-width:900px){
+  .split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.2rem;align-items:start}
+  .split>.sticky{position:sticky;top:calc(var(--head) + 1rem + env(safe-area-inset-top,0px))}
+  .units{grid-template-columns:repeat(3,1fr)}
+  .lv-top{grid-template-columns:1fr minmax(0,520px);align-items:end}
+  .narrow{max-width:760px;margin-inline:auto}
+  .qbody.has-vis{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:start;column-gap:1.2rem}
+  .qbody.has-vis .vis-box{grid-column:2;grid-row:1 / span 3;margin:0}
+}
+@media (max-width:640px){
+  html{font-size:18px} html[data-big]{font-size:21px}
+  h1{font-size:1.65rem}
+  .hero{grid-template-columns:1fr}
+  .ring{width:5.5rem;height:5.5rem}
+  .howto{grid-template-columns:repeat(2,1fr)}
+  .stage{font-size:.95rem;flex-direction:column;gap:0}
+  .stage small{display:none}
+  .ngrid{grid-template-columns:repeat(5,2.3rem)}
+  .lvl{grid-template-columns:auto 1fr}
+  .lvl .pips{grid-column:2}
+  .clue-t{padding-left:.8rem}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="top-in">
+    <button class="brand" id="go-home" type="button" aria-label="回總目錄"><span class="brand-mark">5上</span>數學小步走</button>
+    <span class="top-sp"></span>
+    <button class="chip" id="t-set" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>設定</button>
+  </div>
+  <div class="settings" id="settings" hidden>
+    <button class="chip" type="button" data-set="auto" aria-pressed="false">自動朗讀題目</button>
+    <button class="chip" type="button" data-set="calm" aria-pressed="false">減敏模式（顏色淡、不動畫）</button>
+    <button class="chip" type="button" data-set="big" aria-pressed="false">大字</button>
+    <button class="chip" type="button" data-set="pad" aria-pressed="true">螢幕數字鍵盤</button>
+    <button class="chip" type="button" data-set="calc" aria-pressed="false">計算機（練習時可用，評量不顯示）</button>
+  </div>
+</header>
+<main id="view"></main>
+
+<script>
+/* ---------- helpers ---------- */
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>[...el.querySelectorAll(s)];
+const h=html=>{const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild;};
+const gcd=(a,b)=>b?gcd(b,a%b):a, lcm=(a,b)=>a/gcd(a,b)*b;
+const isPrime=n=>{if(n<2)return false;for(let i=2;i*i<=n;i++)if(n%i===0)return false;return true;};
+const factors=n=>{const f=[];for(let i=1;i<=n;i++)if(n%i===0)f.push(i);return f;};
+const r4=x=>Math.round(x*10000)/10000;
+const fmt=x=>String(r4(x));
+const F=(n,d)=>`<span class="fr" aria-label="${d}分之${n}"><span>${n}</span><span>${d}</span></span>`;
+const MX=(w,n,d)=>`<span class="mixed" aria-label="${w}又${d}分之${n}">${w}${F(n,d)}</span>`;
+const RAT=(a,b)=>`${a} : ${b}`;
+const FR=(n,d)=>{const g0=gcd(n,d);return{type:'frac',n:n/g0,d:d/g0};};
+const ICON={
+  say:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+  next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
+  retry:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+  lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>'
+};
+const OK_MSG=['答對了！','很棒！','你做到了！','好厲害！','對了，繼續加油！'];
+const pickMsg=a=>a[Math.floor(Math.random()*a.length)];
+
+function mkR(seed){
+  let s=(seed||1)>>>0;
+  const f=seed==null?Math.random:()=>{s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
+  return {f,int:(a,b)=>a+Math.floor(f()*(b-a+1)),pick:a=>a[Math.floor(f()*a.length)],shuffle:a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(f()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}};
+}
+function ch(opts,a,g){
+  if(!g)return{type:'choice',opts,a};
+  const idx=g.shuffle(opts.map((_,i)=>i));
+  return{type:'choice',opts:idx.map(i=>opts[i]),a:idx.indexOf(a)};
+}
+/* miss: common wrong answers with a targeted message, e.g. [{a:12,m:'這是最大公因數…'}] */
+const NUM=(a,unit,miss)=>({type:'num',a,unit,miss:miss&&miss.filter(m=>Math.abs(m.a-a)>1e-6)});
+
+/* ---------- drawings ---------- */
+const S=(w,hh,inner,label='')=>`<svg class="vis" viewBox="0 0 ${w} ${hh}" style="max-width:${w}px" role="img" aria-label="${label}">${inner}</svg>`;
+function dots(n,cols){cols=cols||Math.min(n,10);const rows=Math.ceil(n/cols);let g='';for(let i=0;i<n;i++){g+=`<circle cx="${20+(i%cols)*30}" cy="${20+Math.floor(i/cols)*30}" r="10" class="fa st1"/>`;}return S(cols*30+10,rows*30+10,g,`${n} 個點`);}
+function dotArr(r,c,cap){let g='';for(let i=0;i<r;i++)for(let j=0;j<c;j++)g+=`<circle cx="${20+j*30}" cy="${20+i*30}" r="10" class="fa st1"/>`;g+=`<text x="${Math.max(c*30+10,120)/2}" y="${r*30+30}" class="tm" text-anchor="middle">${cap}</text>`;return S(Math.max(c*30+10,120),r*30+42,g,cap);}
+function numGrid(max,on){let s='<div class="ngrid">';for(let i=1;i<=max;i++)s+=`<span class="${on.includes(i)?'on':''}">${i}</span>`;return s+'</div>';}
+const chips=(arr,on=[],lab)=>`<div class="chips">${lab?`<em>${lab}</em>`:''}${arr.map(x=>`<span class="${on.includes(x)?'on':''}">${x}</span>`).join('')}</div>`;
+const col=(...a)=>`<div style="display:grid;gap:.5rem;justify-items:center">${a.join('')}</div>`;
+function ladder(rows,ps,mode){
+  let s='<table class="ladder" aria-label="短除法"><tbody>';
+  rows.forEach((row,i)=>{const last=i===rows.length-1;s+=`<tr class="${last?'last':''}"><td class="lp ${!last&&mode!=='none'?'hl':''}">${!last&&ps[i]!=null?ps[i]:''}</td>${row.map((n,j)=>`<td class="ln ${j===0?'first':''} ${last&&rows.length>1&&(mode==='lcm'||mode==='pf')?'hl':''}">${n}</td>`).join('')}</tr>`;});
+  return s+'</tbody></table>';
+}
+function fracBar(n,d,o={}){
+  const W=o.w||420,H=44,x0=10,y0=10,sw=W/d;let g='';
+  for(let i=0;i<d;i++)g+=`<rect x="${x0+i*sw}" y="${y0}" width="${sw}" height="${H}" class="${i<n?(o.cls||'fa'):'fp'} st"/>`;
+  let extra=0;
+  if(o.group){extra=26;for(let s=0;s+o.group<=n;s+=o.group){const xa=x0+s*sw+5,xb=x0+(s+o.group)*sw-5;g+=`<path d="M${xa} ${y0+H+6} Q ${(xa+xb)/2} ${y0+H+30} ${xb} ${y0+H+6}" class="ln2"/>`;}}
+  if(o.label)g+=`<text x="${x0+W/2}" y="${y0+H+22+extra}" class="tm" text-anchor="middle">${o.label}</text>`;
+  return S(W+20,H+20+extra+(o.label?18:0),g,'分數條');
+}
+function matchFig(type,k,x0,base){
+  const s=40;let g='',maxX=x0;
+  if(type==='tri'){
+    const P=[];for(let i=0;i<k+2;i++){P.push(i%2===0?[x0+(i/2)*s,base]:[x0+((i-1)/2)*s+s/2,base-s*0.87]);}
+    for(let i=0;i<=k;i++)g+=`<line x1="${P[i][0]}" y1="${P[i][1]}" x2="${P[i+1][0]}" y2="${P[i+1][1]}" class="stick"/>`;
+    for(let i=0;i<k;i++)g+=`<line x1="${P[i][0]}" y1="${P[i][1]}" x2="${P[i+2][0]}" y2="${P[i+2][1]}" class="stick"/>`;
+    maxX=Math.max(...P.map(p=>p[0]));
+  }else{
+    for(let i=0;i<k;i++){g+=`<line x1="${x0+i*s}" y1="${base-s}" x2="${x0+(i+1)*s}" y2="${base-s}" class="stick"/><line x1="${x0+i*s}" y1="${base}" x2="${x0+(i+1)*s}" y2="${base}" class="stick"/>`;}
+    for(let i=0;i<=k;i++)g+=`<line x1="${x0+i*s}" y1="${base-s}" x2="${x0+i*s}" y2="${base}" class="stick"/>`;
+    maxX=x0+k*s;
+  }
+  return{g,maxX};
+}
+function matchRow(type){
+  let x=14,g='';const base=58;
+  [1,2,3].forEach(k=>{const f=matchFig(type,k,x,base);g+=f.g+`<text x="${(x+f.maxX)/2}" y="${base+28}" class="tm" text-anchor="middle">第 ${k} 個</text>`;x=f.maxX+36;});
+  return S(x,96,g,'火柴棒排圖形');
+}
+function seqTable(head,vals,qcols){
+  return `<div class="tbl-wrap"><table class="tb"><tr><th>第幾個</th>${vals.map((_,i)=>`<td>${qcols&&qcols[i]?qcols[i]:i+1}</td>`).join('')}</tr><tr><th>${head}</th>${vals.map(v=>v==='?'?'<td class="q">?</td>':`<td>${v}</td>`).join('')}</tr></table></div>`;
+}
+function tbl2(h1,a,h2,b){
+  const c=v=>v==='?'?'<td class="q">?</td>':`<td>${v}</td>`;
+  return `<div class="tbl-wrap"><table class="tb"><tr><th>${h1}</th>${a.map(c).join('')}</tr><tr><th>${h2}</th>${b.map(c).join('')}</tr></table></div>`;
+}
+const treeG=(x,yb)=>`<path d="M${x} ${yb-40} L${x-14} ${yb-12} L${x+14} ${yb-12}Z" class="fb st1"/><rect x="${x-3}" y="${yb-12}" width="6" height="12" class="fi"/>`;
+function treeLine(k,mode,lab){
+  if(mode==='circle'){
+    const cx=130,cy=110,R=72;let g=`<circle cx="${cx}" cy="${cy}" r="${R}" class="st3"/>`;
+    for(let i=0;i<k;i++){const a=i/k*2*Math.PI-Math.PI/2;g+=`<circle cx="${cx+R*Math.cos(a)}" cy="${cy+R*Math.sin(a)}" r="9" class="fb st1"/>`;}
+    g+=`<text x="${cx}" y="${cy+6}" class="tm" text-anchor="middle">${lab}</text>`;
+    return S(260,220,g,'圍成一圈');
+  }
+  const W=480,x0=30,x1=W-30,y=80,st=(x1-x0)/k;
+  let g=`<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" class="st3"/>`;
+  for(let i=0;i<=k;i++){const x=x0+i*st;g+=`<line x1="${x}" y1="${y-7}" x2="${x}" y2="${y+7}" class="st"/>`;
+    const has=mode==='both'||(mode==='none'&&i>0&&i<k)||(mode==='one'&&i<k);if(has)g+=treeG(x,y-8);}
+  if(mode==='empty')for(let i=0;i<k;i++)g+=`<text x="${x0+(i+.5)*st}" y="${y-14}" class="t" text-anchor="middle">${i+1}</text>`;
+  g+=`<path d="M${x0+3} ${y+16} Q ${x0+st/2} ${y+30} ${x0+st-3} ${y+16}" class="ln2"/><text x="${x0+st/2}" y="${y+48}" class="t" text-anchor="middle">${lab}</text>`;
+  return S(W,y+58,g,'種樹');
+}
+function circleV(o){
+  const cx=120,cy=100,R=80;let g=`<circle cx="${cx}" cy="${cy}" r="${R}" class="${o.fill?'fa':'fp'} st3"/><circle cx="${cx}" cy="${cy}" r="4" class="fi"/>`;
+  if(o.d!=null)g+=`<line x1="${cx-R}" y1="${cy}" x2="${cx+R}" y2="${cy}" class="ln2"/><text x="${cx}" y="${cy-12}" class="t" text-anchor="middle">直徑 ${o.d}</text>`;
+  else if(o.r!=null)g+=`<line x1="${cx}" y1="${cy}" x2="${cx+R}" y2="${cy}" class="ln2"/><text x="${cx+R/2}" y="${cy-12}" class="t" text-anchor="middle">半徑 ${o.r}</text>`;
+  if(o.c)g+=`<text x="${cx}" y="${cy+R+28}" class="t" text-anchor="middle">${o.c}</text>`;
+  return S(240,o.c?218:200,g,'圓');
+}
+function unrollV(){
+  const u=96,x0=20,y=50;let g='';
+  for(let i=0;i<3;i++)g+=`<rect x="${x0+i*u}" y="${y}" width="${u}" height="18" class="${i%2?'fb':'fa'} st1"/><text x="${x0+i*u+u/2}" y="${y+42}" class="tm" text-anchor="middle">直徑</text>`;
+  g+=`<rect x="${x0+3*u}" y="${y}" width="${u*0.14}" height="18" class="fc st1"/><text x="${x0+3*u+8}" y="${y-8}" class="tm" text-anchor="middle">0.14</text>`;
+  g+=`<text x="${x0+1.57*u}" y="${y-14}" class="t" text-anchor="middle">一圈拉直 ≈ 3.14 個直徑</text>`;
+  return S(x0*2+3.14*u+20,y+56,g,'圓周拉直');
+}
+function sectorV(angle,rlab){
+  const cx=120,cy=120,R=90,a=angle*Math.PI/180;
+  const ex=cx+R*Math.cos(-a),ey=cy+R*Math.sin(-a);
+  let g=`<circle cx="${cx}" cy="${cy}" r="${R}" class="dash"/>`;
+  g+=`<path d="M${cx} ${cy} L${cx+R} ${cy} A${R} ${R} 0 ${angle>180?1:0} 0 ${fmt(ex)} ${fmt(ey)} Z" class="fa st"/>`;
+  g+=`<text x="${cx+R/2}" y="${cy+24}" class="t" text-anchor="middle">${rlab}</text>`;
+  g+=`<text x="${cx+14}" y="${cy-10}" class="tm">${angle}°</text>`;
+  return S(240,230,g,'扇形');
+}
+function gridPair(A,B){
+  const c=20,cols=A.w+B.w+3,rows=Math.max(A.h,B.h)+2,W=cols*c,H=rows*c;let g='';
+  for(let i=0;i<=cols;i++)g+=`<line x1="${i*c}" y1="0" x2="${i*c}" y2="${H}" class="gl"/>`;
+  for(let j=0;j<=rows;j++)g+=`<line x1="0" y1="${j*c}" x2="${W}" y2="${j*c}" class="gl"/>`;
+  const by=(rows-1)*c;
+  g+=`<rect x="${c}" y="${by-A.h*c}" width="${A.w*c}" height="${A.h*c}" class="fb st"/>`;
+  if(B.w&&B.h)g+=`<rect x="${(A.w+2)*c}" y="${by-B.h*c}" width="${B.w*c}" height="${B.h*c}" class="fa st"/>`;
+  const lab=(x,y,t)=>`<text x="${x}" y="${y}" class="t" text-anchor="middle" style="font-size:15px">${t}</text>`;
+  g+=lab(c+A.w*c/2,by+16,A.lw)+lab(c+A.w*c/2,by-A.h*c/2+5,A.lh);
+  if(B.w&&B.h)g+=lab((A.w+2)*c+B.w*c/2,by+16,B.lw)+lab((A.w+2)*c+B.w*c/2,by-B.h*c/2+5,B.lh);
+  return S(W,H+4,g,'方格紙上的圖形');
+}
+function rectOpt(w,h){const c=14,cols=10,rows=7;let g='';for(let i=0;i<=cols;i++)g+=`<line x1="${i*c}" y1="0" x2="${i*c}" y2="${rows*c}" class="gl"/>`;for(let j=0;j<=rows;j++)g+=`<line x1="0" y1="${j*c}" x2="${cols*c}" y2="${j*c}" class="gl"/>`;g+=`<rect x="${c}" y="${(rows-1-h)*c}" width="${w*c}" height="${h*c}" class="fa st"/>`;return S(cols*c,rows*c,g,`${w} 格乘 ${h} 格的長方形`);}
+function cupsV(a,b,la,lb){
+  const cup=(x,y,cls)=>`<path d="M${x} ${y} L${x+28} ${y} L${x+23} ${y+36} L${x+5} ${y+36}Z" class="${cls} st"/>`;
+  let g='';for(let i=0;i<a;i++)g+=cup(80+i*34,10,'fc');for(let i=0;i<b;i++)g+=cup(80+i*34,62,'fb');
+  g+=`<text x="4" y="34" class="tm">${la}</text><text x="4" y="86" class="tm">${lb}</text>`;
+  return S(Math.max(a,b)*34+90,106,g,`${la} ${a}，${lb} ${b}`);
+}
+function roadV(top,bottom){
+  let g=`<line x1="20" y1="60" x2="440" y2="60" class="st3"/><line x1="20" y1="50" x2="20" y2="70" class="st"/><line x1="440" y1="50" x2="440" y2="70" class="st"/>`;
+  g+=`<rect x="34" y="28" width="52" height="22" rx="7" class="fc st"/><circle cx="46" cy="52" r="6" class="fi"/><circle cx="74" cy="52" r="6" class="fi"/>`;
+  g+=`<path d="M420 58 L420 22 L444 30 L420 38" class="fa st"/>`;
+  g+=`<text x="240" y="44" class="t" text-anchor="middle">${top}</text><text x="240" y="92" class="tm" text-anchor="middle">${bottom}</text>`;
+  return S(460,102,g,'路程');
+}
+function speedTri(hide){
+  const lab=(x,y,t,k)=>`<text x="${x}" y="${y}" class="${hide===k?'tm':'t'}" text-anchor="middle">${hide===k?'（要求的）':t}</text>`;
+  let g=`<path d="M150 14 L282 184 L18 184Z" class="fp st3"/><line x1="70" y1="117" x2="230" y2="117" class="st"/><line x1="150" y1="117" x2="150" y2="184" class="st"/>`;
+  g+=lab(150,92,'距離','D')+lab(100,160,'速率','V')+lab(200,160,'時間','T')+`<text x="150" y="160" class="tm" text-anchor="middle">×</text>`;
+  return S(300,200,g,'距離 等於 速率 乘 時間');
+}
+function scaleMap(c,sc){
+  const u=40,x0=30,W=Math.max(c*u+60,300);
+  let g=`<circle cx="${x0}" cy="40" r="8" class="fc st"/><circle cx="${x0+c*u}" cy="40" r="8" class="fc st"/><line x1="${x0}" y1="40" x2="${x0+c*u}" y2="40" class="ln2"/>`;
+  g+=`<text x="${x0}" y="24" class="tm" text-anchor="middle">家</text><text x="${x0+c*u}" y="24" class="tm" text-anchor="middle">學校</text>`;
+  g+=`<rect x="${x0}" y="62" width="${c*u}" height="22" class="fa st1"/>`;
+  for(let i=0;i<=c;i++)g+=`<line x1="${x0+i*u}" y1="62" x2="${x0+i*u}" y2="76" class="st"/><text x="${x0+i*u}" y="102" class="tm" text-anchor="middle">${i}</text>`;
+  g+=`<text x="${x0+c*u+18}" y="102" class="tm">公分</text><text x="${W/2}" y="128" class="t" text-anchor="middle">比例尺 1 : ${sc}</text>`;
+  return S(W+20,140,g,'地圖與尺');
+}
+function circleToRect(){
+  const cx=90,cy=90,R=70,n=8;let g='';
+  for(let i=0;i<n;i++){const a1=i/n*2*Math.PI,a2=(i+1)/n*2*Math.PI;g+=`<path d="M${cx} ${cy} L${fmt(cx+R*Math.cos(a1))} ${fmt(cy+R*Math.sin(a1))} A${R} ${R} 0 0 1 ${fmt(cx+R*Math.cos(a2))} ${fmt(cy+R*Math.sin(a2))}Z" class="${i%2?'fb':'fa'} st1"/>`;}
+  const b=56,x0=210,top=24,bot=24+R;
+  for(let i=0;i<4;i++){g+=`<path d="M${x0+i*b} ${bot} L${x0+(i+1)*b} ${bot} L${x0+(i+.5)*b} ${top}Z" class="fa st1"/>`;g+=`<path d="M${x0+(i+.5)*b} ${top} L${x0+(i+1.5)*b} ${top} L${x0+(i+1)*b} ${bot}Z" class="fb st1"/>`;}
+  g+=`<text x="${x0+2.25*b}" y="${bot+26}" class="tm" text-anchor="middle">長 ＝ 圓周長的一半 ＝ 半徑 × 3.14</text><text x="${x0-12}" y="${(top+bot)/2+5}" class="tm" text-anchor="end">寬＝半徑</text>`;
+  return S(x0+4.6*b,bot+40,g,'圓切開拼成長方形');
+}
+function compV(type,a,hh){
+  let g='';
+  if(type==='sqq'){const s=160,x=40,y=20;g+=`<rect x="${x}" y="${y}" width="${s}" height="${s}" class="fa st"/><path d="M${x} ${y+s} L${x} ${y} A${s} ${s} 0 0 1 ${x+s} ${y+s}Z" class="fp st"/><text x="${x+s/2}" y="${y+s+24}" class="t" text-anchor="middle">${a} 公分</text><text x="${x-8}" y="${y+s/2}" class="t" text-anchor="end">${a}</text><text x="${x+s-22}" y="${y+28}" class="tm" text-anchor="middle">塗色</text>`;return S(240,215,g,'正方形減四分之一圓');}
+  if(type==='ring'){const cx=120,cy=110,R=95,r=95*hh/a;g+=`<circle cx="${cx}" cy="${cy}" r="${R}" class="fa st"/><circle cx="${cx}" cy="${cy}" r="${r}" class="fp st"/><line x1="${cx}" y1="${cy}" x2="${cx+R}" y2="${cy}" class="ln2"/><line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy-r}" class="ln2"/><text x="${cx+R*0.62}" y="${cy-8}" class="t" text-anchor="middle">${a}</text><text x="${cx-12}" y="${cy-r/2}" class="t" text-anchor="end">${hh}</text>`;return S(240,220,g,'圓環');}
+  if(type==='sqc'){const s=180,x=30,y=10;g+=`<rect x="${x}" y="${y}" width="${s}" height="${s}" class="fa st"/><circle cx="${x+s/2}" cy="${y+s/2}" r="${s/2}" class="fp st"/><text x="${x+s/2}" y="${y+s+24}" class="t" text-anchor="middle">${a} 公分</text><text x="${x+14}" y="${y+24}" class="tm">塗色</text>`;return S(240,220,g,'正方形減圓');}
+  const w=200,x=20,rr=w/2,ht=80,y=20+rr;
+  g+=`<path d="M${x} ${y} A${rr} ${rr} 0 0 1 ${x+w} ${y}Z" class="fb st"/><rect x="${x}" y="${y}" width="${w}" height="${ht}" class="fa st"/><text x="${x+w/2}" y="${y+ht+24}" class="t" text-anchor="middle">${a*2} 公分</text><text x="${x+w+8}" y="${y+ht/2+6}" class="t">${hh} 公分</text>`;
+  return S(290,y+ht+34,g,'長方形加半圓');
+}
+function trackV(d,len){
+  const R=55,x0=20+R,W=220,y=20;let g=`<path d="M${x0} ${y} L${x0+W} ${y} A${R} ${R} 0 0 1 ${x0+W} ${y+2*R} L${x0} ${y+2*R} A${R} ${R} 0 0 1 ${x0} ${y}Z" class="fb st3"/>`;
+  g+=`<line x1="${x0}" y1="${y}" x2="${x0}" y2="${y+2*R}" class="dash"/><line x1="${x0+W}" y1="${y}" x2="${x0+W}" y2="${y+2*R}" class="dash"/>`;
+  g+=`<text x="${x0+W/2}" y="${y-6}" class="t" text-anchor="middle">${len} 公尺</text><text x="${x0+W+R+8}" y="${y+R+6}" class="t">直徑 ${d}</text>`;
+  return S(x0+W+R+110,y+2*R+16,g,'跑道');
+}
+const EQ=(...p)=>`<div class="big-eq">${p.join(' ')}</div>`;
+const AR='<span class="arrow">→</span>';
+
+/* ---------- step builders shared by basic and advanced problems ---------- */
+function ladderSteps(a,b){
+  const steps=[];const rows=[[a,b]];const ps=[];let x=a,y=b;
+  while(gcd(x,y)>1){
+    const p=[2,3,5,7].find(p=>x%p===0&&y%p===0);
+    steps.push({p:`${x} 和 ${y} 都可以用哪個質數去除？（從 2 開始試）`,ans:ch(['2','3','5','7'],[2,3,5,7].indexOf(p)),hint:`${x} 和 ${y} 都是 ${p} 的倍數嗎？從小的質數開始試。`});
+    const nx=x/p,ny=y/p;ps.push(p);rows.push([nx,ny]);
+    steps.push({p:`都用 ${p} 去除，寫在下面：`,ans:{type:'multi',parts:[{pre:`${x} ÷ ${p} =`,a:nx},{pre:`${y} ÷ ${p} =`,a:ny}]},vis:ladder(rows.map(r=>[...r]),[...ps],'none')});
+    x=nx;y=ny;
+  }
+  steps.push({p:`${x} 和 ${y} 還有共同的質因數嗎？`,ans:ch(['有','沒有，它們互質'],1),hint:`${x} 和 ${y} 的公因數只有 1，所以停下來。`});
+  return{steps,rows,ps,x,y};
+}
+function pfGen(g,list){
+  const n=g.pick(list);let x=n;const ps=[],rows=[[n]],steps=[];
+  while(!isPrime(x)){const p=[2,3,5,7].find(p=>x%p===0);
+    steps.push({p:`${x} 最小可以用哪個質數去除？`,ans:ch(['2','3','5','7'],[2,3,5,7].indexOf(p)),hint:`從 2 開始試：${x} 是 2 的倍數嗎？不是就試 3，再試 5。`});
+    const nx=x/p;ps.push(p);rows.push([nx]);
+    steps.push({p:`${x} ÷ ${p} = ?`,ans:NUM(nx),vis:ladder(rows.map(r=>[...r]),[...ps],'none')});x=nx;}
+  const good=[...ps,x].join(' × '),bad1=`${ps[0]} × ${n/ps[0]}`,bad2=[...ps,x+2].join(' × ');
+  const fin=ch([good,bad1,bad2],0,g);
+  steps.push({p:`${x} 是質數，可以停了。把左邊和最下面的數乘起來，${n} = ?`,ans:fin,vis:ladder(rows,ps,'pf'),hint:'每一個都要是質數才對。'});
+  return{q:`把 <b>${n}</b> 做質因數分解。`,v:ladder([[n]],[],'none'),steps,ask:`${n} 的質因數分解是哪一個？`,ans:fin};
+}
+function gcdGen(g,pairs,word){
+  const [a,b]=g.pick(pairs);const gg=gcd(a,b);const L=ladderSteps(a,b);const w=g.int(0,1)===1?word(a,b):null;
+  const miss=[{a:lcm(a,b),m:'這是最小公倍數（左邊和下面都乘）。最大公因數只把左邊的數乘起來。'},{a:a*b,m:'不是把兩個數直接相乘喔，要用短除法。'}];
+  const steps=[...L.steps,{p:L.ps.length>1?`把左邊的數乘起來：${L.ps.join(' × ')} = ?`:`左邊只有 ${L.ps[0]}，最大公因數 = ?`,ans:NUM(gg,'',miss),vis:ladder(L.rows,L.ps,'gcd'),hint:'最大公因數 = 左邊所有的數乘起來。'}];
+  return{q:w?w.q:`找出 <b>${a}</b> 和 <b>${b}</b> 的最大公因數。`,v:ladder([[a,b]],[],'none'),steps,ask:w?w.ask:`${a} 和 ${b} 的最大公因數是多少？`,ans:NUM(gg,w?w.unit:'',miss)};
+}
+function lcmGen(g,pairs,word){
+  const [a,b]=g.pick(pairs);const l=lcm(a,b);const L=ladderSteps(a,b);const w=g.int(0,1)===1?word(a,b):null;
+  const miss=[{a:gcd(a,b),m:'這是最大公因數（只乘左邊）。最小公倍數要把左邊和最下面全部乘起來（L 形）。'},...(a*b!==l?[{a:a*b,m:`${a} × ${b} 是公倍數，但不是最小的。用短除法找。`}]:[])];
+  const steps=[...L.steps,{p:`把左邊和最下面的數全部乘起來（L 形）：${[...L.ps,L.x,L.y].join(' × ')} = ?`,ans:NUM(l,'',miss),vis:ladder(L.rows,L.ps,'lcm'),hint:'最小公倍數 = 左邊的數 × 最下面的數。'}];
+  return{q:w?w.q:`找出 <b>${a}</b> 和 <b>${b}</b> 的最小公倍數。`,v:ladder([[a,b]],[],'none'),steps,ask:w?w.ask:`${a} 和 ${b} 的最小公倍數是多少？`,ans:NUM(l,w?w.unit:'',miss)};
+}
+function simpGen(g,bases,ks){
+  const [a,b]=g.pick(bases);const k=g.pick(ks);const N=a*k,D=b*k;
+  return{q:`把 ${F(N,D)} 約成最簡分數。`,v:'',steps:[
+    {p:`${N} 和 ${D} 的最大公因數是？`,ans:NUM(k),hint:`${N} 和 ${D} 都可以被 ${k} 整除。`},
+    {p:`分子、分母都除以 ${k}：`,ans:{type:'multi',parts:[{pre:`分子 ${N} ÷ ${k} =`,a},{pre:`分母 ${D} ÷ ${k} =`,a:b}]}}],
+    ask:`${F(N,D)} 的最簡分數是？`,ans:{type:'frac',n:a,d:b,simplest:true}};
+}
+function diffDenom(g,wantInt){
+  let d1,d2,a1,a2,L,n1,n2,t=0;
+  do{[d1,d2]=g.pick([[4,8],[3,6],[2,6],[2,4],[5,10],[3,9],[4,12],[2,8],[3,12],[6,12],[3,4],[2,3],[4,6],[6,9]]);if(g.int(0,1))[d1,d2]=[d2,d1];L=lcm(d1,d2);a1=g.int(1,d1-1);a2=g.int(1,d2-1);n1=a1*L/d1;n2=a2*L/d2;t++;}
+  while(t<400&&!(gcd(a1,d1)===1&&gcd(a2,d2)===1&&(wantInt?(n1%n2===0&&n1/n2>=2):(n1%n2!==0&&n2>1))));
+  if(t>=400){if(wantInt){d1=4;d2=8;a1=3;a2=1;L=8;n1=6;n2=1;}else{d1=3;d2=4;a1=2;a2=3;L=12;n1=8;n2=9;}}
+  return{d1,d2,a1,a2,L,n1,n2};
+}
+function diffDivGen(g,wantInt){
+  const {d1,d2,a1,a2,L,n1,n2}=diffDenom(g,wantInt);
+  const fin=wantInt?NUM(n1/n2):FR(n1,n2);
+  return{q:`${F(a1,d1)} ÷ ${F(a2,d2)} = ?`,v:'',steps:[
+    {p:`${d1} 和 ${d2} 的公分母（最小公倍數）是？`,ans:NUM(L),hint:`${d1} 和 ${d2} 的倍數裡，最小一樣的是多少？`},
+    {p:`通分成分母 ${L}：`,ans:{type:'multi',parts:[{pre:`${F(a1,d1)} =`,a:n1,den:L},{pre:`${F(a2,d2)} =`,a:n2,den:L}]},hint:`分母 ${d1} 要乘 ${L/d1} 才變 ${L}，分子也要乘一樣的數。`},
+    {p:`分母一樣了，分子相除：${n1} ÷ ${n2} = ?${wantInt?'':'（可以寫成分數）'}`,ans:fin}],ask:`${F(a1,d1)} ÷ ${F(a2,d2)} = ?${wantInt?'':'（可以寫成假分數）'}`,ans:fin};
+}
+function bigSmallGen(g,X,divs,fmtDiv){
+  const ty=g.int(0,2);const div=g.pick(divs[ty]);const s1=[1,0,2][ty],s2=[0,1,2][ty];const dv=fmtDiv(div);
+  const fin=ch([`比 ${X} 大`,`比 ${X} 小`,`和 ${X} 一樣`],s2);
+  return{q:`不用算，想一想 <b>${X} ÷ ${dv}</b>。`,v:'',steps:[
+    {p:`除數 ${dv} 比 1 大、比 1 小，還是等於 1？`,ans:ch(['比 1 大','比 1 小','等於 1'],s1),hint:'分子比分母小，分數就比 1 小；0.幾 也比 1 小。'},
+    {p:`所以商和 ${X} 比起來？`,ans:fin,hint:'除數比 1 小 → 商變大；除數比 1 大 → 商變小。'}],ask:`${X} ÷ ${dv} 的商，和 ${X} 比起來？`,ans:fin};
+}
+function whichMaxGen(g,X,small,one,big){
+  const want=g.int(0,1)===0?'最大':'最小';const ds=[g.pick(small),one,g.pick(big)];const correct=want==='最大'?0:2;
+  const fin=ch(ds.map(d=>`${X} ÷ ${d}`),correct,g);
+  return{q:`不用算，比一比下面三個算式。`,v:'',steps:[
+    {p:'先看除數：除數越小，商越？',ans:ch(['越大','越小'],0),hint:'除數比 1 小，商比被除數大。'},
+    {p:`哪一個的商${want}？`,ans:fin}],ask:`哪一個的商${want}？`,ans:fin};
+}
+function mulHint(n){return `小提示：${n} × 3 = ${n*3}，${n} × 0.14 = ${fmt(n*0.14)}，合起來 ${n*3} + ${fmt(n*0.14)}。`;}
+const pieOf=a=>({180:2,90:4,120:3,60:6,45:8}[a]);
+const pieOpts=[F(1,2),F(1,4),F(1,3),F(1,6)], pieIdx={2:0,4:1,3:2,6:3};
+const pieOpts2=[F(3,4),F(1,2),F(1,8),F(1,4)];
+function sectorPer(g,angs,rs,adv){
+  const ang=g.pick(angs);const rr=typeof rs==='function'?rs(ang):g.pick(rs);
+  const fr=ang===270?[3,4]:[1,pieOf(ang)];const C=r4(2*rr*3.14),arc=r4(C*fr[0]/fr[1]),per=r4(arc+2*rr);
+  const opts=adv?pieOpts2:pieOpts;const idx=adv?{'3/4':0,'1/2':1,'1/8':2,'1/4':3}[fr.join('/')]:pieIdx[fr[1]];
+  return{q:`半徑 <b>${rr}</b> 公分、圓心角 <b>${ang}°</b> 的扇形。`,v:sectorV(ang,`${rr} 公分`),steps:[
+    {p:`整個圓的周長 = ${rr} × 2 × 3.14 = ?`,ans:NUM(C,'公分'),hint:mulHint(rr*2)},
+    {p:`圓心角 ${ang}°，是整個圓的幾分之幾？`,ans:ch(opts,idx),hint:`${ang} ÷ 360 = ?`},
+    {p:`弧長 = ${fmt(C)} × ${F(fr[0],fr[1])} = ?`,ans:NUM(arc,'公分')},
+    {p:`扇形周長 = ${fmt(arc)} + ${rr} + ${rr} = ?`,ans:NUM(per,'公分'),hint:'別忘了加兩條半徑。'}],ask:'這個扇形的周長是幾公分？',ans:NUM(per,'公分',[{a:arc,m:'這只是彎彎的弧長，還要加上 2 條半徑。'},{a:r4(arc+rr),m:'只加了 1 條半徑，扇形有 2 條半徑。'},{a:r4(C+2*rr),m:'弧長要先乘上幾分之幾圓，不是整個圓周長。'}])};
+}
+function sectorArea(g,angs,rs,adv){
+  const ang=g.pick(angs);const rr=typeof rs==='function'?rs(ang):g.pick(rs);
+  const fr=ang===270?[3,4]:[1,pieOf(ang)];const A=r4(rr*rr*3.14),S2=r4(A*fr[0]/fr[1]);
+  const opts=adv?pieOpts2:pieOpts;const idx=adv?{'3/4':0,'1/2':1,'1/8':2,'1/4':3}[fr.join('/')]:pieIdx[fr[1]];
+  return{q:`半徑 <b>${rr}</b> 公分、圓心角 <b>${ang}°</b> 的扇形。`,v:sectorV(ang,`${rr} 公分`),steps:[
+    {p:`整個圓的面積 = ${rr} × ${rr} × 3.14 = ?`,ans:NUM(A,'平方公分'),hint:mulHint(rr*rr)},
+    {p:`圓心角 ${ang}°，是整個圓的幾分之幾？`,ans:ch(opts,idx)},
+    {p:`扇形面積 = ${fmt(A)} × ${F(fr[0],fr[1])} = ?`,ans:NUM(S2,'平方公分')}],ask:'扇形面積是多少平方公分？',ans:NUM(S2,'平方公分',[{a:A,m:'這是整個圓的面積，還要乘上幾分之幾圓。'},{a:r4(2*rr*3.14*fr[0]/fr[1]),m:'這是弧長的算法。面積要用 半徑 × 半徑 × 3.14。'}])};
+}
+const decPlaces=x=>(String(r4(x)).split('.')[1]||'').length;
+function decDivGen(g,pickD,pickQ,needInt,maxX){
+  let d,q,X,t=0;
+  do{d=pickD();q=pickQ();X=r4(q*d);t++;}while(t<500&&!(needInt?(Number.isInteger(X)&&X>=1&&X<=maxX):(decPlaces(X)>=1&&decPlaces(X)<=2)));
+  const m=decPlaces(d)===2?100:10;
+  return{q:`${fmt(X)} ÷ ${fmt(d)} = ?`,v:'',steps:[
+    {p:`除數 ${fmt(d)} 要乘多少，才會變成整數？`,ans:NUM(m),hint:`${fmt(d)} 有 ${m===100?2:1} 位小數。`},
+    {p:`被除數和除數一起乘 ${m}：`,ans:{type:'multi',parts:[{pre:`${fmt(X)} × ${m} =`,a:r4(X*m)},{pre:`${fmt(d)} × ${m} =`,a:r4(d*m)}]},hint:`乘 ${m}，小數點往右移 ${m===100?2:1} 格。`},
+    {p:`${fmt(X*m)} ÷ ${fmt(d*m)} = ?`,ans:NUM(q)}],ask:`${fmt(X)} ÷ ${fmt(d)} = ?`,ans:NUM(q,'',[{a:r4(q/m),m:`被除數也要一起乘 ${m}，不能只改除數。`},{a:r4(q*m),m:'小數點移太多格了，除數移幾格，被除數就移幾格。'}])};
+}
+
+/* ---------- 五上 drawings ---------- */
+function chartGeom(o){const n=o.labels.length,W=Math.max(380,80+n*66),H=270,L=58,R=18,T=34,B=48,pw=W-L-R,ph=H-T-B,base=o.base||0,zz=base>0?18:0;
+  return{n,W,H,L,R,T,B,pw,ph,base,zz,X:i=>L+pw*(i+.5)/n,Y:v=>T+ph*(1-(v-base)/(o.max-base)),ax:T+ph+zz};}
+function lineChart(o,vals,opt={}){
+  vals=vals||o.values;const G=chartGeom(o);let g='';
+  for(let v=G.base;v<=o.max+1e-9;v=r4(v+o.step)){const y=fmt(G.Y(v));g+=`<line x1="${G.L}" y1="${y}" x2="${G.W-G.R}" y2="${y}" class="gl"/><text x="${G.L-8}" y="${fmt(G.Y(v)+5)}" class="tm" text-anchor="end">${fmt(v)}</text>`;}
+  if(opt.guides)for(let i=0;i<G.n;i++)g+=`<line x1="${fmt(G.X(i))}" y1="${G.T}" x2="${fmt(G.X(i))}" y2="${G.T+G.ph}" class="gl" style="stroke-dasharray:3 4"/>`;
+  g+=`<line x1="${G.L}" y1="${G.T-8}" x2="${G.L}" y2="${G.ax}" class="st"/><line x1="${G.L}" y1="${G.ax}" x2="${G.W-G.R}" y2="${G.ax}" class="st"/>`;
+  if(G.zz){const y0=G.T+G.ph+3;g+=`<rect x="${G.L-7}" y="${y0}" width="14" height="${G.zz-6}" class="fp"/><path d="M${G.L-7} ${y0+2} l4 -3 l6 6 l4 -3 M${G.L-7} ${y0+8} l4 -3 l6 6 l4 -3" class="st1" style="fill:none"/><text x="${G.L-8}" y="${G.ax+5}" class="tm" text-anchor="end">0</text>`;}
+  g+=`<text x="${G.L}" y="${G.T-16}" class="tm" text-anchor="middle">（${o.unit}）</text>`;
+  o.labels.forEach((t,i)=>{g+=`<text x="${fmt(G.X(i))}" y="${G.ax+22}" class="tm" text-anchor="middle">${t}</text>`;});
+  if(o.title)g+=`<text x="${(G.W+G.L)/2}" y="16" class="t" text-anchor="middle" style="font-size:15px">${o.title}</text>`;
+  const pts=vals.map((v,i)=>v==null?null:[G.X(i),G.Y(v)]);
+  if(!opt.noLine)for(let i=0;i<pts.length-1;i++)if(pts[i]&&pts[i+1])g+=`<line x1="${fmt(pts[i][0])}" y1="${fmt(pts[i][1])}" x2="${fmt(pts[i+1][0])}" y2="${fmt(pts[i+1][1])}" class="ln2"/>`;
+  (opt.hl||[]).forEach(i=>{if(pts[i])g+=`<line x1="${G.L}" y1="${fmt(pts[i][1])}" x2="${fmt(pts[i][0])}" y2="${fmt(pts[i][1])}" class="dash"/><line x1="${fmt(pts[i][0])}" y1="${fmt(pts[i][1])}" x2="${fmt(pts[i][0])}" y2="${G.ax}" class="dash"/>`;});
+  if(!opt.noPts)pts.forEach((p,i)=>{if(p)g+=`<circle cx="${fmt(p[0])}" cy="${fmt(p[1])}" r="${(opt.hl||[]).includes(i)?8:6}" class="${(opt.hl||[]).includes(i)?'fc':'fa'} st"/>`;});
+  if(opt.showVals)pts.forEach((p,i)=>{if(p)g+=`<text x="${fmt(p[0])}" y="${fmt(p[1]-12)}" class="t" text-anchor="middle" style="font-size:14px">${fmt(vals[i])}</text>`;});
+  return S(G.W,G.ax+32,g,o.title||'折線圖');
+}
+const dataTbl=(o,vals)=>tbl2(o.xname||'項目',o.labels,o.unit,vals||o.values);
+function sticksV(a,b,c){
+  const s=[a,b,c].sort((x,y)=>x-y);[a,b,c]=s;const u=Math.min(26,320/c),x0=30,y0=190;let g='';
+  g+=`<line x1="${x0}" y1="${y0}" x2="${fmt(x0+c*u)}" y2="${y0}" class="stick"/><text x="${fmt(x0+c*u/2)}" y="${y0+24}" class="t" text-anchor="middle">${c}</text>`;
+  if(a+b>c){const x=(a*a-b*b+c*c)/(2*c),y=Math.sqrt(Math.max(0,a*a-x*x));const px=x0+x*u,py=y0-y*u;
+    g+=`<line x1="${x0}" y1="${y0}" x2="${fmt(px)}" y2="${fmt(py)}" class="ln2"/><line x1="${fmt(x0+c*u)}" y1="${y0}" x2="${fmt(px)}" y2="${fmt(py)}" class="ln2" style="stroke:var(--ok)"/>`;
+    g+=`<text x="${fmt((x0+px)/2-12)}" y="${fmt((y0+py)/2)}" class="t" text-anchor="end">${a}</text><text x="${fmt((x0+c*u+px)/2+12)}" y="${fmt((y0+py)/2)}" class="t">${b}</text>`;}
+  else{const ang=(a+b===c?7:32)*Math.PI/180;const ax=x0+a*u*Math.cos(ang),ay=y0-a*u*Math.sin(ang),bx=x0+c*u-b*u*Math.cos(ang),by=y0-b*u*Math.sin(ang);
+    g+=`<line x1="${x0}" y1="${y0}" x2="${fmt(ax)}" y2="${fmt(ay)}" class="ln2"/><line x1="${fmt(x0+c*u)}" y1="${y0}" x2="${fmt(bx)}" y2="${fmt(by)}" class="ln2" style="stroke:var(--ok)"/>`;
+    g+=`<text x="${fmt(x0+a*u/2)}" y="${fmt(ay-10)}" class="t">${a}</text><text x="${fmt(x0+c*u-b*u/2)}" y="${fmt(by-10)}" class="t" text-anchor="end">${b}</text><text x="${fmt(x0+c*u/2)}" y="${y0-60}" class="tm" text-anchor="middle">接不起來</text>`;}
+  return S(Math.max(380,x0*2+c*u),y0+36,g,`${a}、${b}、${c} 的三根吸管`);
+}
+function triAngV(A,B,lab){
+  const C=180-A-B,rad=d=>d*Math.PI/180,base=100,sl=base*Math.sin(rad(B))/Math.sin(rad(C));
+  let P=[[0,0],[base,0],[sl*Math.cos(rad(A)),sl*Math.sin(rad(A))]];
+  const xs=P.map(p=>p[0]),ys=P.map(p=>p[1]),minx=Math.min(...xs),maxx=Math.max(...xs),maxy=Math.max(...ys);
+  const k=Math.min(300/(maxx-minx),170/maxy);P=P.map(p=>[30+(p[0]-minx)*k,195-p[1]*k]);
+  const cx=(P[0][0]+P[1][0]+P[2][0])/3,cy=(P[0][1]+P[1][1]+P[2][1])/3;let g=`<path d="M${P.map(p=>fmt(p[0])+' '+fmt(p[1])).join(' L')}Z" class="fb st"/>`;
+  P.forEach((p,i)=>{const lx=p[0]+(cx-p[0])*.32,ly=p[1]+(cy-p[1])*.32+5;g+=`<text x="${fmt(lx)}" y="${fmt(ly)}" class="t" text-anchor="middle" style="font-size:15px">${lab[i]}</text>`;});
+  return S(360,215,g,'三角形');
+}
+const QUAD={para:[[40,160],[260,160],[330,50],[110,50]],rect:[[40,160],[300,160],[300,50],[40,50]],square:[[90,170],[230,170],[230,30],[90,30]],rhombus:[[60,100],[175,165],[290,100],[175,35]],trap:[[30,160],[320,160],[240,50],[100,50]],quad:[[50,150],[290,170],[260,45],[110,35]]};
+function quadV(type,o={}){
+  const P=QUAD[type];const cx=P.reduce((s,p)=>s+p[0],0)/4,cy=P.reduce((s,p)=>s+p[1],0)/4;
+  let g=`<path d="M${P.map(p=>p[0]+' '+p[1]).join(' L')}Z" class="fb st"/>`;
+  (o.ang||[]).forEach((t,i)=>{if(t==null||t==='')return;const p=P[i];g+=`<text x="${fmt(p[0]+(cx-p[0])*.22)}" y="${fmt(p[1]+(cy-p[1])*.22+5)}" class="t" text-anchor="middle" style="font-size:15px">${t}</text>`;});
+  (o.side||[]).forEach((t,i)=>{if(t==null||t==='')return;const p=P[i],q=P[(i+1)%4],mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2;g+=`<text x="${fmt(mx+(mx-cx)*.18)}" y="${fmt(my+(my-cy)*.18+5)}" class="t" text-anchor="middle" style="font-size:15px">${t}</text>`;});
+  return S(360,200,g,'四邊形');
+}
+function polyV(n,label){
+  const cx=120,cy=110,R=85;const P=Array.from({length:n},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[cx+R*Math.cos(a),cy+R*Math.sin(a)];});
+  let g=`<path d="M${P.map(p=>fmt(p[0])+' '+fmt(p[1])).join(' L')}Z" class="fb st"/>`;P.forEach(p=>g+=`<circle cx="${fmt(p[0])}" cy="${fmt(p[1])}" r="4" class="fi"/>`);
+  if(label)g+=`<text x="${cx}" y="${cy+6}" class="t" text-anchor="middle">${label}</text>`;
+  return S(240,215,g,`${n} 邊形`);
+}
+function boxV(hl=[]){
+  const A=[60,95],B=[220,95],C=[220,205],D=[60,205],dx=70,dy=-55,s=p=>[p[0]+dx,p[1]+dy];const A2=s(A),B2=s(B),C2=s(C),D2=s(D);
+  const face={前:[A,B,C,D],後:[A2,B2,C2,D2],上:[A,B,B2,A2],下:[D,C,C2,D2],左:[A,D,D2,A2],右:[B,C,C2,B2]};
+  const path=f=>`M${face[f].map(p=>p[0]+' '+p[1]).join(' L')}Z`;let g='';
+  ['後','下','左'].forEach(f=>{if(hl.includes(f))g+=`<path d="${path(f)}" class="fa" style="fill-opacity:.55"/>`;});
+  g+=`<path d="M${D[0]} ${D[1]} L${D2[0]} ${D2[1]} L${C2[0]} ${C2[1]} M${D2[0]} ${D2[1]} L${A2[0]} ${A2[1]}" class="dash"/>`;
+  ['上','右','前'].forEach(f=>g+=`<path d="${path(f)}" class="${hl.includes(f)?'fa':'fp'} st" style="${hl.includes(f)?'':'fill-opacity:.35'}"/>`);
+  const lab=(f,t)=>{const q=face[f];const x=q.reduce((a,p)=>a+p[0],0)/4,y=q.reduce((a,p)=>a+p[1],0)/4;return`<text x="${fmt(x)}" y="${fmt(y+6)}" class="t" text-anchor="middle">${t}</text>`;};
+  g+=lab('前','前面')+lab('上','上面')+lab('右','右');
+  const hid=['後','下','左'].filter(f=>hl.includes(f));
+  g+=`<text x="300" y="215" class="tm" text-anchor="end">看不見的：後面、下面、左面${hid.length?`（塗色的是${hid.map(f=>f+'面').join('、')}）`:''}</text>`;
+  return S(310,225,g,'長方體');
+}
+function basePts(n,cy){return Array.from({length:n},(_,i)=>{const a=Math.PI/2+i*2*Math.PI/n+(n%2?0:Math.PI/n);return[150+95*Math.cos(a),cy+32*Math.sin(a),Math.sin(a)];});}
+function prismV(n){
+  const B=basePts(n,200),T=basePts(n,75);let g='';
+  B.forEach((p,i)=>{const q=B[(i+1)%n];g+=`<line x1="${fmt(p[0])}" y1="${fmt(p[1])}" x2="${fmt(q[0])}" y2="${fmt(q[1])}" class="${(p[2]+q[2])/2<-0.05?'dash':'st'}"/>`;});
+  B.forEach((p,i)=>g+=`<line x1="${fmt(p[0])}" y1="${fmt(p[1])}" x2="${fmt(T[i][0])}" y2="${fmt(T[i][1])}" class="${p[2]<-0.05?'dash':'st'}"/>`);
+  g+=`<path d="M${T.map(p=>fmt(p[0])+' '+fmt(p[1])).join(' L')}Z" class="fb st"/>`;
+  return S(300,245,g,`${n} 角柱`);
+}
+function pyramidV(n){
+  const B=basePts(n,195),ap=[150,30];let g='';
+  B.forEach((p,i)=>{const q=B[(i+1)%n];g+=`<line x1="${fmt(p[0])}" y1="${fmt(p[1])}" x2="${fmt(q[0])}" y2="${fmt(q[1])}" class="${(p[2]+q[2])/2<-0.05?'dash':'st'}"/>`;});
+  B.forEach(p=>g+=`<line x1="${fmt(p[0])}" y1="${fmt(p[1])}" x2="${ap[0]}" y2="${ap[1]}" class="${p[2]<-0.05?'dash':'st'}"/>`);
+  g+=`<circle cx="${ap[0]}" cy="${ap[1]}" r="4" class="fi"/>`;
+  return S(300,240,g,`${n} 角錐`);
+}
+function cylinderV(){return S(300,250,`<path d="M55 75 L55 200 A95 32 0 0 0 245 200 L245 75" class="fp st" style="fill-opacity:.3"/><path d="M55 200 A95 32 0 0 1 245 200" class="dash"/><ellipse cx="150" cy="75" rx="95" ry="32" class="fb st"/>`,'圓柱');}
+function coneV(){return S(300,245,`<path d="M55 195 L150 30 L245 195" class="st3"/><path d="M55 195 A95 32 0 0 0 245 195" class="st3"/><path d="M55 195 A95 32 0 0 1 245 195" class="dash"/><circle cx="150" cy="30" r="4" class="fi"/>`,'圓錐');}
+function sphereV(lab){return S(260,230,`<circle cx="130" cy="115" r="95" class="fb st3" style="fill-opacity:.45"/><path d="M35 115 A95 28 0 0 0 225 115" class="st"/><path d="M35 115 A95 28 0 0 1 225 115" class="dash"/><circle cx="130" cy="115" r="4" class="fi"/>${lab?`<line x1="130" y1="115" x2="225" y2="115" class="ln2"/><text x="178" y="105" class="t" text-anchor="middle">${lab}</text>`:''}`,'球');}
+function paraArea(b,h,s,showH=true){
+  let g=`<path d="M40 170 L280 170 L350 60 L110 60Z" class="fb st"/>`;
+  if(showH)g+=`<line x1="110" y1="60" x2="110" y2="170" class="ln2" style="stroke-dasharray:6 5"/><path d="M110 158 h12 v12" class="st1" style="fill:none"/><text x="100" y="120" class="t" text-anchor="end">${h}</text>`;
+  g+=`<text x="160" y="194" class="t" text-anchor="middle">${b}</text>`;if(s)g+=`<text x="330" y="122" class="t">${s}</text>`;
+  return S(380,205,g,'平行四邊形');
+}
+function triArea(b,h,kind='acute'){
+  let g='';
+  if(kind==='right')g+=`<path d="M60 170 L300 170 L60 50Z" class="fb st"/><path d="M60 158 h12 v12" class="st1" style="fill:none"/><text x="50" y="115" class="t" text-anchor="end">${h}</text>`;
+  else if(kind==='obtuse')g+=`<path d="M110 170 L300 170 L40 50Z" class="fb st"/><line x1="40" y1="170" x2="110" y2="170" class="dash"/><line x1="40" y1="50" x2="40" y2="170" class="ln2" style="stroke-dasharray:6 5"/><text x="30" y="115" class="t" text-anchor="end">${h}</text>`;
+  else g+=`<path d="M40 170 L300 170 L190 50Z" class="fb st"/><line x1="190" y1="50" x2="190" y2="170" class="ln2" style="stroke-dasharray:6 5"/><path d="M190 158 h12 v12" class="st1" style="fill:none"/><text x="180" y="120" class="t" text-anchor="end">${h}</text>`;
+  g+=`<text x="${kind==='obtuse'?205:180}" y="194" class="t" text-anchor="middle">${b}</text>`;
+  return S(340,205,g,'三角形');
+}
+function trapArea(a,b,h){return S(360,215,`<path d="M30 170 L320 170 L240 55 L100 55Z" class="fb st"/><line x1="100" y1="55" x2="100" y2="170" class="ln2" style="stroke-dasharray:6 5"/><path d="M100 158 h12 v12" class="st1" style="fill:none"/><text x="170" y="45" class="t" text-anchor="middle">${a}</text><text x="175" y="196" class="t" text-anchor="middle">${b}</text><text x="90" y="118" class="t" text-anchor="end">${h}</text>`,'梯形');}
+function cutParaV(){return S(560,190,`<path d="M30 160 L190 160 L240 60 L80 60Z" class="fb st"/><path d="M30 160 L80 160 L80 60Z" class="fc st"/><line x1="80" y1="60" x2="80" y2="160" class="dash"/><text x="285" y="115" class="t" text-anchor="middle">→</text><path d="M330 160 L490 160 L490 60 L330 60Z" class="fb st"/><path d="M490 160 L540 160 L540 60Z" class="fc st" transform="translate(-50 0)"/><text x="410" y="182" class="tm" text-anchor="middle">變成長方形：底 × 高</text>`,'平行四邊形切開拼成長方形');}
+function twoTriV(){return S(420,190,`<path d="M40 160 L260 160 L150 50Z" class="fb st"/><path d="M150 50 L370 50 L260 160Z" class="fc st"/><text x="210" y="182" class="tm" text-anchor="middle">兩個一樣的三角形，拼成平行四邊形</text>`,'兩個三角形拼成平行四邊形');}
+function twoTrapV(){return S(480,190,`<path d="M30 160 L230 160 L180 60 L80 60Z" class="fb st"/><path d="M180 60 L380 60 L330 160 L230 160Z" class="fc st"/><text x="205" y="182" class="tm" text-anchor="middle">底變成「上底 + 下底」</text>`,'兩個梯形拼成平行四邊形');}
+function rectSplitV(c,a,b){const u=Math.min(22,300/(a+b));let g='';for(let i=0;i<c;i++)for(let j=0;j<a+b;j++)g+=`<rect x="${20+j*u}" y="${20+i*u}" width="${u}" height="${u}" class="${j<a?'fa':'fb'} st1"/>`;
+  g+=`<text x="${20+a*u/2}" y="${20+c*u+20}" class="t" text-anchor="middle">${a}</text><text x="${20+a*u+b*u/2}" y="${20+c*u+20}" class="t" text-anchor="middle">${b}</text><text x="${12}" y="${20+c*u/2+5}" class="t" text-anchor="end">${c}</text>`;
+  return S(Math.max(240,40+(a+b)*u),c*u+50,g,'分配律');}
+function avgBarsV(vals,mean){const mx=Math.max(...vals),u=150/mx;let g='';vals.forEach((v,i)=>{g+=`<rect x="${30+i*60}" y="${180-v*u}" width="40" height="${v*u}" class="fa st"/><text x="${50+i*60}" y="${174-v*u}" class="t" text-anchor="middle" style="font-size:14px">${v}</text>`;});
+  if(mean!=null)g+=`<line x1="20" y1="${180-mean*u}" x2="${30+vals.length*60}" y2="${180-mean*u}" class="ln2" style="stroke-dasharray:6 5"/><text x="${34+vals.length*60}" y="${185-mean*u}" class="t">平均 ${mean}</text>`;
+  g+=`<line x1="20" y1="180" x2="${30+vals.length*60}" y2="180" class="st"/>`;return S(110+vals.length*60,195,g,'長條');}
+function groupBar(n,take,lab){const W=400,u=W/n;let g='';for(let i=0;i<n;i++)g+=`<rect x="${10+i*u}" y="20" width="${u}" height="46" class="${i<take?'fa':'fp'} st"/>`;g+=`<path d="M10 76 Q ${10+W/2} 96 ${10+W} 76" class="ln2"/><text x="${10+W/2}" y="112" class="t" text-anchor="middle">${lab}</text>`;return S(W+20,122,g,'平分');}
+function wholesV(a,b){const W=90,gap=14;let g='';for(let k=0;k<a;k++){for(let i=0;i<b;i++)g+=`<rect x="${10+k*(W+gap)+i*W/b}" y="20" width="${W/b}" height="40" class="${i===0?'fa':'fp'} st1"/>`;}g+=`<text x="${(10+a*(W+gap))/2}" y="84" class="tm" text-anchor="middle">${a} 個，每個切成 ${b} 份，每人每個拿 1 份</text>`;return S(Math.max(260,20+a*(W+gap)),95,g,'平分');}
+function shapeSector(){return S(150,140,`<circle cx="70" cy="75" r="55" class="dash"/><path d="M70 75 L125 75 A55 55 0 0 0 31 36Z" class="fa st"/><circle cx="70" cy="75" r="3" class="fi"/>`,'圖形');}
+function shapeOffCenter(){return S(150,140,`<circle cx="70" cy="75" r="55" class="dash"/><path d="M90 95 L125 75 A55 55 0 0 0 31 36Z" class="fa st"/><circle cx="70" cy="75" r="3" class="fi"/>`,'圖形');}
+function shapeSegment(){return S(150,140,`<circle cx="70" cy="75" r="55" class="dash"/><path d="M125 75 A55 55 0 0 0 31 36Z" class="fa st"/><circle cx="70" cy="75" r="3" class="fi"/>`,'圖形');}
+function shapeTriangle(){return S(150,140,`<circle cx="70" cy="75" r="55" class="dash"/><path d="M70 75 L125 75 L31 36Z" class="fa st"/><circle cx="70" cy="75" r="3" class="fi"/>`,'圖形');}
+function pieV(n,take){const cx=110,cy=105,R=85;let g='';for(let i=0;i<n;i++){const a1=-Math.PI/2+i*2*Math.PI/n,a2=a1+2*Math.PI/n;g+=`<path d="M${cx} ${cy} L${fmt(cx+R*Math.cos(a1))} ${fmt(cy+R*Math.sin(a1))} A${R} ${R} 0 0 1 ${fmt(cx+R*Math.cos(a2))} ${fmt(cy+R*Math.sin(a2))}Z" class="${i<take?'fa':'fp'} st"/>`;}return S(220,210,g,`分成 ${n} 份`);}
+
+/* ---------- 五上 problem helpers ---------- */
+const CH1=[
+ {title:'豆苗的高度',xname:'天數',labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:16,mk:g=>{let v=2*g.int(1,2);const a=[v];for(let i=1;i<5;i++){v=Math.min(16,v+2*g.int(0,2));a.push(v);}return a;}},
+ {title:'一週的最高氣溫',xname:'星期',labels:['一','二','三','四','五'],unit:'度',base:20,step:2,max:34,mk:g=>Array.from({length:5},()=>20+2*g.int(1,7))},
+ {title:'小華每週存的錢',xname:'週',labels:['第1週','第2週','第3週','第4週','第5週'],unit:'元',base:0,step:10,max:80,mk:g=>Array.from({length:5},()=>10*g.int(1,8))},
+ {title:'阿明的身高',xname:'年級',labels:['1年級','2年級','3年級','4年級','5年級'],unit:'公分',base:110,step:5,max:150,mk:g=>{let v=110+5*g.int(1,2);const a=[v];for(let i=1;i<5;i++){v=Math.min(150,v+5*g.int(1,2));a.push(v);}return a;}}
+];
+function chartData(g,pool,n){const c=g.pick(pool);const o=Object.assign({},c,{values:c.mk(g)});if(n){o.labels=o.labels.slice(0,n);o.values=o.values.slice(0,n);}return o;}
+const NAMES={3:'三',4:'四',5:'五',6:'六',7:'七',8:'八'};
+const FACES=['上面','下面','前面','後面','左面','右面'],OPP={上面:'下面',下面:'上面',前面:'後面',後面:'前面',左面:'右面',右面:'左面'};
+const fk=f=>f[0];
+function fracCompare(g,pairs){
+  let d1,d2,a1,a2,t=0;do{[d1,d2]=g.pick(pairs);if(g.int(0,1))[d1,d2]=[d2,d1];a1=g.int(1,d1-1);a2=g.int(1,d2-1);t++;}while(t<200&&(gcd(a1,d1)!==1||gcd(a2,d2)!==1||a1*d2===a2*d1));
+  const L=lcm(d1,d2),n1=a1*L/d1,n2=a2*L/d2;return{d1,d2,a1,a2,L,n1,n2};
+}
+
+const U=[
+{name:'折線圖',topics:'讀折線圖・看變化・製作折線圖・省略符號',glyph:S(120,40,'<polyline points="6,34 34,24 62,28 90,10 114,6" class="ln2"/><circle cx="34" cy="24" r="4" class="fa st1"/><circle cx="90" cy="10" r="4" class="fa st1"/>','折線'),levels:[
+ {title:'生活中的統計圖',sub:'讀折線圖，看出變化',
+  look:{ex:'這是豆苗的高度折線圖。第 4 天有多高？哪兩天之間長最多？',steps:[
+   {k:'先看標題和單位',t:'標題是「豆苗的高度」，縱軸的單位是 {{公分}}，橫軸是天數。',v:lineChart({title:'豆苗的高度',labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12,values:[2,3,6,8,10].map(x=>x)},[2,4,6,8,10])},
+   {k:'找到第 4 天的點',t:'從「第4天」往上找到點，再往左看，是 {{8}} 公分。',v:lineChart({labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12},[2,4,6,8,12],{hl:[3]})},
+   {k:'線越陡，變化越大',t:'第 4 天到第 5 天的線最陡，長了 12 − 8 = {{4}} 公分，長最多。',v:lineChart({labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12},[2,4,6,8,12],{hl:[3,4]})},
+   {k:'線往上、往下',t:'線往上表示 {{增加}}；線往下表示減少；平平的表示沒有變。'},
+   {k:'折線圖和長條圖',t:'想看「怎麼變化」用 {{折線圖}}；想比「誰比較多」常用長條圖。'}],
+   key:'先看標題和單位；從橫軸往上找點、往左讀數；線越陡變化越大，往上增加、往下減少。'},
+  know:[
+   {q:'想看一週氣溫怎麼變化，用哪一種圖最清楚？',opts:['折線圖','長條圖','象形圖'],a:0,why:'折線圖最容易看出變化。'},
+   {q:'折線圖的線往下，表示？',opts:['減少','增加','沒有變'],a:0,why:'線往下表示數量變少了。'}],
+  gen(g){const o=chartData(g,CH1);const v=o.values,t=g.int(0,2);const ch=lineChart(o);
+   if(t===0){const i=g.int(0,4);return{q:`看「${o.title}」折線圖。`,v:ch,steps:[{p:'縱軸的單位是什麼？',ans:ch2([o.unit,o.xname],0)},{p:`從「${o.labels[i]}」往上找點，再往左看，是多少？`,ans:NUM(v[i],o.unit),vis:lineChart(o,null,{hl:[i]})}],ask:`「${o.labels[i]}」是多少${o.unit}？`,ans:NUM(v[i],o.unit)};}
+   if(t===1){let i=g.int(0,3);if(v[i]===v[i+1])i=(i+1)%4;const d=v[i+1]-v[i],dir=d>0?0:d<0?1:2;
+    return{q:`看「${o.title}」折線圖。`,v:ch,steps:[{p:`「${o.labels[i]}」是多少？`,ans:NUM(v[i],o.unit)},{p:`「${o.labels[i+1]}」是多少？`,ans:NUM(v[i+1],o.unit),vis:lineChart(o,null,{hl:[i,i+1]})},{p:'線是往上、往下，還是平平的？',ans:ch2(['往上（增加）','往下（減少）','平平的（沒有變）'],dir)},{p:`相差多少？大的 − 小的 = ?`,ans:NUM(Math.abs(d),o.unit)}],ask:`從「${o.labels[i]}」到「${o.labels[i+1]}」，相差多少${o.unit}？`,ans:NUM(Math.abs(d),o.unit)};}
+   const mx=Math.max(...v),idx=v.indexOf(mx),cnt=v.filter(x=>x===mx).length;const opts=o.labels.slice();
+   if(cnt>1)return this.gen(g);
+   const fin=ch2(opts,idx);
+   return{q:`看「${o.title}」折線圖。`,v:ch,steps:[{p:'最高的點在哪裡？',ans:fin,hint:'找離橫軸最遠（最上面）的點。'}],ask:'哪一個最高？',ans:fin};},
+  adv(g){const o=chartData(g,CH1);const v=o.values;const ch=lineChart(o);
+   const diffs=v.slice(1).map((x,i)=>x-v[i]);const minD=Math.min(...diffs);
+   if(minD<0&&diffs.filter(x=>x===minD).length===1){const i=diffs.indexOf(minD);const opts=o.labels.slice(0,4).map((l,j)=>`${l}到${o.labels[j+1]}`);
+    return{q:`看「${o.title}」折線圖。`,v:ch,steps:[{p:'往下最陡的是哪一段？',ans:ch2(opts,i)},{p:`減少了多少？${v[i]} − ${v[i+1]} = ?`,ans:NUM(-minD,o.unit)}],ask:'減少最多的那一段，減少了多少？',ans:NUM(-minD,o.unit)};}
+   const mx=Math.max(...v),mn=Math.min(...v);
+   return{q:`看「${o.title}」折線圖。`,v:ch,steps:[{p:'最高是多少？',ans:NUM(mx,o.unit)},{p:'最低是多少？',ans:NUM(mn,o.unit)},{p:`相差 ${mx} − ${mn} = ?`,ans:NUM(mx-mn,o.unit)}],ask:'最高和最低相差多少？',ans:NUM(mx-mn,o.unit)};},
+  fix:'讀折線圖：先看標題和單位，從橫軸往上找點、往左讀數；比較兩個點就相減；線越陡變化越大。'},
+ {title:'製作折線圖',sub:'定刻度、描點、連線',
+  look:{ex:'把豆苗的高度（2、4、6、8、12 公分）畫成折線圖。',steps:[
+   {k:'寫標題、定兩條軸',t:'標題寫「豆苗的高度」；橫軸放 {{天數}}，縱軸放高度。'},
+   {k:'定刻度',t:'最大是 12，每一格代表 {{2}} 公分，畫到 12 就夠了。',v:lineChart({labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12},[null,null,null,null,null])},
+   {k:'描點',t:'每一天往上找到對應的高度，點一個點。第 1 天在 {{2}} 的線上。',v:lineChart({labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12},[2,4,6,8,12],{noLine:true})},
+   {k:'連線',t:'把點 {{依照順序}} 用線段連起來，就完成了。',v:lineChart({labels:['第1天','第2天','第3天','第4天','第5天'],unit:'公分',base:0,step:2,max:12},[2,4,6,8,12])},
+   {k:'數字很大時用省略符號',t:'身高 115～140 公分，縱軸從 0 畫太浪費，可以用 {{省略符號}}（≈）跳過 0 到 110。',v:lineChart({labels:['1年級','2年級','3年級','4年級','5年級'],unit:'公分',base:110,step:5,max:145},[115,120,130,135,140])}],
+   key:'寫標題 → 定橫軸、縱軸和刻度 → 描點 → 依序連線；數字都很大時用省略符號。'},
+  know:[
+   {q:'描好點以後要做什麼？',opts:['依照順序用線段連起來','畫成一根一根長條','把點擦掉'],a:0,why:'折線圖就是把點依序連成線。'},
+   {q:'資料是 132、135、138 公分，縱軸怎麼畫比較好？',opts:['用省略符號，從 130 開始','從 0 開始，每格 1 公分'],a:0,why:'數字都很大，用省略符號跳過前面，圖比較清楚。'}],
+  gen(g){const o=chartData(g,[CH1[0],CH1[2]],4);
+   const plot={type:'plot',labels:o.labels,values:o.values,base:o.base,max:o.max,step:o.step,unit:o.unit,xname:o.xname};
+   return{q:`把「${o.title}」畫成折線圖。`,v:dataTbl(o),steps:[{p:'看縱軸的刻度，一格代表多少？',ans:NUM(o.step,o.unit),vis:dataTbl(o)+lineChart(o,o.values.map(()=>null))},{p:'在每個項目上方，點出對應的高度：',ans:plot}],ask:'在方格上描點，畫出折線圖。',ans:plot};},
+  adv(g){const o=chartData(g,[CH1[1],CH1[3]]);
+   const plot={type:'plot',labels:o.labels,values:o.values,base:o.base,max:o.max,step:o.step,unit:o.unit,xname:o.xname};
+   return{q:`把「${o.title}」畫成折線圖（縱軸用了省略符號，從 ${o.base} 開始）。`,v:dataTbl(o),steps:[{p:`資料都在 ${o.base} 以上，為什麼要用省略符號？`,ans:ch2(['跳過用不到的部分，圖比較清楚','因為資料是錯的'],0)},{p:'描點：',ans:plot}],ask:'描點畫出折線圖。',ans:plot};},
+  fix:'畫折線圖：先看最大值定刻度，再從橫軸往上找到對應高度描點，最後依序連線；數字都很大時用省略符號。'}
+]},
+{name:'倍數與因數',topics:'認識倍數・2、5、10 的倍數・認識因數・倍數與因數的關係',glyph:'3、6、9、12…',levels:[
+ {title:'認識倍數',sub:'一個數乘上 1、2、3……',
+  look:{ex:'3 的倍數有哪些？',steps:[
+   {k:'一個一個乘',t:'3 × 1 = 3，3 × 2 = 6，3 × 3 = {{9}}，3 × 4 = 12……'},
+   {k:'圈出 3 的倍數',t:'3 的倍數有 3、6、9、12、15……，有 {{無限多}} 個。',v:numGrid(30,[3,6,9,12,15,18,21,24,27,30])},
+   {k:'2 的倍數',t:'個位是 0、2、4、6、8 的數，都是 {{2}} 的倍數。',v:numGrid(30,[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30])},
+   {k:'5 和 10 的倍數',t:'個位是 0 或 5 → 5 的倍數；個位是 {{0}} → 10 的倍數。'}],
+   key:'一個數 × 1、× 2、× 3……得到的數，都是它的倍數；看個位可以判斷 2、5、10 的倍數。'},
+  know:[
+   {q:'下面哪一個是 4 的倍數？',opts:['12','14','18'],a:0,why:'4 × 3 = 12。'},
+   {q:'個位是 5 的數，一定是誰的倍數？',opts:['5','2','10'],a:0,why:'5 的倍數個位是 0 或 5。'}],
+  gen(g){const t=g.int(0,2);
+   if(t===0){const n=g.int(3,9),k=g.int(3,12),r=g.int(0,1)?0:g.int(1,n-1),x=n*k+r;
+    return{q:`<b>${x}</b> 是不是 <b>${n}</b> 的倍數？`,v:'',steps:[{p:`${x} ÷ ${n} 的餘數是多少？`,ans:NUM(r),hint:`${n} × ${k} = ${n*k}`},{p:'餘數是 0 才是倍數。所以？',ans:ch2(['是','不是'],r===0?0:1)}],ask:`${x} 是不是 ${n} 的倍數？`,ans:ch2(['是','不是'],r===0?0:1)};}
+   if(t===1){const n=g.int(2,9),k=g.int(4,10);return{q:`<b>${n}</b> 的倍數由小到大排：${n}、${n*2}、${n*3}、……`,v:'',steps:[{p:`第 ${k} 個就是 ${n} × ${k} = ?`,ans:NUM(n*k)}],ask:`第 ${k} 個是多少？`,ans:NUM(n*k,'',[{a:n+k,m:`是 ${n} × ${k}，不是 ${n} + ${k}。`}])};}
+   const tg=g.pick([2,5,10]);const good=tg*g.int(3,15);let bads=[];while(bads.length<2){const x=g.int(11,99);if(x%tg&&!bads.includes(x))bads.push(x);}
+   const fin=ch([String(good),...bads.map(String)],0,g);const rule={2:'0、2、4、6、8',5:'0 或 5',10:'0'}[tg];
+   return{q:`哪一個是 <b>${tg}</b> 的倍數？`,v:'',steps:[{p:`${tg} 的倍數，個位是 ${rule}。看個位，選一選：`,ans:fin}],ask:`哪一個是 ${tg} 的倍數？`,ans:fin};},
+  adv(g){const n=g.int(3,9),A=g.int(20,50),B=A+g.int(25,45);const f=Math.ceil(A/n)*n,l=Math.floor(B/n)*n,c=(l-f)/n+1;
+   return{q:`在 <b>${A}</b> 到 <b>${B}</b> 之間，<b>${n}</b> 的倍數有幾個？`,v:'',steps:[{p:`比 ${A} 大（或一樣）的第一個 ${n} 的倍數是？`,ans:NUM(f)},{p:`比 ${B} 小（或一樣）的最後一個是？`,ans:NUM(l)},{p:`從 ${f} 到 ${l}，每次加 ${n}，一共幾個？（(${l} − ${f}) ÷ ${n} + 1）`,ans:NUM(c,'個')}],ask:'一共有幾個？',ans:NUM(c,'個')};},
+  fix:'倍數：一個數 × 1、× 2、× 3……；判斷是不是倍數就看除了以後有沒有餘數；2、5、10 的倍數看個位。'},
+ {title:'認識因數',sub:'能把一個數整除的數',
+  look:{ex:'12 的因數有哪些？',steps:[
+   {k:'排成長方形',t:'12 個點可以排成 1 × 12、2 × 6、{{3 × 4}}。',v:dotArr(1,12,'1 × 12')+dotArr(2,6,'2 × 6')+dotArr(3,4,'3 × 4')},
+   {k:'成對找因數',t:'乘法裡的數都是 12 的因數：1 和 12、2 和 6、3 和 {{4}}。'},
+   {k:'寫出全部',t:'12 的因數有 1、2、3、4、6、12，一共 {{6}} 個。',v:chips([1,2,3,4,6,12],[1,2,3,4,6,12],'12 的因數')},
+   {k:'判斷是不是因數',t:'12 ÷ 5 有餘數，所以 5 {{不是}} 12 的因數。'}],
+   key:'能把一個數整除（沒有餘數）的數，就是它的因數；用乘法成對找，不會漏掉。'},
+  know:[
+   {q:'下面哪一個是 18 的因數？',opts:['6','4','36'],a:0,why:'18 ÷ 6 = 3，沒有餘數。'},
+   {q:'任何一個數最小的因數是？',opts:['1','0','它自己'],a:0,why:'每個數 ÷ 1 都沒有餘數。'}],
+  gen(g){if(g.int(0,1)===0){const n=g.pick([6,8,10,12,14,15,16,18,20,24,28,30]);const f=factors(n);
+    return{q:`找出 <b>${n}</b> 的因數。`,v:'',steps:[{p:`${n} = 1 × ? 的 ? 是多少？`,ans:NUM(n)},{p:`把 ${n} 寫成兩個數相乘，全部的因數有幾個？`,ans:NUM(f.length,'個'),hint:`成對找：${f.slice(0,Math.ceil(f.length/2)).map(x=>`${x} × ${n/x}`).join('、')}`,vis:chips(f,f,`${n} 的因數`)}],ask:`${n} 的因數有幾個？`,ans:NUM(f.length,'個')};}
+   const n=g.pick([12,15,16,18,20,24,30,36]);const d=g.int(2,9),r=n%d;
+   return{q:`<b>${d}</b> 是不是 <b>${n}</b> 的因數？`,v:'',steps:[{p:`${n} ÷ ${d} 的餘數是？`,ans:NUM(r)},{p:'沒有餘數才是因數。所以？',ans:ch2(['是','不是'],r===0?0:1)}],ask:`${d} 是不是 ${n} 的因數？`,ans:ch2(['是','不是'],r===0?0:1)};},
+  adv(g){const n=g.pick([36,40,42,48,54,60,72]);const f=factors(n);
+   return{q:`<b>${n}</b> 有幾個因數？`,v:'',steps:[{p:`成對找：1 × ${n}、2 × ${n/2}……，一共有幾個因數？`,ans:NUM(f.length,'個'),hint:f.slice(0,Math.ceil(f.length/2)).map(x=>`${x} × ${n/x}`).join('、')}],ask:`${n} 有幾個因數？`,ans:NUM(f.length,'個')};},
+  fix:'因數：能把一個數整除的數；用「1 × □、2 × □……」成對找，找到兩個數碰在一起就停。'},
+ {title:'倍數與因數的關係和應用',sub:'a × b = c：c 是 a 的倍數，a 是 c 的因數',
+  look:{ex:'因為 3 × 4 = 12，可以怎麼說？',steps:[
+   {k:'倍數的說法',t:'12 是 3 的 {{倍數}}，也是 4 的倍數。'},
+   {k:'因數的說法',t:'3 和 4 都是 12 的 {{因數}}。',v:'<div class="formula">3 × 4 ＝ 12</div>'},
+   {k:'生活應用',t:'24 顆糖平分裝袋，每袋一樣多、剛好裝完，每袋可以裝幾顆？找 24 的 {{因數}}。',v:chips([1,2,3,4,6,8,12,24],[1,2,3,4,6,8,12,24],'24 的因數')},
+   {k:'另一種應用',t:'每 3 天澆一次花，第 3、6、9 天會澆 → 這是找 3 的 {{倍數}}。'}],
+   key:'a × b = c：c 是 a、b 的倍數；a、b 是 c 的因數。「平分、剛好分完」找因數；「每隔幾天」找倍數。'},
+  know:[
+   {q:'因為 4 × 5 = 20，下面哪一句對？',opts:['20 是 4 的倍數','4 是 20 的倍數','20 是 4 的因數'],a:0,why:'乘出來的 20 是倍數，4 和 5 是因數。'}],
+  gen(g){const t=g.int(0,2);
+   if(t===0){const a=g.int(2,9),b=g.int(2,9),c=a*b;const ok=g.int(0,1)?`${c} 是 ${a} 的倍數`:`${b} 是 ${c} 的因數`;const fin=ch([ok,`${a} 是 ${c} 的倍數`,`${c} 是 ${b} 的因數`],0,g);
+    return{q:`因為 <b>${a} × ${b} = ${c}</b>：`,v:'',steps:[{p:'哪一句是對的？',ans:fin,hint:'乘出來的數是倍數；拿來乘的數是因數。'}],ask:'哪一句是對的？',ans:fin};}
+   if(t===1){const N=g.pick([12,18,20,24,30,36]);const f=factors(N).filter(x=>x>1&&x<N);const pick3=g.shuffle(f.slice()).slice(0,3);let bad;do{bad=g.int(2,N-1);}while(N%bad===0);
+    const fin=ch([String(bad),...pick3.map(String)],0,g);
+    return{q:`有 <b>${N}</b> 顆糖果，每盒裝一樣多，要剛好裝完。`,v:'',steps:[{p:`${N} ÷ 每盒顆數 要沒有餘數。哪一種每盒顆數<b>不行</b>？`,ans:fin}],ask:'哪一種每盒顆數不行？',ans:fin};}
+   const n=g.int(3,7),X=n*g.int(4,10)+(g.int(0,1)?0:g.int(1,n-1));const yes=X%n===0;
+   return{q:`小美從第 ${n} 天開始，每 <b>${n}</b> 天練一次琴（第 ${n}、${2*n}、${3*n} 天……）。`,v:'',steps:[{p:`第 ${X} 天會練琴嗎？先算 ${X} ÷ ${n} 的餘數：`,ans:NUM(X%n)},{p:`所以第 ${X} 天？`,ans:ch2(['會練琴','不會練琴'],yes?0:1)}],ask:`第 ${X} 天會練琴嗎？`,ans:ch2(['會練琴','不會練琴'],yes?0:1)};},
+  adv(g){const N=g.pick([24,30,36,48]),m=g.pick([2,3,4]);const ways=factors(N).filter(d=>d>m&&d<=N/2);
+   return{q:`<b>${N}</b> 個人排隊，每排人數一樣多，每排要超過 ${m} 人，而且至少排 2 排。`,v:'',steps:[{p:`每排人數要是 ${N} 的因數。${N} 的因數有幾個？`,ans:NUM(factors(N).length,'個')},{p:`去掉 ${m} 和比 ${m} 小的、也去掉 ${N}（只排 1 排），還剩幾種？`,ans:NUM(ways.length,'種'),hint:`可以的每排人數：${ways.join('、')}`}],ask:'一共有幾種排法？',ans:NUM(ways.length,'種')};},
+  fix:'a × b = c 時，c 是倍數、a 和 b 是因數；「平分剛好分完」用因數，「每隔幾天」用倍數。'}
+]},
+{name:'平面圖形',topics:'三角形邊長關係・內角和・四邊形性質・多邊形',glyph:S(120,40,'<path d="M10 34 L50 34 L30 6Z" class="fb st"/><path d="M62 34 L112 34 L102 8 L72 8Z" class="fa st"/>','圖形'),levels:[
+ {title:'三角形的邊長關係',sub:'兩邊加起來要比第三邊長',
+  look:{ex:'3、4、8 公分的吸管，能圍成三角形嗎？',steps:[
+   {k:'找出最長的邊',t:'最長的是 {{8}} 公分。'},
+   {k:'另外兩邊加起來',t:'3 + 4 = {{7}} 公分。'},
+   {k:'比一比',t:'7 比 8 {{小}}，兩根接不起來，不能圍成三角形。',v:sticksV(3,4,8)},
+   {k:'再試 3、4、5',t:'3 + 4 = 7，比 5 大，{{可以}}圍成三角形。',v:sticksV(3,4,5)},
+   {k:'剛好相等也不行',t:'3、4、7：3 + 4 = 7，兩根會平躺在第三根上，{{不能}}圍成。',v:sticksV(3,4,7)}],
+   key:'最短的兩邊加起來，要比最長的邊還長，才能圍成三角形（相等也不行）。'},
+  know:[
+   {q:'2、3、6 公分能圍成三角形嗎？',opts:['不能','能'],a:0,why:'2 + 3 = 5，比 6 小。'},
+   {q:'要檢查哪兩邊相加？',opts:['最短的兩邊','最長的兩邊','隨便兩邊'],a:0,why:'最短的兩邊加起來比最長邊長，就一定可以。'}],
+  gen(g){let a,b,c;const want=g.int(0,1);do{a=g.int(2,9);b=g.int(2,9);c=g.int(3,14);}while((a+b>c&&a+c>b&&b+c>a)!==(want===1));
+   const s=[a,b,c].sort((x,y)=>x-y);const sum=s[0]+s[1],ok=sum>s[2];
+   return{q:`三根吸管長 <b>${a}</b>、<b>${b}</b>、<b>${c}</b> 公分。`,v:'',steps:[{p:'最長的是幾公分？',ans:NUM(s[2],'公分')},{p:`另外兩根加起來：${s[0]} + ${s[1]} = ?`,ans:NUM(sum,'公分')},{p:`${sum} 和 ${s[2]} 比起來？`,ans:ch2(['比較大','一樣','比較小'],sum>s[2]?0:sum===s[2]?1:2),vis:sticksV(a,b,c)}],ask:'能圍成三角形嗎？',ans:ch2(['能','不能'],ok?0:1)};},
+  adv(g){const a=g.int(3,8),b=a+g.int(1,6);const t=g.int(0,1);
+   if(t===0)return{q:`三角形的兩邊是 <b>${a}</b> 和 <b>${b}</b> 公分，第三邊是整數公分。`,v:'',steps:[{p:`第三邊要比 ${a} + ${b} = ? 短`,ans:NUM(a+b)},{p:'所以第三邊最長可以是幾公分？',ans:NUM(a+b-1,'公分')}],ask:'第三邊最長是幾公分？',ans:NUM(a+b-1,'公分',[{a:a+b,m:'剛好相等也不行，要比兩邊和短。'}])};
+   return{q:`三角形的兩邊是 <b>${a}</b> 和 <b>${b}</b> 公分，第三邊是整數公分。`,v:'',steps:[{p:`第三邊加上 ${a} 要比 ${b} 長，所以第三邊要比 ${b} − ${a} = ? 長`,ans:NUM(b-a)},{p:'第三邊最短可以是幾公分？',ans:NUM(b-a+1,'公分')}],ask:'第三邊最短是幾公分？',ans:NUM(b-a+1,'公分')};},
+  fix:'圍三角形：最短兩邊的和要大於最長邊（相等不行）；求第三邊：要比兩邊差大、比兩邊和小。'},
+ {title:'三角形的內角和',sub:'三個角加起來是 180°',
+  look:{ex:'三角形有兩個角是 50° 和 60°，第三個角是幾度？',steps:[
+   {k:'撕下三個角拼一拼',t:'把三角形的三個角撕下來拼在一起，剛好變成一條直線，是 {{180°}}。'},
+   {k:'先加兩個已知的角',t:'50 + 60 = {{110}}。',v:triAngV(50,60,['50°','60°','?'])},
+   {k:'用 180 去減',t:'180 − 110 = {{70}}，第三個角是 70°。',v:triAngV(50,60,['50°','60°','70°'])},
+   {k:'直角三角形',t:'有一個角是 90°，另外兩個角加起來是 {{90°}}。'}],
+   key:'三角形三個內角加起來是 180°；第三個角 = 180 − 另外兩個角。'},
+  know:[
+   {q:'三角形三個內角加起來是？',opts:['180°','360°','90°'],a:0,why:'拼起來是一條直線，180°。'},
+   {q:'一個三角形可以有兩個鈍角嗎？',opts:['不可以','可以'],a:0,why:'兩個鈍角加起來就超過 180° 了。'}],
+  gen(g){let A,B;do{A=g.int(3,10)*10;B=g.int(3,10)*10;}while(A+B>160);const C=180-A-B;
+   return{q:`三角形有兩個角是 <b>${A}°</b> 和 <b>${B}°</b>。`,v:triAngV(A,B,[`${A}°`,`${B}°`,'?']),steps:[{p:`${A} + ${B} = ?`,ans:NUM(A+B)},{p:`180 − ${A+B} = ?`,ans:NUM(C,'度'),vis:triAngV(A,B,[`${A}°`,`${B}°`,`${C}°`])}],ask:'第三個角是幾度？',ans:NUM(C,'度',[{a:360-A-B,m:'360° 是四邊形的內角和，三角形是 180°。'}])};},
+  adv(g){if(g.int(0,1)===0){const top=g.int(2,14)*10;const bs=(180-top)/2;
+    return{q:`等腰三角形的頂角是 <b>${top}°</b>，兩個底角一樣大。`,v:triAngV(bs,bs,['?','?',`${top}°`]),steps:[{p:`兩個底角加起來 = 180 − ${top} = ?`,ans:NUM(180-top)},{p:`一個底角 = ${180-top} ÷ 2 = ?`,ans:NUM(bs,'度')}],ask:'一個底角是幾度？',ans:NUM(bs,'度')};}
+   const a=g.int(2,7)*10;return{q:`直角三角形有一個角是 <b>${a}°</b>。`,v:triAngV(90,a,['90°',`${a}°`,'?']),steps:[{p:'直角是幾度？',ans:NUM(90,'度')},{p:`180 − 90 − ${a} = ?`,ans:NUM(90-a,'度')}],ask:'另一個角是幾度？',ans:NUM(90-a,'度')};},
+  fix:'三角形內角和 180°：先把知道的角加起來，再用 180 去減；直角三角形另外兩角和是 90°。'},
+ {title:'四邊形的性質',sub:'平行四邊形：對邊相等、對角相等',
+  look:{ex:'平行四邊形有一個角是 70°，其他角是幾度？',steps:[
+   {k:'平行四邊形的邊',t:'兩組對邊都平行，而且對邊 {{一樣長}}。',v:quadV('para',{side:['8','5','8','5']})},
+   {k:'對角相等',t:'70° 的對角也是 {{70°}}。',v:quadV('para',{ang:['70°','','70°','']})},
+   {k:'相鄰兩角加起來是 180°',t:'旁邊的角 = 180 − 70 = {{110}} 度。',v:quadV('para',{ang:['70°','110°','70°','110°']})},
+   {k:'四邊形內角和',t:'四邊形可以切成 2 個三角形，內角和是 180 × 2 = {{360}} 度。'},
+   {k:'其他四邊形',t:'長方形、正方形、菱形也是平行四邊形；梯形只有 {{一組}} 對邊平行。',v:quadV('trap')}],
+   key:'平行四邊形：對邊平行且相等、對角相等、相鄰兩角和 180°；四邊形內角和 360°。'},
+  know:[
+   {q:'平行四邊形的對邊？',opts:['平行而且一樣長','只有一組平行','互相垂直'],a:0,why:'平行四邊形兩組對邊都平行，也一樣長。'},
+   {q:'四邊形的內角和是？',opts:['360°','180°','540°'],a:0,why:'切成兩個三角形：180 × 2 = 360。'}],
+  gen(g){const t=g.int(0,3);
+   if(t===0){const a=g.pick([50,60,65,70,75,80,100,110,120,125,130]);const opp=g.int(0,1)===0;
+    return{q:`平行四邊形有一個角是 <b>${a}°</b>。`,v:quadV('para',{ang:[`${a}°`,opp?'':'?',opp?'?':'','']}),steps:opp?[{p:'對角有什麼關係？',ans:ch2(['一樣大','加起來 180°'],0)},{p:'對角是幾度？',ans:NUM(a,'度')}]:[{p:'相鄰兩個角加起來是幾度？',ans:NUM(180,'度')},{p:`180 − ${a} = ?`,ans:NUM(180-a,'度')}],ask:opp?'它的對角是幾度？':'它旁邊的角是幾度？',ans:NUM(opp?a:180-a,'度')};}
+   if(t===1){let A,B,C;do{A=g.int(6,13)*10;B=g.int(6,13)*10;C=g.int(6,13)*10;}while(360-A-B-C<40||360-A-B-C>160);const D=360-A-B-C;
+    return{q:`四邊形有三個角是 <b>${A}°、${B}°、${C}°</b>。`,v:quadV('quad',{ang:[`${A}°`,`${B}°`,`${C}°`,'?']}),steps:[{p:`${A} + ${B} + ${C} = ?`,ans:NUM(A+B+C)},{p:`360 − ${A+B+C} = ?`,ans:NUM(D,'度')}],ask:'第四個角是幾度？',ans:NUM(D,'度',[{a:180-A-B-C,m:'四邊形的內角和是 360°，不是 180°。'}])};}
+   if(t===2){const x=g.int(5,12),y=g.int(3,x-1);return{q:`平行四邊形的兩邊是 <b>${x}</b> 和 <b>${y}</b> 公分。`,v:quadV('para',{side:[`${x}`,`${y}`,'?','?']}),steps:[{p:'對邊一樣長，四條邊是哪四個數？',ans:{type:'multi',parts:[{pre:'',a:x},{pre:'、',a:y},{pre:'、',a:x},{pre:'、',a:y}]}},{p:`周長 = (${x} + ${y}) × 2 = ?`,ans:NUM((x+y)*2,'公分')}],ask:'周長是幾公分？',ans:NUM((x+y)*2,'公分',[{a:x+y,m:'有 4 條邊，要乘 2。'}])};}
+   const items=[['只有一組對邊平行','梯形'],['四個角都是直角，四條邊一樣長','正方形'],['四條邊一樣長，但角不是直角','菱形'],['四個角都是直角，對邊一樣長','長方形']];const [d,nm]=g.pick(items);const fin=ch(['梯形','正方形','菱形','長方形'],['梯形','正方形','菱形','長方形'].indexOf(nm));
+   return{q:`一個四邊形：<b>${d}</b>。`,v:'',steps:[{p:'它是什麼四邊形？',ans:fin}],ask:'它是什麼四邊形？',ans:fin};},
+  adv(g){if(g.int(0,1)===0){const x=g.int(6,14),y=g.int(3,x-1),P=(x+y)*2;
+    return{q:`平行四邊形周長 <b>${P}</b> 公分，一邊是 <b>${x}</b> 公分。`,v:quadV('para',{side:[`${x}`,'?','','']}),steps:[{p:`相鄰兩邊加起來 = ${P} ÷ 2 = ?`,ans:NUM(P/2,'公分')},{p:`另一邊 = ${P/2} − ${x} = ?`,ans:NUM(y,'公分')}],ask:'另一邊是幾公分？',ans:NUM(y,'公分')};}
+   const a=g.int(5,8)*10;return{q:`梯形的上下兩邊平行，左下角是 <b>${a}°</b>，右下角是 <b>${a+20}°</b>。`,v:quadV('trap',{ang:[`${a}°`,`${a+20}°`,'?','?']}),steps:[{p:`左上角 = 180 − ${a} = ?（同一條斜邊上的兩個角加起來 180°）`,ans:NUM(180-a,'度')},{p:`右上角 = 180 − ${a+20} = ?`,ans:NUM(160-a,'度')}],ask:'左上角和右上角各是幾度？',ans:{type:'multi',parts:[{pre:'左上',a:180-a,post:'度'},{pre:'右上',a:160-a,post:'度'}]}};},
+  fix:'平行四邊形對角相等、相鄰兩角和 180°、對邊相等；四邊形內角和 360°。'},
+ {title:'認識多邊形',sub:'幾條邊就叫幾邊形',
+  look:{ex:'下面這個圖形叫什麼？',steps:[
+   {k:'數邊和頂點',t:'有 {{5}} 條邊、5 個頂點。',v:polyV(5)},
+   {k:'幾條邊叫幾邊形',t:'5 條邊叫 {{五邊形}}；6 條邊叫六邊形。',v:polyV(6)},
+   {k:'正多邊形',t:'邊都一樣長、角都一樣大，叫 {{正多邊形}}，像正方形就是正四邊形。'},
+   {k:'正多邊形的周長',t:'正六邊形每邊 3 公分，周長 = 3 × 6 = {{18}} 公分。'},
+   {k:'挑戰：內角和',t:'從一個頂點畫線，五邊形可以切成 3 個三角形，內角和 = 180 × 3 = {{540}} 度。'}],
+   key:'幾條邊就是幾邊形；邊一樣長、角一樣大是正多邊形；正多邊形周長 = 邊長 × 邊數。'},
+  know:[
+   {q:'六邊形有幾個頂點？',opts:['6','5','12'],a:0,why:'幾邊形就有幾個頂點。'},
+   {q:'正方形可以叫做？',opts:['正四邊形','正三角形','五邊形'],a:0,why:'四條邊一樣長、四個角一樣大。'}],
+  gen(g){const t=g.int(0,1);const n=g.int(5,8);
+   if(t===0){const fin=ch2([`${NAMES[n]}邊形`,`${NAMES[n-1]}邊形`,`${NAMES[n+1]||'九'}邊形`],0);
+    return{q:'數一數，這是幾邊形？',v:polyV(n),steps:[{p:'有幾條邊？',ans:NUM(n,'條')},{p:'所以它叫？',ans:fin}],ask:'這是幾邊形？',ans:fin};}
+   const s=g.int(2,9);return{q:`正${NAMES[n]}邊形，每一邊 <b>${s}</b> 公分。`,v:polyV(n,`${s}`),steps:[{p:'有幾條邊？',ans:NUM(n,'條')},{p:`周長 = ${s} × ${n} = ?`,ans:NUM(s*n,'公分')}],ask:'周長是幾公分？',ans:NUM(s*n,'公分')};},
+  adv(g){const n=g.int(5,8);const sum=(n-2)*180;
+   if(g.int(0,1)===0)return{q:`${NAMES[n]}邊形的內角和是幾度？`,v:polyV(n),steps:[{p:`從一個頂點畫線，可以切成幾個三角形？（邊數 − 2）`,ans:NUM(n-2,'個')},{p:`內角和 = 180 × ${n-2} = ?`,ans:NUM(sum,'度')}],ask:'內角和是幾度？',ans:NUM(sum,'度')};
+   const m=g.pick([6,8]);const s=(m-2)*180;return{q:`正${NAMES[m]}邊形每一個角都一樣大。`,v:polyV(m),steps:[{p:'內角和是幾度？',ans:NUM(s,'度')},{p:`一個角 = ${s} ÷ ${m} = ?`,ans:NUM(s/m,'度')}],ask:'一個角是幾度？',ans:NUM(s/m,'度')};},
+  fix:'數邊數就知道是幾邊形；正多邊形周長 = 邊長 × 邊數；內角和 = 180 × (邊數 − 2)。'}
+]},
+{name:'公倍數與公因數',topics:'公倍數・最小公倍數・公因數・最大公因數・應用',glyph:'4、6 → 12',levels:[
+ {title:'公倍數與最小公倍數',sub:'兩個數都有的倍數',
+  look:{ex:'4 和 6 的最小公倍數是多少？',steps:[
+   {k:'列出 6 的倍數',t:'6 的倍數：6、12、18、24……',v:chips([6,12,18,24,30],[],'6 的倍數')},
+   {k:'找也是 4 的倍數的',t:'6 不是 4 的倍數，12 {{是}}。',v:chips([6,12,18,24,30],[12,24],'6 的倍數')+chips([4,8,12,16,20,24],[12,24],'4 的倍數')},
+   {k:'公倍數',t:'兩個數都有的倍數叫公倍數：12、24、36……有 {{無限多}} 個。'},
+   {k:'最小公倍數',t:'最小的那個 {{12}} 叫最小公倍數。'}],
+   key:'列出大數的倍數，找第一個也是小數倍數的，就是最小公倍數。'},
+  know:[
+   {q:'4 和 6 的最小公倍數是？',opts:['12','24','2'],a:0,why:'12 是第一個兩個數都有的倍數。'},
+   {q:'兩個數的公倍數有幾個？',opts:['無限多個','只有 1 個','2 個'],a:0,why:'最小公倍數的倍數都是公倍數。'}],
+  gen(g){const [a,b]=g.pick([[2,3],[3,4],[4,6],[6,8],[3,5],[4,10],[6,9],[2,5],[4,5],[6,10]]);const l=lcm(a,b);const ms=[1,2,3,4,5].map(k=>b*k);
+   const fin=ch2(ms.slice(0,4).map(String),ms.indexOf(l));
+   return{q:`找出 <b>${a}</b> 和 <b>${b}</b> 的最小公倍數。`,v:chips(ms,[],`${b} 的倍數`),steps:[{p:`${b} 的倍數裡，哪一個最先也是 ${a} 的倍數？`,ans:fin,hint:`一個一個除以 ${a}，看有沒有餘數。`,vis:chips(ms,[l],`${b} 的倍數`)}],ask:`${a} 和 ${b} 的最小公倍數是？`,ans:NUM(l,'',[{a:a*b,m:'這是公倍數，但不是最小的。'},{a:gcd(a,b),m:'這是公因數，題目要找公倍數。'}])};},
+  adv(g){const [a,b]=g.pick([[6,8],[8,12],[9,12],[10,15],[12,18],[6,10],[8,10],[12,16]]);const l=lcm(a,b);const t=g.int(0,1);
+   const q=t===0?`公車每 <b>${a}</b> 分鐘一班，捷運每 <b>${b}</b> 分鐘一班，早上 7 點同時出發。`:`用長 <b>${b}</b> 公分、寬 <b>${a}</b> 公分的長方形磁磚，拼成一個最小的正方形。`;
+   return{q,v:'',steps:[{p:'要找最大公因數還是最小公倍數？',ans:ch2(['最小公倍數','最大公因數'],0)},{p:`列出 ${b} 的倍數，找第一個也是 ${a} 的倍數：`,ans:NUM(l)}],ask:t===0?'至少再過幾分鐘會再一起出發？':'正方形的邊長最短是幾公分？',ans:NUM(l,t===0?'分鐘':'公分')};},
+  fix:'最小公倍數：列出大數的倍數（大數 × 1、× 2……），找第一個也能被小數整除的。'},
+ {title:'公因數與最大公因數',sub:'兩個數都有的因數',
+  look:{ex:'12 和 18 的最大公因數是多少？',steps:[
+   {k:'列出 12 的因數',t:'12 的因數：1、2、3、4、6、12。',v:chips([1,2,3,4,6,12],[],'12 的因數')},
+   {k:'列出 18 的因數',t:'18 的因數：1、2、3、6、9、18。',v:chips([1,2,3,4,6,12],[1,2,3,6],'12 的因數')+chips([1,2,3,6,9,18],[1,2,3,6],'18 的因數')},
+   {k:'圈出一樣的',t:'兩個都有的是 1、2、3、6，叫 {{公因數}}。'},
+   {k:'最大的那個',t:'最大的公因數是 {{6}}。'}],
+   key:'列出兩個數的因數，一樣的是公因數，最大的那個是最大公因數。'},
+  know:[
+   {q:'8 和 12 的最大公因數是？',opts:['4','2','24'],a:0,why:'公因數有 1、2、4，最大是 4。'},
+   {q:'任何兩個數一定有的公因數是？',opts:['1','2','0'],a:0,why:'1 是每個數的因數。'}],
+  gen(g){const [a,b]=g.pick([[8,12],[12,18],[6,9],[10,15],[12,16],[9,12],[14,21],[16,24],[6,8],[10,25]]);const G=gcd(a,b);const fa=factors(a),fb=factors(b),com=fa.filter(x=>fb.includes(x));
+   const wrong1=[...com,fa.find(x=>!fb.includes(x))].sort((x,y)=>x-y),wrong2=com.slice(0,-1);
+   const fin=ch([com.join('、'),wrong1.join('、'),wrong2.join('、')],0,g);
+   return{q:`找出 <b>${a}</b> 和 <b>${b}</b> 的最大公因數。`,v:chips(fa,[],`${a} 的因數`)+chips(fb,[],`${b} 的因數`),steps:[{p:'兩個數都有的因數（公因數）是？',ans:fin,vis:chips(fa,com,`${a} 的因數`)+chips(fb,com,`${b} 的因數`)},{p:'最大的公因數是？',ans:NUM(G)}],ask:`${a} 和 ${b} 的最大公因數是？`,ans:NUM(G,'',[{a:lcm(a,b),m:'這是最小公倍數，題目要找公因數。'}])};},
+  adv(g){const [a,b]=g.pick([[24,36],[18,30],[16,40],[20,30],[24,32],[27,36]]);const G=gcd(a,b);const t=g.int(0,1);
+   const q=t===0?`有 <b>${a}</b> 顆糖果和 <b>${b}</b> 塊餅乾，平分給一些小朋友，兩種都剛好分完。`:`長 <b>${b}</b> 公分、寬 <b>${a}</b> 公分的色紙，剪成一樣大的正方形，沒有剩下。`;
+   return{q,v:'',steps:[{p:'要找最大公因數還是最小公倍數？',ans:ch2(['最大公因數','最小公倍數'],0)},{p:`${a} 和 ${b} 的最大公因數是？`,ans:NUM(G),hint:`列出 ${a} 的因數，再看哪些也是 ${b} 的因數。`}],ask:t===0?'最多可以分給幾個人？':'正方形的邊長最長是幾公分？',ans:NUM(G,t===0?'人':'公分')};},
+  fix:'最大公因數：把兩個數的因數都列出來，圈出一樣的，最大的就是。'},
+ {title:'解題與應用',sub:'什麼時候用公倍數？什麼時候用公因數？',
+  look:{ex:'這兩題，一題用最大公因數，一題用最小公倍數，怎麼分？',steps:[
+   {k:'平分、剪成最大',t:'「平分給最多幾人」「剪成最大的正方形」→ 用 {{最大公因數}}。'},
+   {k:'下次一起、拼成最小',t:'「下一次一起出發」「拼成最小的正方形」→ 用 {{最小公倍數}}。'},
+   {k:'想一想答案會變大還是變小',t:'最大公因數比原來的數 {{小}}；最小公倍數比原來的數大。'}],
+   key:'分東西、剪開 → 最大公因數（答案比較小）；等一起、拼起來 → 最小公倍數（答案比較大）。'},
+  know:[
+   {q:'「兩盞燈分別每 4 秒、6 秒閃一次，多久後又一起閃？」用什麼？',opts:['最小公倍數','最大公因數'],a:0,why:'「又一起」→ 公倍數。'}],
+  gen(g){const T=[
+    (a,b)=>({q:`有 ${a} 枝鉛筆和 ${b} 塊橡皮擦，平分給最多幾位同學，兩種都剛好分完？`,t:0,u:'人'}),
+    (a,b)=>({q:`甲每 ${a} 天去一次圖書館，乙每 ${b} 天去一次。今天一起去，至少再過幾天又一起去？`,t:1,u:'天'}),
+    (a,b)=>({q:`把長 ${b} 公分、寬 ${a} 公分的紙剪成一樣大的正方形，沒有剩下，邊長最長幾公分？`,t:0,u:'公分'}),
+    (a,b)=>({q:`兩盞燈分別每 ${a} 秒、${b} 秒閃一次，現在一起閃，至少再過幾秒又一起閃？`,t:1,u:'秒'})];
+   const [a,b]=g.pick([[4,6],[6,8],[8,12],[6,9],[10,15],[12,18],[4,10]]);const w=g.pick(T)(a,b);const ans=w.t===0?gcd(a,b):lcm(a,b);
+   return{q:w.q,v:'',steps:[{p:'要用哪一個？',ans:ch2(['最大公因數','最小公倍數'],w.t)},{p:'算出來是多少？',ans:NUM(ans,w.u),hint:w.t===0?`列出 ${a} 和 ${b} 的因數。`:`列出 ${b} 的倍數，找第一個也是 ${a} 的倍數。`}],ask:'答案是多少？',ans:NUM(ans,w.u,[{a:w.t===0?lcm(a,b):gcd(a,b),m:w.t===0?'平分要用最大公因數。':'「又一起」要用最小公倍數。'}])};},
+  adv(g){const [a,b]=g.pick([[24,36],[18,24],[30,45],[16,24]]);const G=gcd(a,b);
+   return{q:`有 ${a} 顆蘋果和 ${b} 顆橘子，平分給最多幾人，兩種都剛好分完。`,v:'',steps:[{p:'最多幾人？（最大公因數）',ans:NUM(G,'人')},{p:`每人分到幾顆蘋果？${a} ÷ ${G} = ?`,ans:NUM(a/G,'顆')}],ask:'每人分到幾顆蘋果？',ans:NUM(a/G,'顆')};},
+  fix:'先判斷：平分、剪開用最大公因數；一起、拼起來用最小公倍數。再列因數或倍數找答案。'}
+]},
+{name:'立體形體',topics:'面的垂直與平行・角柱與圓柱・角錐與圓錐・球',glyph:S(120,40,'<rect x="8" y="12" width="26" height="24" class="fb st1"/><path d="M8 12 l8 -8 h26 l-8 8Z M34 12 l8 -8 v24 l-8 8Z" class="fp st1"/><path d="M62 36 L78 4 L94 36Z" class="fa st1"/><circle cx="108" cy="22" r="10" class="fc st1"/>','立體'),levels:[
+ {title:'面的垂直與平行',sub:'相對的面平行，相鄰的面垂直',
+  look:{ex:'長方體的「上面」和哪一個面平行？和哪些面垂直？',steps:[
+   {k:'長方體有 6 個面',t:'上、下、前、後、左、右，一共 {{6}} 個面。',v:boxV([])},
+   {k:'相對的面平行',t:'「上面」和 {{下面}} 相對，它們互相平行，永遠不會碰在一起。',v:boxV(['上','下'])},
+   {k:'相鄰的面垂直',t:'「上面」和前、後、左、右都相鄰，和這 {{4}} 個面垂直。',v:boxV(['上','前','右'])},
+   {k:'生活中找一找',t:'教室的地板和天花板 {{平行}}；牆壁和地板垂直。'}],
+   key:'長方體：相對的面互相平行（3 組），相鄰的面互相垂直，每個面和 4 個面垂直。'},
+  know:[
+   {q:'長方體裡，和「前面」平行的是？',opts:['後面','上面','右面'],a:0,why:'前面和後面相對。'},
+   {q:'一個面和幾個面垂直？',opts:['4 個','1 個','5 個'],a:0,why:'除了自己和對面，其他 4 個面都相鄰。'}],
+  gen(g){const t=g.int(0,2);const f=g.pick(FACES);
+   if(t===0){const others=g.shuffle(FACES.filter(x=>x!==f&&x!==OPP[f])).slice(0,2);const fin=ch([OPP[f],...others],0,g);
+    return{q:`長方體的「<b>${f}</b>」。`,v:boxV([fk(f)]),steps:[{p:`和「${f}」相對的面是？（相對的面互相平行）`,ans:fin}],ask:`和「${f}」平行的面是？`,ans:fin};}
+   if(t===1){const adj=g.int(0,1)===0;const f2=adj?g.pick(FACES.filter(x=>x!==f&&x!==OPP[f])):OPP[f];const fin=ch2(['垂直','平行'],adj?0:1);
+    return{q:`長方體的「<b>${f}</b>」和「<b>${f2}</b>」。`,v:boxV([fk(f),fk(f2)]),steps:[{p:'它們是相對還是相鄰？',ans:ch2(['相鄰（碰在一起）','相對（面對面）'],adj?0:1)},{p:'所以是？',ans:fin}],ask:`「${f}」和「${f2}」是平行還是垂直？`,ans:fin};}
+   return{q:`長方體的「<b>${f}</b>」。`,v:boxV([fk(f)]),steps:[{p:`除了「${f}」和「${OPP[f]}」，還剩幾個面？`,ans:NUM(4,'個')}],ask:`和「${f}」垂直的面有幾個？`,ans:NUM(4,'個',[{a:5,m:`「${OPP[f]}」和它平行，不算垂直。`}])};},
+  adv(g){const items=[['教室的地板和天花板','平行'],['黑板所在的牆和地板','垂直'],['書桌的桌面和地板','平行'],['門和地板','垂直'],['左右兩面牆','平行']];const [d,ans]=g.pick(items);
+   if(g.int(0,1)===0)return{q:'長方體一共有幾組互相平行的面？',v:boxV([]),steps:[{p:'上下一組、前後一組、左右一組，共幾組？',ans:NUM(3,'組')}],ask:'幾組？',ans:NUM(3,'組',[{a:6,m:'兩個面才算一組。'}])};
+   return{q:`生活中：<b>${d}</b>。`,v:'',steps:[{p:'它們會碰在一起嗎？',ans:ch2(['會，碰在一條邊上','不會，面對面'],ans==='垂直'?0:1)}],ask:'它們是平行還是垂直？',ans:ch2(['垂直','平行'],ans==='垂直'?0:1)};},
+  fix:'長方體相對的面平行、相鄰的面垂直；每個面和 4 個面垂直，和 1 個面平行，共 3 組平行的面。'},
+ {title:'角柱與圓柱',sub:'兩個一樣的底面，互相平行',
+  look:{ex:'三角柱有幾個頂點、幾條邊、幾個面？',steps:[
+   {k:'看底面',t:'上下兩個底面一樣大、互相平行，底面是 {{三角形}}，所以叫三角柱。',v:prismV(3)},
+   {k:'數頂點',t:'一個底面 3 個頂點，兩個底面共 3 × 2 = {{6}} 個。'},
+   {k:'數邊',t:'兩個底面 3 × 2 = 6 條，再加中間 3 條側邊，共 {{9}} 條。'},
+   {k:'數面',t:'2 個底面 + 3 個長方形側面 = {{5}} 個面。'},
+   {k:'圓柱',t:'底面是圓形，側面是彎彎的 {{曲面}}，攤開是長方形。',v:cylinderV()}],
+   key:'□角柱：頂點 □ × 2、邊 □ × 3、面 □ + 2；側面是長方形並和底面垂直。圓柱的底面是圓、側面是曲面。'},
+  know:[
+   {q:'四角柱的底面是什麼形狀？',opts:['四邊形','三角形','圓形'],a:0,why:'底面是幾邊形就叫幾角柱。'},
+   {q:'圓柱的側面攤開是？',opts:['長方形','圓形','三角形'],a:0,why:'把曲面剪開攤平是長方形。'}],
+  gen(g){const n=g.int(3,6),t=g.int(0,2);const nm=`${NAMES[n]}角柱`;
+   if(t===0)return{q:`<b>${nm}</b>有幾個頂點？`,v:prismV(n),steps:[{p:'一個底面有幾個頂點？',ans:NUM(n,'個')},{p:`兩個底面：${n} × 2 = ?`,ans:NUM(2*n,'個')}],ask:`${nm}有幾個頂點？`,ans:NUM(2*n,'個')};
+   if(t===1)return{q:`<b>${nm}</b>有幾條邊？`,v:prismV(n),steps:[{p:`兩個底面的邊：${n} × 2 = ?`,ans:NUM(2*n,'條')},{p:`再加側邊 ${n} 條，共？`,ans:NUM(3*n,'條')}],ask:`${nm}有幾條邊？`,ans:NUM(3*n,'條',[{a:2*n,m:'還要加上中間的側邊。'}])};
+   return{q:`<b>${nm}</b>有幾個面？`,v:prismV(n),steps:[{p:'底面有幾個？',ans:NUM(2,'個')},{p:`側面有 ${n} 個，共 2 + ${n} = ?`,ans:NUM(n+2,'個')}],ask:`${nm}有幾個面？`,ans:NUM(n+2,'個')};},
+  adv(g){const n=g.int(3,8);
+   if(g.int(0,1)===0)return{q:`一個角柱有 <b>${3*n}</b> 條邊。`,v:'',steps:[{p:`角柱的邊數 = 底面邊數 × 3。底面邊數 = ${3*n} ÷ 3 = ?`,ans:NUM(n)}],ask:'它是幾角柱？',ans:ch2([`${NAMES[n]}角柱`,`${NAMES[n+1]||'九'}角柱`,`${NAMES[n-1]||'二'}角柱`],0)};
+   return{q:`一個角柱有 <b>${2*n}</b> 個頂點。`,v:'',steps:[{p:`頂點數 = 底面邊數 × 2，底面邊數 = ?`,ans:NUM(n)},{p:`它有幾個面？${n} + 2 = ?`,ans:NUM(n+2,'個')}],ask:'它有幾個面？',ans:NUM(n+2,'個')};},
+  fix:'□角柱：頂點 = □ × 2、邊 = □ × 3、面 = □ + 2；反過來由邊數 ÷ 3、頂點數 ÷ 2 找出底面邊數。'},
+ {title:'角錐與圓錐',sub:'一個底面，尖尖的頂點',
+  look:{ex:'四角錐有幾個頂點、幾條邊、幾個面？',steps:[
+   {k:'看底面',t:'只有 1 個底面，是 {{四邊形}}；側面是三角形，在上面碰在一點。',v:pyramidV(4)},
+   {k:'數頂點',t:'底面 4 個 + 上面尖尖的 1 個 = {{5}} 個。'},
+   {k:'數邊',t:'底面 4 條 + 往上的 4 條 = {{8}} 條。'},
+   {k:'數面',t:'1 個底面 + 4 個三角形側面 = {{5}} 個面。'},
+   {k:'圓錐和比較',t:'圓錐底面是圓，側面是曲面。角柱的側面和底面垂直，錐體的側面和底面 {{不垂直}}。',v:coneV()}],
+   key:'□角錐：頂點 □ + 1、邊 □ × 2、面 □ + 1；圓錐底面是圓、只有一個頂點。'},
+  know:[
+   {q:'三角錐有幾個面？',opts:['4 個','5 個','3 個'],a:0,why:'1 個底面 + 3 個側面。'},
+   {q:'角錐的側面是什麼形狀？',opts:['三角形','長方形','圓形'],a:0,why:'側面都在頂點碰在一起，是三角形。'}],
+  gen(g){const n=g.int(3,6),t=g.int(0,2);const nm=`${NAMES[n]}角錐`;
+   if(t===0)return{q:`<b>${nm}</b>有幾個頂點？`,v:pyramidV(n),steps:[{p:'底面有幾個頂點？',ans:NUM(n,'個')},{p:'再加上尖尖的 1 個，共？',ans:NUM(n+1,'個')}],ask:`${nm}有幾個頂點？`,ans:NUM(n+1,'個',[{a:2*n,m:'角錐只有一個底面，不是角柱。'}])};
+   if(t===1)return{q:`<b>${nm}</b>有幾條邊？`,v:pyramidV(n),steps:[{p:'底面有幾條邊？',ans:NUM(n,'條')},{p:`往上的側邊也有 ${n} 條，共？`,ans:NUM(2*n,'條')}],ask:`${nm}有幾條邊？`,ans:NUM(2*n,'條')};
+   return{q:`<b>${nm}</b>有幾個面？`,v:pyramidV(n),steps:[{p:'底面有幾個？',ans:NUM(1,'個')},{p:`側面有 ${n} 個，共？`,ans:NUM(n+1,'個')}],ask:`${nm}有幾個面？`,ans:NUM(n+1,'個')};},
+  adv(g){const n=g.int(4,8);
+   if(g.int(0,1)===0)return{q:`一個角錐有 <b>${2*n}</b> 條邊。`,v:'',steps:[{p:`角錐的邊數 = 底面邊數 × 2，底面邊數 = ?`,ans:NUM(n)},{p:'它有幾個頂點？',ans:NUM(n+1,'個')}],ask:'它有幾個頂點？',ans:NUM(n+1,'個')};
+   return{q:`${NAMES[n]}角柱和${NAMES[n]}角錐的頂點數差多少？`,v:prismV(n)+pyramidV(n),steps:[{p:'角柱有幾個頂點？',ans:NUM(2*n,'個')},{p:'角錐有幾個頂點？',ans:NUM(n+1,'個')},{p:'相差多少？',ans:NUM(n-1,'個')}],ask:'相差幾個？',ans:NUM(n-1,'個')};},
+  fix:'□角錐：頂點 = □ + 1、邊 = □ × 2、面 = □ + 1；角錐只有一個底面。'},
+ {title:'認識球',sub:'從哪裡看都是圓',
+  look:{ex:'球有什麼特別的地方？',steps:[
+   {k:'球面',t:'球的表面是彎彎的 {{曲面}}，沒有邊、也沒有頂點。',v:sphereV()},
+   {k:'球心和半徑',t:'球的正中心叫球心；球心到球面的距離叫 {{半徑}}。',v:sphereV('半徑')},
+   {k:'直徑',t:'直徑 = 半徑 × {{2}}。'},
+   {k:'切開來看',t:'球不管怎麼切，切面都是 {{圓形}}；切過球心的切面最大。'}],
+   key:'球從各方向看都是圓；直徑 = 半徑 × 2；切面都是圓，切過球心的最大。'},
+  know:[
+   {q:'球從各個方向看都是？',opts:['圓形','長方形','三角形'],a:0,why:'球的每一個方向都一樣圓。'},
+   {q:'球的直徑是半徑的幾倍？',opts:['2 倍','3 倍','一樣長'],a:0,why:'直徑穿過球心，是兩條半徑。'}],
+  gen(g){const t=g.int(0,2);
+   if(t===0){const r=g.int(2,15);const toD=g.int(0,1)===0;return{q:toD?`球的半徑是 <b>${r}</b> 公分。`:`球的直徑是 <b>${2*r}</b> 公分。`,v:sphereV(toD?`${r}`:''),steps:[{p:toD?`直徑 = ${r} × 2 = ?`:`半徑 = ${2*r} ÷ 2 = ?`,ans:NUM(toD?2*r:r,'公分')}],ask:toD?'直徑是幾公分？':'半徑是幾公分？',ans:NUM(toD?2*r:r,'公分')};}
+   if(t===1){const items=[['籃球','球'],['罐頭','圓柱'],['甜筒','圓錐'],['面紙盒','長方體']];const [o,ans]=g.pick(items);const fin=ch(['球','圓柱','圓錐','長方體'],['球','圓柱','圓錐','長方體'].indexOf(ans),g);
+    return{q:`<b>${o}</b>的形狀最像哪一種立體？`,v:'',steps:[{p:'選一選：',ans:fin}],ask:`${o}最像？`,ans:fin};}
+   const d=g.pick([4,5,6,8,10]),k=g.int(3,8);return{q:`長 <b>${d*k}</b> 公分的盒子，放直徑 <b>${d}</b> 公分的球排成一排，剛好放滿。`,v:'',steps:[{p:`${d*k} ÷ ${d} = ?`,ans:NUM(k,'顆')}],ask:'可以放幾顆？',ans:NUM(k,'顆',[{a:d*k/(d/2),m:'要用直徑，不是半徑。'}])};},
+  adv(g){const d=g.pick([4,5,6]),a=g.int(3,6),b=g.int(2,4);
+   if(g.int(0,1)===0)return{q:`盒子長 <b>${a*d}</b> 公分、寬 <b>${b*d}</b> 公分，放半徑 <b>${d/2}</b> 公分的球，只放一層，剛好放滿。`,v:'',steps:[{p:'球的直徑是幾公分？',ans:NUM(d,'公分')},{p:`長可以放 ${a*d} ÷ ${d} = ? 顆`,ans:NUM(a,'顆')},{p:`寬可以放 ${b*d} ÷ ${d} = ? 顆`,ans:NUM(b,'顆')},{p:`共 ${a} × ${b} = ?`,ans:NUM(a*b,'顆')}],ask:'一共可以放幾顆？',ans:NUM(a*b,'顆')};
+   const n=g.int(3,5);return{q:`圓柱形的球筒剛好裝 <b>${n}</b> 顆直徑 <b>${d}</b> 公分的網球。`,v:'',steps:[{p:`筒子的高 = ${d} × ${n} = ?`,ans:NUM(d*n,'公分')}],ask:'球筒高幾公分？',ans:NUM(d*n,'公分')};},
+  fix:'球：直徑 = 半徑 × 2；排球的問題用「長度 ÷ 直徑」。'}
+]},
+
+{name:'整數四則運算',topics:'三步驟併式・分配律・連除・平均',glyph:'(12 × 3 − 8) ÷ 4',levels:[
+ {title:'三步驟的併式與逐步求解',sub:'先括號、再乘除、後加減',
+  look:{ex:'一盒 12 顆，買 3 盒，吃掉 8 顆，剩下的平分給 4 人，每人幾顆？',steps:[
+   {k:'寫成一個算式（併式）',t:'先算全部、再減、最後平分：{{(12 × 3 − 8) ÷ 4}}。',v:EQ('(12 × 3 − 8) ÷ 4')},
+   {k:'先算括號裡的乘法',t:'括號裡先乘：12 × 3 = {{36}}。',v:EQ('(<mark>12 × 3</mark> − 8) ÷ 4')},
+   {k:'再算括號裡的減法',t:'36 − 8 = {{28}}。',v:EQ('(36 − 8) ÷ 4 = 28 ÷ 4')},
+   {k:'最後除',t:'28 ÷ 4 = {{7}}，每人 7 顆。'},
+   {k:'記住順序',t:'有括號先算 {{括號}}；沒有括號先乘除、後加減；同一級從左到右。'}],
+   key:'先算括號裡面，再算乘除，最後算加減；一步一步寫出來。'},
+  know:[
+   {q:'20 − 4 × 3，要先算什麼？',opts:['4 × 3','20 − 4'],a:0,why:'先乘除、後加減。'},
+   {q:'有括號的算式要先算？',opts:['括號裡面','最左邊','最右邊'],a:0,why:'括號裡的要最先算。'}],
+  gen(g){const t=g.int(0,3);
+   if(t===0){const a=g.int(10,50),b=g.int(2,9),c=g.int(2,9),d=g.int(1,a);const r=a+b*c-d;
+    return{q:`${a} + ${b} × ${c} − ${d} = ?`,v:'',steps:[{p:'先算哪一個？',ans:ch2([`${b} × ${c}`,`${a} + ${b}`,`${c} − ${d}`],0)},{p:`${b} × ${c} = ?`,ans:NUM(b*c)},{p:`${a} + ${b*c} = ?`,ans:NUM(a+b*c)},{p:`${a+b*c} − ${d} = ?`,ans:NUM(r)}],ask:`${a} + ${b} × ${c} − ${d} = ?`,ans:NUM(r,'',[{a:(a+b)*c-d,m:'要先乘，不能先把前面加起來。'}])};}
+   if(t===1){const b=g.int(2,9),a=b+g.int(2,9),c=g.int(2,9),d=g.int(2,20);const r=(a-b)*c+d;
+    return{q:`(${a} − ${b}) × ${c} + ${d} = ?`,v:'',steps:[{p:'先算哪一個？',ans:ch2([`${a} − ${b}`,`${b} × ${c}`,`${c} + ${d}`],0)},{p:`${a} − ${b} = ?`,ans:NUM(a-b)},{p:`${a-b} × ${c} = ?`,ans:NUM((a-b)*c)},{p:`${(a-b)*c} + ${d} = ?`,ans:NUM(r)}],ask:`(${a} − ${b}) × ${c} + ${d} = ?`,ans:NUM(r)};}
+   if(t===2){const a=g.int(3,9),b=g.int(3,9),d=g.int(2,6),c=d*g.int(1,Math.max(1,Math.floor(a*b/d)));const r=a*b-c/d;
+    return{q:`${a} × ${b} − ${c} ÷ ${d} = ?`,v:'',steps:[{p:`${a} × ${b} = ?`,ans:NUM(a*b)},{p:`${c} ÷ ${d} = ?`,ans:NUM(c/d)},{p:`${a*b} − ${c/d} = ?`,ans:NUM(r)}],ask:`${a} × ${b} − ${c} ÷ ${d} = ?`,ans:NUM(r)};}
+   const p=g.int(6,15),n=g.int(2,5),e=g.int(1,p*n-1),k=g.pick([2,3,4,5]);const tot=p*n-e;if(tot%k)return this.gen(g);
+   const fin=ch([`(${p} × ${n} − ${e}) ÷ ${k}`,`${p} × ${n} − ${e} ÷ ${k}`,`${p} × (${n} − ${e}) ÷ ${k}`],0,g);
+   return{q:`一盒 ${p} 顆，買 ${n} 盒，吃掉 ${e} 顆，剩下的平分給 ${k} 人。`,v:'',steps:[{p:'哪一個併式對？',ans:fin},{p:`${p} × ${n} = ?`,ans:NUM(p*n)},{p:`${p*n} − ${e} = ?`,ans:NUM(tot)},{p:`${tot} ÷ ${k} = ?`,ans:NUM(tot/k,'顆')}],ask:'每人分到幾顆？',ans:NUM(tot/k,'顆')};},
+  adv(g){const pr=g.int(15,45),n=g.int(3,6),pay=Math.ceil(pr*n/100)*100+g.pick([0,100]);const k=g.int(2,4),extra=g.int(10,40);const tot=pr*n+extra*k;
+   if(g.int(0,1)===0){const fin=ch([`${pay} − ${pr} × ${n}`,`(${pay} − ${pr}) × ${n}`,`${pay} − ${pr} + ${n}`],0,g);
+    return{q:`一枝筆 ${pr} 元，買 ${n} 枝，付 ${pay} 元。`,v:'',steps:[{p:'哪一個併式對？',ans:fin},{p:`${pr} × ${n} = ?`,ans:NUM(pr*n,'元')},{p:`${pay} − ${pr*n} = ?`,ans:NUM(pay-pr*n,'元')}],ask:'要找回多少元？',ans:NUM(pay-pr*n,'元')};}
+   return{q:`一個便當 ${pr} 元，買 ${n} 個；一瓶飲料 ${extra} 元，買 ${k} 瓶。`,v:'',steps:[{p:'併式是？',ans:ch([`${pr} × ${n} + ${extra} × ${k}`,`(${pr} + ${extra}) × ${n} × ${k}`,`${pr} × ${n} × ${extra} × ${k}`],0,g)},{p:`${pr} × ${n} = ?`,ans:NUM(pr*n)},{p:`${extra} × ${k} = ?`,ans:NUM(extra*k)},{p:'加起來 = ?',ans:NUM(tot,'元')}],ask:'一共要付多少元？',ans:NUM(tot,'元')};},
+  fix:'先括號、再乘除、後加減；應用題先寫出一個併式，再一步一步算。'},
+ {title:'分配律',sub:'(a + b) × c = a × c + b × c',
+  look:{ex:'6 × 13 可以怎麼算比較快？',steps:[
+   {k:'把 13 拆開',t:'13 = 10 + {{3}}。',v:rectSplitV(6,10,3)},
+   {k:'分開乘',t:'6 × 10 = 60，6 × 3 = {{18}}。'},
+   {k:'再加起來',t:'60 + 18 = {{78}}，所以 6 × 13 = 78。',v:'<div class="formula">6 × (10 + 3) ＝ 6 × 10 ＋ 6 × 3</div>'},
+   {k:'反過來用',t:'25 × 4 + 25 × 6 = 25 × (4 + 6) = 25 × 10 = {{250}}。'},
+   {k:'湊整數',t:'99 × 7 = 100 × 7 − 1 × 7 = 700 − 7 = {{693}}。'}],
+   key:'(a + b) × c = a × c + b × c；看到「一樣的數乘兩次」可以合起來，看到 99、101 可以拆成 100 ± 1。'},
+  know:[
+   {q:'6 × 13 = 6 × 10 + 6 × ?',opts:['3','13','10'],a:0,why:'13 = 10 + 3。'},
+   {q:'(5 + 7) × 4 = 5 × 4 + ?',opts:['7 × 4','7','5 × 7'],a:0,why:'括號裡的每個數都要乘 4。'}],
+  gen(g){const t=g.int(0,1);
+   if(t===0){const c=g.int(3,9),u=g.int(1,9);const n=10+u;
+    return{q:`用分配律算 <b>${c} × ${n}</b>。`,v:rectSplitV(c,10,u),steps:[{p:`${n} = 10 + ?`,ans:NUM(u)},{p:`${c} × 10 = ?，${c} × ${u} = ?`,ans:{type:'multi',parts:[{pre:`${c} × 10 =`,a:c*10},{pre:`${c} × ${u} =`,a:c*u}]}},{p:`加起來 = ?`,ans:NUM(c*n)}],ask:`${c} × ${n} = ?`,ans:NUM(c*n)};}
+   const k=g.pick([15,25,32,45,48,64]),m=g.int(2,8),n=10-m;const fin=ch([`${k} × (${m} + ${n})`,`(${k} + ${m}) × ${n}`,`${k} × ${m} × ${n}`],0,g);
+   return{q:`用簡單的方法算 <b>${k} × ${m} + ${k} × ${n}</b>。`,v:'',steps:[{p:'可以改成哪一個？',ans:fin},{p:`${m} + ${n} = ?`,ans:NUM(10)},{p:`${k} × 10 = ?`,ans:NUM(k*10)}],ask:`${k} × ${m} + ${k} × ${n} = ?`,ans:NUM(k*10)};},
+  adv(g){const k=g.int(3,9);const t=g.pick([99,101,98,102]);const d=t-100;const r=t*k;
+   return{q:`用分配律算 <b>${t} × ${k}</b>。`,v:'',steps:[{p:`${t} = 100 ${d>0?'+':'−'} ?`,ans:NUM(Math.abs(d))},{p:`100 × ${k} = ?`,ans:NUM(100*k)},{p:`${Math.abs(d)} × ${k} = ?`,ans:NUM(Math.abs(d)*k)},{p:`${100*k} ${d>0?'+':'−'} ${Math.abs(d)*k} = ?`,ans:NUM(r)}],ask:`${t} × ${k} = ?`,ans:NUM(r)};},
+  fix:'分配律：(a + b) × c = a × c + b × c；拆成整十、整百比較好算，一樣的乘數可以合起來。'},
+ {title:'連除的計算',sub:'連除兩個數 = 除以兩數的積',
+  look:{ex:'120 顆糖平分給 4 班，每班再平分給 5 組，每組幾顆？',steps:[
+   {k:'一步一步算',t:'120 ÷ 4 = 30，30 ÷ 5 = {{6}}。',v:EQ('120 ÷ 4 ÷ 5')},
+   {k:'一共分成幾份',t:'4 班 × 5 組 = {{20}} 組。'},
+   {k:'一次除',t:'120 ÷ 20 = {{6}}，答案一樣！',v:'<div class="formula">120 ÷ 4 ÷ 5 ＝ 120 ÷ (4 × 5)</div>'}],
+   key:'連除兩個數，等於除以這兩個數的積：a ÷ b ÷ c = a ÷ (b × c)。'},
+  know:[
+   {q:'60 ÷ 3 ÷ 4 = 60 ÷ ?',opts:['12','7','1'],a:0,why:'3 × 4 = 12。'}],
+  gen(g){const a=g.int(2,6),b=g.int(2,6),q=g.int(2,12),N=a*b*q;
+   return{q:`${N} 顆糖平分給 ${a} 班，每班再平分給 ${b} 組。`,v:'',steps:[{p:'連除兩個數，可以改成？',ans:ch([`${N} ÷ (${a} × ${b})`,`${N} ÷ (${a} + ${b})`,`${N} × ${a} ÷ ${b}`],0,g)},{p:`${a} × ${b} = ?`,ans:NUM(a*b)},{p:`${N} ÷ ${a*b} = ?`,ans:NUM(q,'顆')}],ask:'每組分到幾顆？',ans:NUM(q,'顆',[{a:N/(a+b),m:`${a} 和 ${b} 要相乘，不是相加。`}])};},
+  adv(g){const c=g.pick([12,15,18,24]),x=c*g.int(2,5),k=g.pick([25,50,125]);const r=x/c*k;
+   return{q:`用簡單的方法算 <b>${x} × ${k} ÷ ${c}</b>。`,v:'',steps:[{p:'先除再乘，答案一樣。先算哪一個比較好算？',ans:ch2([`${x} ÷ ${c}`,`${x} × ${k}`],0)},{p:`${x} ÷ ${c} = ?`,ans:NUM(x/c)},{p:`${x/c} × ${k} = ?`,ans:NUM(r)}],ask:`${x} × ${k} ÷ ${c} = ?`,ans:NUM(r)};},
+  fix:'a ÷ b ÷ c = a ÷ (b × c)；乘除混合時，先除再乘或先乘再除答案一樣，選好算的先做。'},
+ {title:'平均問題',sub:'平均 = 總數 ÷ 個數',
+  look:{ex:'小華 3 天分別存了 20、30、40 元，平均每天存多少元？',steps:[
+   {k:'移多補少',t:'把 40 元拿 10 元給 20 元，三天都變成 {{30}} 元。',v:avgBarsV([20,30,40])},
+   {k:'先算總數',t:'20 + 30 + 40 = {{90}} 元。'},
+   {k:'除以個數',t:'90 ÷ 3 = {{30}} 元，平均每天 30 元。',v:avgBarsV([20,30,40],30)},
+   {k:'反過來',t:'平均 30 元、存了 3 天，總數 = 30 × 3 = {{90}} 元。'}],
+   key:'平均 = 總數 ÷ 個數；總數 = 平均 × 個數。'},
+  know:[
+   {q:'平均怎麼算？',opts:['總數 ÷ 個數','總數 × 個數','最大 − 最小'],a:0,why:'把總數平分給每一個。'}],
+  gen(g){const n=g.int(3,5),m=g.int(5,20)*(g.int(0,1)?1:2);let devs;do{devs=Array.from({length:n-1},()=>g.int(-4,4));}while(Math.abs(devs.reduce((a,b)=>a+b,0))>4);devs.push(-devs.reduce((a,b)=>a+b,0));
+   const vals=devs.map(d=>m+d*2);if(vals.some(v=>v<=0))return this.gen(g);const tot=vals.reduce((a,b)=>a+b,0);
+   return{q:`${n} 位同學的跳繩次數是 ${vals.join('、')} 下。`,v:avgBarsV(vals),steps:[{p:'總數 = ?',ans:NUM(tot,'下')},{p:`${tot} ÷ ${n} = ?`,ans:NUM(m,'下'),vis:avgBarsV(vals,m)}],ask:'平均每人跳幾下？',ans:NUM(m,'下',[{a:tot,m:'這是總數，還要除以人數。'}])};},
+  adv(g){const n=g.int(3,4),m=g.int(78,90);const known=Array.from({length:n},()=>m+g.int(-8,8));const last=m*(n+1)-known.reduce((a,b)=>a+b,0);if(last>100||last<50)return this.adv(g);
+   return{q:`${n+1} 次考試平均 <b>${m}</b> 分，前 ${n} 次是 ${known.join('、')} 分。`,v:'',steps:[{p:`${n+1} 次的總分 = ${m} × ${n+1} = ?`,ans:NUM(m*(n+1),'分')},{p:`前 ${n} 次加起來 = ?`,ans:NUM(known.reduce((a,b)=>a+b,0),'分')},{p:'第 '+(n+1)+' 次 = 總分 − 前面的和 = ?',ans:NUM(last,'分')}],ask:`第 ${n+1} 次考幾分？`,ans:NUM(last,'分')};},
+  fix:'平均 = 總數 ÷ 個數；求缺少的數：先用「平均 × 個數」算總數，再減去已知的。'}
+]},
+{name:'擴、約分與加減',topics:'擴分與約分・通分與大小比較・異分母加減',glyph:F(1,2)+' + '+F(1,3),levels:[
+ {title:'擴分與約分',sub:'分子分母同乘或同除，大小不變',
+  look:{ex:F(1,2)+' 和 '+F(2,4)+'、'+F(3,6)+' 一樣大嗎？',steps:[
+   {k:'看分數條',t:'三條塗色的長度 {{一樣長}}，它們一樣大，叫等值分數。',v:fracBar(1,2,{w:300})+fracBar(2,4,{w:300})+fracBar(3,6,{w:300})},
+   {k:'擴分',t:'分子分母同時乘 2：'+F(1,2)+' = {{'+F(2,4)+'}}，這叫擴分。'},
+   {k:'約分',t:'分子分母同時除以 3：'+F(6,9)+' = {{'+F(2,3)+'}}，這叫約分。'},
+   {k:'最簡分數',t:'約到分子分母只剩公因數 1，叫 {{最簡分數}}。'}],
+   key:'擴分：分子分母同乘；約分：分子分母同除；大小都不變。'},
+  know:[
+   {q:F(2,3)+' 擴分成分母 12 是？',opts:[F(8,12),F(2,12),F(6,12)],a:0,why:'分母 × 4，分子也 × 4。'},
+   {q:'約分要怎麼做？',opts:['分子分母同除以一個數','只除分子','分子減分母'],a:0,why:'同除，大小才不變。'}],
+  gen(g){if(g.int(0,1)===0){const [a,b]=g.pick([[1,2],[1,3],[2,3],[1,4],[3,4],[2,5],[3,5],[1,6],[5,6]]);const k=g.int(2,6);
+    return{q:`把 ${F(a,b)} 擴分成分母是 <b>${b*k}</b> 的分數。`,v:'',steps:[{p:`分母 ${b} 變成 ${b*k}，乘了幾？`,ans:NUM(k)},{p:`分子也要乘 ${k}：`,ans:{type:'multi',parts:[{pre:`${F(a,b)} =`,a:a*k,den:b*k}]}}],ask:`${F(a,b)} = ? / ${b*k}`,ans:{type:'multi',parts:[{pre:`${F(a,b)} =`,a:a*k,den:b*k}]}};}
+   return simpGen(g,[[1,2],[1,3],[2,3],[3,4],[2,5],[3,5],[4,5],[5,6]],[2,3,4,5]);},
+  adv(g){if(g.int(0,1)===0)return simpGen(g,[[5,7],[4,9],[7,8],[5,9],[7,10],[3,10],[5,12]],[3,4,6]);
+   const [a,b]=g.pick([[2,3],[3,4],[3,5],[4,5],[5,6]]);const k1=g.int(2,4),k2=k1+g.int(1,3);
+   return{q:`${F(a,b)} = ${F(a*k1,'□')} = ${F('○',b*k2)}`,v:'',steps:[{p:`分子 ${a} 變成 ${a*k1}，□ = ${b} × ${k1} = ?`,ans:NUM(b*k1)},{p:`分母 ${b} 變成 ${b*k2}，○ = ${a} × ${k2} = ?`,ans:NUM(a*k2)}],ask:'□ 和 ○ 各是多少？',ans:{type:'multi',parts:[{pre:'□ =',a:b*k1},{pre:'○ =',a:a*k2}]}};},
+  fix:'擴分是分子分母同乘一個數，約分是同除一個數；看分母（或分子）乘了幾倍，另一個也乘一樣的。'},
+ {title:'通分與分數大小比較',sub:'分母變一樣，再比分子',
+  look:{ex:F(2,3)+' 和 '+F(3,4)+'，哪一個比較大？',steps:[
+   {k:'分母不一樣',t:'分母 3 和 4 不一樣，要先 {{通分}}。'},
+   {k:'找公分母',t:'3 和 4 的最小公倍數是 {{12}}。'},
+   {k:'通分',t:F(2,3)+' = '+F(8,12)+'，'+F(3,4)+' = {{'+F(9,12)+'}}。',v:fracBar(8,12,{w:300,label:'8/12'})+fracBar(9,12,{w:300,label:'9/12'})},
+   {k:'比分子',t:'8 < 9，所以 '+F(2,3)+' {{<}} '+F(3,4)+'。'}],
+   key:'通分（分母變成一樣）以後，分子大的分數比較大。'},
+  know:[
+   {q:'比較 '+F(1,2)+' 和 '+F(2,5)+'，可以通分成分母？',opts:['10','7','3'],a:0,why:'2 和 5 的公倍數 10。'}],
+  gen(g){const {d1,d2,a1,a2,L,n1,n2}=fracCompare(g,[[2,3],[2,5],[3,4],[2,4],[3,6],[4,8],[2,6],[3,5],[4,6],[5,10],[4,5]]);const s=n1>n2?0:n1<n2?1:2;
+   return{q:`比較 ${F(a1,d1)} 和 ${F(a2,d2)} 的大小。`,v:'',steps:[{p:`${d1} 和 ${d2} 的公分母（最小公倍數）是？`,ans:NUM(L)},{p:'通分：',ans:{type:'multi',parts:[{pre:`${F(a1,d1)} =`,a:n1,den:L},{pre:`${F(a2,d2)} =`,a:n2,den:L}]}},{p:`比較分子 ${n1} 和 ${n2}：`,ans:ch2(['＞','＜','＝'],s)}],ask:`${F(a1,d1)} ○ ${F(a2,d2)}，○ 填什麼？`,ans:ch2(['＞','＜','＝'],s)};},
+  adv(g){const L=g.pick([12,24]);const ds=L===12?[2,3,4,6,12]:[3,4,6,8,12];let fr;do{fr=g.shuffle(ds.slice()).slice(0,3).map(d=>{const a=g.int(1,d-1);return[a,d];}).filter(([a,d])=>gcd(a,d)===1);}while(fr.length<3||new Set(fr.map(([a,d])=>a*L/d)).size<3);
+   const vals=fr.map(([a,d])=>a*L/d);const big=vals.indexOf(Math.max(...vals));const fin=ch2(fr.map(([a,d])=>F(a,d)),big);
+   return{q:`${fr.map(([a,d])=>F(a,d)).join('、')}，哪一個最大？`,v:'',steps:[{p:`都通分成分母 ${L}，分子分別是？`,ans:{type:'multi',parts:fr.map(([a,d],i)=>({pre:i?'、':'',a:a*L/d}))}},{p:'哪一個最大？',ans:fin}],ask:'哪一個最大？',ans:fin};},
+  fix:'比較異分母分數：先用最小公倍數通分，再比分子。'},
+ {title:'異分母分數的加減',sub:'先通分，再分子相加減',
+  look:{ex:F(1,2)+' + '+F(1,3)+' = ?',steps:[
+   {k:'分母不一樣',t:'分母 2 和 3 不一樣，不能直接加，要先 {{通分}}。'},
+   {k:'通分',t:'公分母 6：'+F(1,2)+' = '+F(3,6)+'，'+F(1,3)+' = {{'+F(2,6)+'}}。',v:fracBar(3,6,{w:300})+fracBar(2,6,{w:300,cls:'fb'})},
+   {k:'分子相加',t:F(3,6)+' + '+F(2,6)+' = {{'+F(5,6)+'}}，分母不變。'},
+   {k:'記得約分',t:F(1,2)+' + '+F(1,6)+' = '+F(3,6)+' + '+F(1,6)+' = '+F(4,6)+' = {{'+F(2,3)+'}}。'}],
+   key:'① 通分 ② 分子相加減、分母不變 ③ 約成最簡分數。'},
+  know:[
+   {q:F(1,4)+' + '+F(1,2)+'，先要做什麼？',opts:['通分成分母 4','分子分母直接相加'],a:0,why:'分母一樣才能加。'}],
+  gen(g){let d1,d2,a1,a2,L,n1,n2,op,res,t=0;
+   do{[d1,d2]=g.pick([[2,3],[2,4],[3,6],[2,5],[3,4],[4,8],[2,6],[4,6],[3,9],[5,10]]);if(g.int(0,1))[d1,d2]=[d2,d1];a1=g.int(1,d1-1);a2=g.int(1,d2-1);L=lcm(d1,d2);n1=a1*L/d1;n2=a2*L/d2;op=g.int(0,1)?'+':'−';res=op==='+'?n1+n2:n1-n2;t++;}
+   while(t<300&&(gcd(a1,d1)!==1||gcd(a2,d2)!==1||res<=0||res>=L));
+   const fin=Object.assign(FR(res,L),{simplest:true});fin.missF=[{v:(op==='+'?a1+a2:a1-a2)/(op==='+'?d1+d2:Math.abs(d1-d2)||1),m:'分母不能直接相加減，要先通分。'}];
+   return{q:`${F(a1,d1)} ${op} ${F(a2,d2)} = ?`,v:'',steps:[{p:`${d1} 和 ${d2} 的公分母是？`,ans:NUM(L)},{p:'通分：',ans:{type:'multi',parts:[{pre:`${F(a1,d1)} =`,a:n1,den:L},{pre:`${F(a2,d2)} =`,a:n2,den:L}]}},{p:`分子 ${n1} ${op} ${n2} = ?`,ans:NUM(res)},{p:`${F(res,L)} 約成最簡分數：`,ans:fin}],ask:`${F(a1,d1)} ${op} ${F(a2,d2)} = ?（寫成最簡分數）`,ans:fin};},
+  adv(g){let d1,d2,a1,a2,w1,w2,L,op,v,t=0;
+   do{[d1,d2]=g.pick([[2,3],[3,4],[2,5],[4,6],[3,6],[2,4]]);a1=g.int(1,d1-1);a2=g.int(1,d2-1);w1=g.int(1,4);w2=g.int(1,3);op=g.int(0,1)?'+':'−';L=lcm(d1,d2);v=op==='+'?(w1+a1/d1)+(w2+a2/d2):(w1+a1/d1)-(w2+a2/d2);t++;}
+   while(t<300&&(gcd(a1,d1)!==1||gcd(a2,d2)!==1||v<=0));
+   const num=Math.round(v*L);const W=Math.floor(num/L),R=num%L,G=gcd(R,L)||L;
+   const fin={type:'frac',w:W,n:R/G,d:L/G};
+   return{q:`${MX(w1,a1,d1)} ${op} ${MX(w2,a2,d2)} = ?`,v:'',steps:[{p:`分數部分的公分母是？`,ans:NUM(L)},{p:'把兩個帶分數都換成假分數（分母用公分母），分子各是多少？',ans:{type:'multi',parts:[{pre:`${MX(w1,a1,d1)} =`,a:w1*L+a1*L/d1,den:L},{pre:`${MX(w2,a2,d2)} =`,a:w2*L+a2*L/d2,den:L}]}},{p:`分子相${op==='+'?'加':'減'}後是 ? / ${L}`,ans:NUM(num)}],ask:`${MX(w1,a1,d1)} ${op} ${MX(w2,a2,d2)} = ?（帶分數或假分數都可以）`,ans:fin};},
+  fix:'異分母加減：先通分，分子相加減、分母不變，最後約分；帶分數可以先換成假分數。'}
+]},
+{name:'面積',topics:'平行四邊形・三角形・梯形・面積變化・公式符號',glyph:'底 × 高 ÷ 2',levels:[
+ {title:'平行四邊形的面積',sub:'底 × 高',
+  look:{ex:'平行四邊形底 8 公分、高 5 公分，斜邊 6 公分，面積是多少？',steps:[
+   {k:'切下來移過去',t:'把左邊的三角形切下來，移到右邊，變成一個 {{長方形}}。',v:cutParaV()},
+   {k:'長方形的長和寬',t:'長方形的長 = 平行四邊形的底，寬 = {{高}}。'},
+   {k:'高要和底垂直',t:'高是虛線（和底垂直），{{不是}}斜斜的 6 公分。',v:paraArea('8 公分','5 公分','6 公分')},
+   {k:'算面積',t:'8 × 5 = {{40}} 平方公分。'}],
+   key:'平行四邊形面積 = 底 × 高；高是和底垂直的那一條。'},
+  know:[
+   {q:'平行四邊形面積 = ?',opts:['底 × 高','底 × 斜邊','底 + 高'],a:0,why:'切開拼成長方形，長是底、寬是高。'}],
+  gen(g){const b=g.int(4,12),h=g.int(3,9),s=h+g.int(1,3);
+   return{q:`平行四邊形底 <b>${b}</b> 公分，高 <b>${h}</b> 公分，斜邊 <b>${s}</b> 公分。`,v:paraArea(`${b}`,`${h}`,`${s}`),steps:[{p:'算面積要用哪一條當高？',ans:ch2([`和底垂直的虛線（${h} 公分）`,`斜邊（${s} 公分）`],0)},{p:`${b} × ${h} = ?`,ans:NUM(b*h,'平方公分')}],ask:'面積是多少平方公分？',ans:NUM(b*h,'平方公分',[{a:b*s,m:'斜邊不是高，高要和底垂直。'}])};},
+  adv(g){const b=g.int(4,12),h=g.int(3,9);
+   return{q:`平行四邊形面積 <b>${b*h}</b> 平方公分，底 <b>${b}</b> 公分。`,v:paraArea(`${b}`,'?'),steps:[{p:'底 × 高 = 面積，所以 高 = 面積 ÷ 底：',ans:NUM(h,'公分')}],ask:'高是幾公分？',ans:NUM(h,'公分')};},
+  fix:'平行四邊形面積 = 底 × 高；高要找和底垂直的那條；求高就用面積 ÷ 底。'},
+ {title:'三角形的面積',sub:'底 × 高 ÷ 2',
+  look:{ex:'三角形底 10 公分、高 6 公分，面積是多少？',steps:[
+   {k:'兩個一樣的三角形',t:'兩個一樣的三角形，可以拼成一個 {{平行四邊形}}。',v:twoTriV()},
+   {k:'所以要除以 2',t:'一個三角形是平行四邊形的一半：底 × 高 {{÷ 2}}。'},
+   {k:'算面積',t:'10 × 6 ÷ 2 = {{30}} 平方公分。',v:triArea('10 公分','6 公分')},
+   {k:'高在外面也可以',t:'鈍角三角形的高可能在 {{外面}}，一樣用底 × 高 ÷ 2。',v:triArea('底','高','obtuse')}],
+   key:'三角形面積 = 底 × 高 ÷ 2（別忘了除以 2）。'},
+  know:[
+   {q:'三角形面積 = ?',opts:['底 × 高 ÷ 2','底 × 高','底 + 高 ÷ 2'],a:0,why:'是同底同高平行四邊形的一半。'}],
+  gen(g){let b,h;do{b=g.int(3,14);h=g.int(2,10);}while((b*h)%2);const kind=g.pick(['acute','right','obtuse']);
+   return{q:`三角形底 <b>${b}</b> 公分，高 <b>${h}</b> 公分。`,v:triArea(`${b}`,`${h}`,kind),steps:[{p:`${b} × ${h} = ?`,ans:NUM(b*h)},{p:`${b*h} ÷ 2 = ?`,ans:NUM(b*h/2,'平方公分')}],ask:'面積是多少平方公分？',ans:NUM(b*h/2,'平方公分',[{a:b*h,m:'三角形要再除以 2。'}])};},
+  adv(g){let b,h;do{b=g.int(4,14);h=g.int(3,12);}while((b*h)%2);const A=b*h/2;
+   return{q:`三角形面積 <b>${A}</b> 平方公分，底 <b>${b}</b> 公分。`,v:triArea(`${b}`,'?'),steps:[{p:`底 × 高 = 面積 × 2 = ?`,ans:NUM(2*A)},{p:`高 = ${2*A} ÷ ${b} = ?`,ans:NUM(h,'公分')}],ask:'高是幾公分？',ans:NUM(h,'公分',[{a:A/b,m:'先把面積乘 2，再除以底。'}])};},
+  fix:'三角形面積 = 底 × 高 ÷ 2；求高：面積 × 2 ÷ 底。'},
+ {title:'梯形的面積',sub:'(上底 + 下底) × 高 ÷ 2',
+  look:{ex:'梯形上底 4、下底 8、高 5 公分，面積是多少？',steps:[
+   {k:'兩個一樣的梯形',t:'兩個一樣的梯形，倒過來拼成一個 {{平行四邊形}}。',v:twoTrapV()},
+   {k:'新的底',t:'平行四邊形的底 = 上底 + 下底 = 4 + 8 = {{12}}。'},
+   {k:'除以 2',t:'一個梯形是一半：12 × 5 ÷ 2 = {{30}} 平方公分。',v:trapArea('4','8','5')}],
+   key:'梯形面積 = (上底 + 下底) × 高 ÷ 2。'},
+  know:[
+   {q:'梯形面積 = ?',opts:['(上底 + 下底) × 高 ÷ 2','上底 × 下底 × 高','(上底 + 下底) × 高'],a:0,why:'兩個梯形拼成平行四邊形，再取一半。'}],
+  gen(g){let a,b,h;do{a=g.int(2,8);b=a+g.int(2,8);h=g.int(2,9);}while(((a+b)*h)%2);
+   return{q:`梯形上底 <b>${a}</b> 公分、下底 <b>${b}</b> 公分、高 <b>${h}</b> 公分。`,v:trapArea(`${a}`,`${b}`,`${h}`),steps:[{p:`上底 + 下底 = ?`,ans:NUM(a+b)},{p:`× 高：${a+b} × ${h} = ?`,ans:NUM((a+b)*h)},{p:`÷ 2 = ?`,ans:NUM((a+b)*h/2,'平方公分')}],ask:'面積是多少平方公分？',ans:NUM((a+b)*h/2,'平方公分',[{a:(a+b)*h,m:'還要除以 2。'},{a:a*b*h,m:'上底和下底要先相加。'}])};},
+  adv(g){let a,b,h;do{a=g.int(2,8);b=a+g.int(2,8);h=g.int(2,9);}while(((a+b)*h)%2);const A=(a+b)*h/2;
+   return{q:`梯形面積 <b>${A}</b> 平方公分，上底 <b>${a}</b>、下底 <b>${b}</b> 公分。`,v:trapArea(`${a}`,`${b}`,'?'),steps:[{p:`面積 × 2 = ?`,ans:NUM(2*A)},{p:`上底 + 下底 = ?`,ans:NUM(a+b)},{p:`高 = ${2*A} ÷ ${a+b} = ?`,ans:NUM(h,'公分')}],ask:'高是幾公分？',ans:NUM(h,'公分')};},
+  fix:'梯形面積 = (上底 + 下底) × 高 ÷ 2；求高：面積 × 2 ÷ (上底 + 下底)。'},
+ {title:'面積的變化與應用',sub:'用符號寫公式、底或高變了會怎樣',
+  look:{ex:'三角形的底不變，高變成 2 倍，面積會怎樣？',steps:[
+   {k:'用符號寫公式',t:'底用 a、高用 h：三角形面積 = {{a × h ÷ 2}}。',v:'<div class="formula">三角形 ＝ a × h ÷ 2</div>'},
+   {k:'試試看',t:'底 6、高 4：面積 6 × 4 ÷ 2 = {{12}}。'},
+   {k:'高變 2 倍',t:'底 6、高 8：面積 6 × 8 ÷ 2 = {{24}}，變成 2 倍。'},
+   {k:'等底等高',t:'底一樣、高一樣的三角形，形狀不同，面積也 {{一樣}}。'},
+   {k:'複合圖形',t:'不規則的圖形可以 {{切開}} 成長方形、三角形，再加起來（或用大的減小的）。'}],
+   key:'用符號寫公式（長方形 a × b、平行四邊形 a × h、三角形 a × h ÷ 2、梯形 (a + b) × h ÷ 2）；高（或底）變幾倍，面積就變幾倍。'},
+  know:[
+   {q:'平行四邊形底 a、高 h，面積 = ?',opts:['a × h','a × h ÷ 2','(a + h) × 2'],a:0,why:'平行四邊形 = 底 × 高。'}],
+  gen(g){const t=g.int(0,2);
+   if(t===0){const sh=g.pick([['長方形','a × b',(a,b)=>a*b,'長 a、寬 b'],['平行四邊形','a × h',(a,b)=>a*b,'底 a、高 h'],['三角形','a × h ÷ 2',(a,b)=>a*b/2,'底 a、高 h']]);let a,b;do{a=g.int(3,12);b=g.int(2,9);}while((a*b)%2);
+    const fin=ch(['a × b','a × h','a × h ÷ 2','(a + b) × 2'].filter((x,i,arr)=>arr.indexOf(x)===i),['a × b','a × h','a × h ÷ 2','(a + b) × 2'].indexOf(sh[1]));
+    return{q:`${sh[0]}的${sh[3]}。`,v:'',steps:[{p:`面積公式用符號寫是？`,ans:fin},{p:`如果 a = ${a}，${sh[1].includes('b')?'b':'h'} = ${b}，面積 = ?`,ans:NUM(sh[2](a,b),'平方公分')}],ask:`a = ${a}、${sh[1].includes('b')?'b':'h'} = ${b} 時，面積是多少？`,ans:NUM(sh[2](a,b),'平方公分')};}
+   if(t===1){let b,h;do{b=g.int(4,10);h=g.int(2,6);}while((b*h)%2);const k=g.pick([2,3]);
+    return{q:`三角形底 <b>${b}</b>、高 <b>${h}</b> 公分。底不變，高變成 <b>${k}</b> 倍。`,v:'',steps:[{p:'原來的面積 = ?',ans:NUM(b*h/2,'平方公分')},{p:`新的面積 = ${b} × ${h*k} ÷ 2 = ?`,ans:NUM(b*h*k/2,'平方公分')},{p:'面積變成幾倍？',ans:NUM(k,'倍')}],ask:'面積變成原來的幾倍？',ans:NUM(k,'倍')};}
+   const W=g.int(8,14),H=g.int(6,10),w=g.int(2,W-4),hh=g.int(2,H-3);
+   return{q:`長 ${W}、寬 ${H} 公分的長方形，切掉一角長 ${w}、寬 ${hh} 公分的小長方形。`,v:'',steps:[{p:`大長方形 = ${W} × ${H} = ?`,ans:NUM(W*H)},{p:`小長方形 = ${w} × ${hh} = ?`,ans:NUM(w*hh)},{p:'剩下的面積 = ?',ans:NUM(W*H-w*hh,'平方公分')}],ask:'剩下的面積是多少平方公分？',ans:NUM(W*H-w*hh,'平方公分')};},
+  adv(g){if(g.int(0,1)===0){const k=g.pick([2,3]);let b,h;do{b=g.int(4,10);h=g.int(2,6);}while((b*h)%2);
+    return{q:`平行四邊形的底和高<b>都</b>變成 ${k} 倍。`,v:'',steps:[{p:`底變 ${k} 倍、高也變 ${k} 倍，面積變 ${k} × ${k} = ? 倍`,ans:NUM(k*k,'倍')}],ask:'面積變成原來的幾倍？',ans:NUM(k*k,'倍',[{a:k,m:`底和高都變了，要 ${k} × ${k}。`}])};}
+   let a,b,h,H2;do{a=g.int(3,7);b=a+g.int(2,6);h=g.int(3,6);H2=g.int(3,6);}while(((a+b)*h)%2||(b*H2)%2);const A=(a+b)*h/2+b*H2/2;
+   return{q:`一塊地由梯形（上底 ${a}、下底 ${b}、高 ${h} 公尺）和三角形（底 ${b}、高 ${H2} 公尺）合起來。`,v:'',steps:[{p:'梯形面積 = ?',ans:NUM((a+b)*h/2,'平方公尺')},{p:'三角形面積 = ?',ans:NUM(b*H2/2,'平方公尺')},{p:'合起來 = ?',ans:NUM(A,'平方公尺')}],ask:'這塊地的面積是多少平方公尺？',ans:NUM(A,'平方公尺')};},
+  fix:'用符號記公式；只有高（或底）變 k 倍，面積變 k 倍；底和高都變 k 倍，面積變 k × k 倍；複合圖形切開來算。'}
+]},
+{name:'乘以幾分之一',topics:'分數表示整數相除・整數乘以幾分之一・乘以 1/2 與除以 2',glyph:'6 × '+F(1,3)+' = 2',levels:[
+ {title:'分數表示整數相除的結果',sub:'a ÷ b = a/b',
+  look:{ex:'3 個披薩平分給 4 個人，每人分到多少個？',steps:[
+   {k:'每個披薩切 4 份',t:'每個披薩平分成 4 份，每人每個拿 {{1}} 份。',v:wholesV(3,4)},
+   {k:'每人拿到 3 份',t:'每人拿到 3 個 '+F(1,4)+'，也就是 {{'+F(3,4)+'}} 個。'},
+   {k:'寫成算式',t:'3 ÷ 4 = {{'+F(3,4)+'}}。被除數當分子，除數當分母。',v:'<div class="formula">a ÷ b ＝ a / b</div>'},
+   {k:'比 1 大也可以',t:'7 ÷ 2 = '+F(7,2)+' = {{'+MX(3,1,2)+'}}。'}],
+   key:'整數相除可以用分數表示：a ÷ b = a/b（被除數是分子，除數是分母）。'},
+  know:[
+   {q:'2 ÷ 5 = ?',opts:[F(2,5),F(5,2),'3'],a:0,why:'被除數 2 當分子，除數 5 當分母。'}],
+  gen(g){let a,b;do{a=g.int(1,9);b=g.int(2,9);}while(a%b===0||gcd(a,b)!==1);const it=g.pick([['個披薩','人','個'],['公升果汁','瓶','公升'],['公尺緞帶','段','公尺']]);
+   const fin=a>b?{type:'frac',w:0,n:a,d:b}:{type:'frac',n:a,d:b};
+   return{q:`把 ${a} ${it[0]}平分成 ${b} ${it[1]==='人'?'份給 '+b+' 人':it[1]}。`,v:a<=5?wholesV(a,b):'',steps:[{p:'算式是？',ans:ch2([`${a} ÷ ${b}`,`${b} ÷ ${a}`],0)},{p:'用分數表示：',ans:fin,hint:'被除數當分子，除數當分母。'}],ask:`每${it[1]==='人'?'人':it[1]}是多少${it[2]}？（寫成分數）`,ans:fin};},
+  adv(g){let a,b;do{a=g.int(5,15);b=g.int(2,6);}while(a%b===0||gcd(a,b)!==1||a<b);const W=Math.floor(a/b),R=a%b;
+   return{q:`${a} 公升的水平分裝到 ${b} 個瓶子。`,v:'',steps:[{p:'每瓶幾公升？（假分數）',ans:{type:'frac',w:0,n:a,d:b}},{p:'換成帶分數，整數部分是？',ans:NUM(W)}],ask:'每瓶是幾公升？（寫成帶分數）',ans:{type:'frac',w:W,n:R,d:b}};},
+  fix:'a ÷ b = a/b：被除數當分子、除數當分母；分子比分母大時可以換成帶分數。'},
+ {title:'整數乘以幾分之一',sub:'6 的 1/3 倍 = 6 × 1/3',
+  look:{ex:'1 包米重 6 公斤，'+F(1,3)+' 包米重幾公斤？',steps:[
+   {k:'1 包的 2 倍',t:'2 包就是 6 公斤的 2 倍：6 × 2 = {{12}} 公斤。'},
+   {k:F(1,3)+' 倍是什麼意思',t:'6 公斤的 '+F(1,3)+' 倍，就是把 6 公斤平分成 {{3}} 份，拿其中 1 份。',v:groupBar(3,1,'6 公斤平分成 3 份')},
+   {k:'算出來',t:'6 ÷ 3 = {{2}} 公斤。'},
+   {k:'寫成乘法',t:'6 × '+F(1,3)+' = {{2}}。'}],
+   key:'a 的 1/n 倍 = a × 1/n，就是把 a 平分成 n 份取 1 份 = a ÷ n。'},
+  know:[
+   {q:'15 × '+F(1,5)+' = ?',opts:['3','20','75'],a:0,why:'把 15 平分成 5 份，1 份是 3。'}],
+  gen(g){const n=g.int(2,8),k=g.int(2,9),N=n*k;const it=g.pick([['1 包米重','公斤'],['1 條繩子長','公尺'],['1 桶水有','公升']]);
+   return{q:`${it[0]} <b>${N}</b> ${it[1]}，它的 ${F(1,n)} 倍是多少${it[1]}？`,v:groupBar(n,1,`${N} ${it[1]}平分成 ${n} 份`),steps:[{p:`${F(1,n)} 倍的意思是？`,ans:ch2([`把 ${N} 平分成 ${n} 份，拿 1 份`,`${N} 的 ${n} 倍`],0)},{p:`${N} ÷ ${n} = ?`,ans:NUM(k,it[1])}],ask:`${N} × ${F(1,n)} = ?`,ans:NUM(k,it[1],[{a:N*n,m:`${F(1,n)} 倍是平分成 ${n} 份，不是乘 ${n}。`}])};},
+  adv(g){const n1=g.int(2,4),n2=g.int(2,4),C=n1*n2*g.int(1,4);const B=C/n2,A=B/n1;
+   return{q:`哥哥有 ${C} 張卡片。妹妹的卡片是哥哥的 ${F(1,n2)} 倍，弟弟的卡片是妹妹的 ${F(1,n1)} 倍。`,v:'',steps:[{p:`妹妹 = ${C} × ${F(1,n2)} = ?`,ans:NUM(B,'張')},{p:`弟弟 = ${B} × ${F(1,n1)} = ?`,ans:NUM(A,'張')}],ask:'弟弟有幾張卡片？',ans:NUM(A,'張')};},
+  fix:'a × 1/n：把 a 平分成 n 份，取 1 份，也就是 a ÷ n；連續的倍數一步一步算。'},
+ {title:'乘以 1/2 與除以 2',sub:'乘以 1/n 和除以 n 一樣',
+  look:{ex:'8 × '+F(1,2)+' 和 8 ÷ 2，哪一個比較大？',steps:[
+   {k:'算第一個',t:'8 × '+F(1,2)+'：8 的一半，是 {{4}}。',v:groupBar(2,1,'8 平分成 2 份')},
+   {k:'算第二個',t:'8 ÷ 2 = {{4}}。'},
+   {k:'一樣大',t:'乘以 '+F(1,2)+' 和除以 2 的結果 {{一樣}}。',v:'<div class="formula">a × 1/n ＝ a ÷ n</div>'},
+   {k:'乘了反而變小',t:'乘以 '+F(1,2)+'，答案比原來的 8 {{小}}。乘法不一定會變大！'}],
+   key:'乘以 1/n 和除以 n 結果一樣；乘以比 1 小的數，答案會變小。'},
+  know:[
+   {q:'20 × '+F(1,4)+' 和哪一個一樣？',opts:['20 ÷ 4','20 × 4','20 − 4'],a:0,why:'乘以 1/4 就是除以 4。'},
+   {q:'一個數乘以 '+F(1,3)+'，答案會？',opts:['變小','變大','不變'],a:0,why:'取三份中的一份，比原來小。'}],
+  gen(g){const n=g.int(2,6),N=n*g.int(2,9);const t=g.int(0,2);
+   if(t===0){const fin=ch([`${N} ÷ ${n}`,`${N} × ${n}`,`${N} − ${n}`],0,g);return{q:`${N} × ${F(1,n)} 和下面哪一個一樣？`,v:'',steps:[{p:'選一選：',ans:fin}],ask:`${N} × ${F(1,n)} 和哪一個一樣？`,ans:fin};}
+   if(t===1)return{q:`${N} × ${F(1,n)} ○ ${N}，○ 裡填什麼？`,v:'',steps:[{p:`${N} × ${F(1,n)} = ?`,ans:NUM(N/n)},{p:`${N/n} 和 ${N} 比：`,ans:ch2(['＜','＞','＝'],0)}],ask:`${N} × ${F(1,n)} ○ ${N}`,ans:ch2(['＜','＞','＝'],0)};
+   return{q:`${N} × ${F(1,n)} = ?`,v:'',steps:[{p:`就是 ${N} ÷ ${n} = ?`,ans:NUM(N/n)}],ask:`${N} × ${F(1,n)} = ?`,ans:NUM(N/n)};},
+  adv(g){const n=g.int(2,6),k=g.int(3,12);
+   if(g.int(0,1)===0)return{q:`一個數 × ${F(1,n)} = ${k}，這個數是多少？`,v:'',steps:[{p:`把這個數平分成 ${n} 份，1 份是 ${k}，所以這個數 = ${k} × ${n} = ?`,ans:NUM(k*n)}],ask:'這個數是多少？',ans:NUM(k*n,'',[{a:k/n,m:`一份是 ${k}，全部要乘 ${n}。`}])};
+   const m=g.int(2,4),N=n*m*g.int(1,4);return{q:`${N} ÷ ${m} × ${F(1,n)} = ?`,v:'',steps:[{p:`${N} ÷ ${m} = ?`,ans:NUM(N/m)},{p:`${N/m} × ${F(1,n)} = ${N/m} ÷ ${n} = ?`,ans:NUM(N/m/n)}],ask:`${N} ÷ ${m} × ${F(1,n)} = ?`,ans:NUM(N/m/n)};},
+  fix:'乘以 1/n 就是除以 n；乘以比 1 小的數，積會比原來小；反過來求原數就乘 n。'}
+]},
+{name:'扇形',topics:'認識扇形・圓心角・幾分之幾圓・畫扇形',glyph:S(60,44,'<path d="M8 38 L52 38 A44 44 0 0 0 30 0Z" class="fa st1"/>','扇形'),levels:[
+ {title:'認識扇形',sub:'兩條半徑和一段弧圍成',
+  look:{ex:'下面哪一個是扇形？',steps:[
+   {k:'扇形長什麼樣',t:'扇形是由 {{兩條半徑}} 和一段圓周（弧）圍成的。',v:shapeSector()},
+   {k:'頂點在圓心',t:'扇形尖尖的地方一定在 {{圓心}}。',v:shapeOffCenter()},
+   {k:'弓形不是扇形',t:'只有一條直線和一段弧（沒有經過圓心），{{不是}}扇形。',v:shapeSegment()},
+   {k:'邊要是弧',t:'三邊都是直線的是三角形，{{不是}}扇形。',v:shapeTriangle()}],
+   key:'扇形 = 2 條半徑 + 1 段弧，尖尖的頂點在圓心。'},
+  know:[
+   {q:'扇形的頂點在哪裡？',opts:['圓心','圓周上','圓外面'],a:0,why:'扇形的兩條邊都是半徑，所以頂點在圓心。'},
+   {q:'扇形由什麼圍成？',opts:['2 條半徑和 1 段弧','3 條直線','1 條直線和 1 段弧'],a:0,why:'2 條半徑 + 1 段弧。'}],
+  gen(g){const fin=ch([shapeSector(),shapeOffCenter(),shapeSegment(),shapeTriangle()],0,g);
+   return{q:'虛線是圓。塗色的部分，哪一個是扇形？',v:'',steps:[{p:'扇形的頂點要在哪裡？',ans:ch2(['圓心','圓周上'],0)},{p:'選出扇形：',ans:fin}],ask:'哪一個是扇形？',ans:fin};},
+  adv(g){const n=g.int(2,6);
+   return{q:`在一個圓上，從圓心畫 <b>${n}</b> 條半徑。`,v:pieV(n,0),steps:[{p:'每兩條相鄰的半徑和弧圍成一個扇形，一共幾個？',ans:NUM(n,'個')}],ask:'圓被分成幾個扇形？',ans:NUM(n,'個',[{a:n-1,m:'畫一畫，最後一條和第一條半徑也會圍成一個。'}])};},
+  fix:'扇形：頂點在圓心，兩邊是半徑，另一邊是弧。'},
+ {title:'認識圓心角',sub:'兩條半徑夾成的角',
+  look:{ex:'扇形的圓心角是什麼？',steps:[
+   {k:'圓心角',t:'扇形的兩條半徑在圓心夾成的角，叫做 {{圓心角}}。',v:sectorV(60,'半徑')},
+   {k:'用量角器量',t:'量角器的中心對準 {{圓心}}，一邊對齊半徑來量。'},
+   {k:'特別的扇形',t:'半圓的圓心角是 {{180°}}；四分之一圓是 90°；整個圓是 360°。',v:sectorV(180,'半徑')},
+   {k:'合起來',t:'60° 和 30° 的扇形拼在一起，圓心角是 {{90°}}。'}],
+   key:'兩條半徑夾成的角是圓心角；整圓 360°、半圓 180°、四分之一圓 90°。'},
+  know:[
+   {q:'半圓的圓心角是幾度？',opts:['180°','90°','360°'],a:0,why:'半圓是整圓 360° 的一半。'}],
+  gen(g){const t=g.int(0,2);
+   if(t===0){const a=g.int(2,8)*10,b=g.int(2,8)*10;return{q:`把圓心角 <b>${a}°</b> 和 <b>${b}°</b> 的扇形拼在一起（同一個圓）。`,v:'',steps:[{p:`${a} + ${b} = ?`,ans:NUM(a+b,'度')}],ask:'拼起來的圓心角是幾度？',ans:NUM(a+b,'度')};}
+   if(t===1){const n=g.pick([2,3,4,6,8,12]);return{q:`把一個圓平分成 <b>${n}</b> 個一樣大的扇形。`,v:pieV(n,1),steps:[{p:'整個圓是幾度？',ans:NUM(360,'度')},{p:`360 ÷ ${n} = ?`,ans:NUM(360/n,'度')}],ask:'每個扇形的圓心角是幾度？',ans:NUM(360/n,'度',[{a:180/n,m:'整個圓是 360°，不是 180°。'}])};}
+   const fin=ch2(['180°','90°','360°'],[0,1,2][g.int(0,2)]);const nm=['半圓','四分之一圓','整個圓'][fin.a];
+   return{q:`<b>${nm}</b>的圓心角是幾度？`,v:'',steps:[{p:'選一選：',ans:fin}],ask:`${nm}的圓心角是？`,ans:fin};},
+  adv(g){if(g.int(0,1)===0){const a=g.int(3,12)*10,b=g.int(3,12)*10;if(a+b>=340)return this.adv(g);const c=360-a-b;
+    return{q:`一個圓分成三個扇形，其中兩個的圓心角是 <b>${a}°</b> 和 <b>${b}°</b>。`,v:'',steps:[{p:`${a} + ${b} = ?`,ans:NUM(a+b)},{p:`360 − ${a+b} = ?`,ans:NUM(c,'度')}],ask:'第三個扇形的圓心角是幾度？',ans:NUM(c,'度',[{a:180-a-b,m:'整個圓是 360°。'}])};}
+   const n=g.pick([5,9,10,15,20]);return{q:`把一個圓平分成 <b>${n}</b> 個一樣大的扇形。`,v:'',steps:[{p:`360 ÷ ${n} = ?`,ans:NUM(360/n,'度')}],ask:'每個扇形的圓心角是幾度？',ans:NUM(360/n,'度')};},
+  fix:'整圓 360°；平分成 n 份，每份 360 ÷ n；求剩下的扇形用 360 去減。'},
+ {title:'幾分之幾圓',sub:'圓心角 ÷ 360',
+  look:{ex:'圓心角 90° 的扇形，是幾分之幾圓？',steps:[
+   {k:'和整圓比',t:'整圓是 360°，90° 是 360° 的幾分之幾？',v:sectorV(90,'半徑')},
+   {k:'算一算',t:'360 ÷ 90 = 4，90° 是 {{'+F(1,4)+'}} 圓。',v:pieV(4,1)},
+   {k:'反過來',t:F(1,3)+' 圓的圓心角 = 360 × '+F(1,3)+' = {{120°}}。',v:pieV(3,1)},
+   {k:'畫指定的扇形',t:'要畫 '+F(1,6)+' 圓，就畫圓心角 360 ÷ 6 = {{60°}} 的扇形。'}],
+   key:'幾分之幾圓 = 圓心角 / 360；圓心角 = 360 × 幾分之幾。'},
+  know:[
+   {q:'圓心角 120° 是幾分之幾圓？',opts:[F(1,3),F(1,4),F(1,2)],a:0,why:'360 ÷ 120 = 3。'}],
+  gen(g){const t=g.int(0,2);const n=g.pick([2,3,4,6,8]);const ang=360/n;
+   if(t===0){const opts=[2,3,4,6,8].map(x=>F(1,x));const fin=ch2(opts,[2,3,4,6,8].indexOf(n));return{q:`圓心角 <b>${ang}°</b> 的扇形。`,v:sectorV(ang,'半徑'),steps:[{p:`360 ÷ ${ang} = ?`,ans:NUM(n)},{p:'所以是幾分之幾圓？',ans:fin}],ask:'是幾分之幾圓？',ans:fin};}
+   if(t===1)return{q:`${F(1,n)} 圓的圓心角是幾度？`,v:pieV(n,1),steps:[{p:`360 ÷ ${n} = ?`,ans:NUM(ang,'度')}],ask:`${F(1,n)} 圓的圓心角是幾度？`,ans:NUM(ang,'度')};
+   const n2=g.pick([2,3,4,6,8,12]);const a2=360/n2;const draw={type:'sector',a:a2,a0:30,step:a2%30===0?30:15};
+   return{q:`畫出 ${F(1,n2)} 圓的扇形。`,v:'',steps:[{p:`圓心角 = 360 ÷ ${n2} = ?`,ans:NUM(a2,'度')},{p:`按 ＋ −，把圓心角調成 ${a2}°：`,ans:draw}],ask:`畫出 ${F(1,n2)} 圓（圓心角 ${a2}°）。`,ans:draw};},
+  adv(g){const [m,n]=g.pick([[3,4],[2,3],[5,6],[3,8],[3,5],[5,8]]);const ang=360*m/n;
+   if(g.int(0,1)===0||ang%15)return{q:`${F(m,n)} 圓的圓心角是幾度？`,v:pieV(n,m),steps:[{p:`${F(1,n)} 圓是 360 ÷ ${n} = ?`,ans:NUM(360/n,'度')},{p:`${F(m,n)} 圓 = ${360/n} × ${m} = ?`,ans:NUM(ang,'度')}],ask:`${F(m,n)} 圓的圓心角是幾度？`,ans:NUM(ang,'度')};
+   const draw={type:'sector',a:ang,a0:90,step:ang%30===0?30:15};
+   return{q:`畫出 ${F(m,n)} 圓的扇形。`,v:'',steps:[{p:'圓心角是幾度？',ans:NUM(ang,'度')},{p:`把圓心角調成 ${ang}°：`,ans:draw}],ask:`畫出 ${F(m,n)} 圓。`,ans:draw};},
+  fix:'幾分之幾圓 = 圓心角 ÷ 360；圓心角 = 360 ÷ 分母 × 分子。'}
+]}
+];
+const ch2=(opts,a)=>({type:'choice',opts,a});
+
+/* ---------- storage & settings ---------- */
+let store={};
+try{store=JSON.parse(localStorage.getItem('math5a-v1')||'{}')||{};}catch(e){store={};}
+store.p=store.p||{};store.q=store.q||{};store.qv=store.qv||{};store.qd=store.qd||{};store.set=Object.assign({auto:false,calm:false,big:false,pad:true,calc:false},store.set||{});
+function save(){try{localStorage.setItem('math5a-v1',JSON.stringify(store));}catch(e){}}
+function applySet(){
+  const s=store.set,r=document.documentElement;
+  s.calm?r.setAttribute('data-calm',''):r.removeAttribute('data-calm');
+  s.big?r.setAttribute('data-big',''):r.removeAttribute('data-big');
+  $$('[data-set]').forEach(b=>b.setAttribute('aria-pressed',String(!!s[b.dataset.set])));
+  $$('.box').forEach(b=>b.setAttribute('inputmode',s.pad?'none':'decimal'));
+  if(!s.pad)pad.hidden=true;
+}
+$$('[data-set]').forEach(b=>b.onclick=()=>{const k=b.dataset.set;store.set[k]=!store.set[k];save();applySet();});
+$('#t-set').onclick=()=>{const p=$('#settings');p.hidden=!p.hidden;$('#t-set').setAttribute('aria-expanded',String(!p.hidden));};
+$('#go-home').onclick=()=>go('');
+
+const lkey=(u,l)=>`u${u+1}-l${l+1}`;
+const stagesOf=(u,l)=>store.p[lkey(u,l)]||{};
+function markStage(u,l,s){const k=lkey(u,l);store.p[k]=Object.assign({},store.p[k],{[s]:true});save();}
+/* 學習模式：基礎 = 我看・我懂・我做・我會；進階 = 重點・挑戰 (for students who only need to confirm the key points) */
+store.mode=store.mode==='a'?'a':'b';
+const STG=[['look','我看','看例題'],['know','我懂','選一選'],['do','我做','跟著做'],['can','我會','自己做']];
+const ASTG=[['akey','重點','確認重點'],['achal','挑戰','進階題']];
+const MODES={b:{name:'基礎',desc:'四小步慢慢學'},a:{name:'進階',desc:'確認重點＋挑戰題'}};
+const stagesFor=()=>store.mode==='a'?ASTG:STG;
+const levelDoneCount=(u,l)=>stagesFor().filter(s=>stagesOf(u,l)[s[0]]).length;
+const levelDone=(u,l)=>levelDoneCount(u,l)===stagesFor().length;
+function unitPct(u){const L=U[u].levels;let d=0;L.forEach((_,l)=>d+=levelDoneCount(u,l));return Math.round(d/(L.length*stagesFor().length)*100);}
+const modeSeg=()=>`<div class="mode-row"><span>學習模式</span><div class="seg" role="group" aria-label="學習模式" style="--u:var(--accent)">${Object.entries(MODES).map(([k,m])=>`<button type="button" data-mode="${k}" aria-pressed="${store.mode===k}">${m.name}<small>${m.desc}</small></button>`).join('')}</div></div>`;
+function bindMode(root,again){$$('[data-mode]',root).forEach(b=>b.onclick=()=>{store.mode=b.dataset.mode;save();again();});}
+
+/* ---------- speech ---------- */
+function toSpeech(el){
+  const c=el.cloneNode(true);
+  c.querySelectorAll('svg,.no-say,table.ladder').forEach(x=>x.remove());
+  c.querySelectorAll('.fr').forEach(f=>f.replaceWith(f.getAttribute('aria-label')||'多少'));
+  c.querySelectorAll('.peek').forEach(p=>{const v=p.querySelector('.peek-v');p.replaceWith(v&&!v.hidden?v.textContent:'多少');});
+  c.querySelectorAll('button').forEach(x=>x.remove());
+  c.querySelectorAll('input').forEach(i=>i.replaceWith('多少'));
+  return c.textContent.replace(/×/g,'乘').replace(/÷/g,'除以').replace(/＝|=/g,'等於').replace(/≈/g,'大約是').replace(/−/g,'減').replace(/\+|＋/g,'加').replace(/→/g,'變成')
+    .replace(/\s:\s/g,'比').replace(/□|\?/g,'多少').replace(/°/g,'度').replace(/公里\/時/g,'公里每小時').replace(/公尺\/分/g,'公尺每分鐘').replace(/公尺\/秒/g,'公尺每秒').replace(/\s+/g,' ');
+}
+function speak(t){
+  try{const s=window.speechSynthesis;if(!s)return;s.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=.82;
+    const vs=s.getVoices();const v=vs.find(v=>/zh[-_]TW/i.test(v.lang))||vs.find(v=>/^zh/i.test(v.lang));if(v)u.voice=v;s.speak(u);}catch(e){}
+}
+function sayBtn(target){const b=h(`<button class="say no-say" type="button" aria-label="唸給我聽">${ICON.say}</button>`);b.onclick=()=>speak(toSpeech(typeof target==='function'?target():target));return b;}
+function autoSay(el){if(store.set.auto&&el)setTimeout(()=>speak(toSpeech(el)),150);}
+
+/* ---------- answers ---------- */
+function parseNum(v){if(v==null)return NaN;v=String(v).trim().replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/[．。]/g,'.').replace(/,/g,'');if(v==='')return NaN;return Number(v);}
+const eq=(a,b)=>Math.abs(a-b)<1e-6;
+function ansText(sp){
+  if(sp.type==='num')return fmt(sp.a)+(sp.unit?' '+sp.unit:'');
+  if(sp.type==='multi')return sp.parts.map(p=>`${p.pre||''} ${p.den?F(p.a,p.den):fmt(p.a)} ${p.post||''}`.trim()).join('　');
+  if(sp.type==='frac')return sp.w?MX(sp.w,sp.n,sp.d):(sp.d===1?String(sp.n):F(sp.n,sp.d));
+  if(sp.type==='choice')return sp.opts[sp.a];
+  if(sp.type==='grid')return `底 ${sp.w} 格、高 ${sp.h} 格`;
+  if(sp.type==='plot')return sp.labels.map((l,i)=>`${l} ${fmt(sp.values[i])}`).join('、');
+  if(sp.type==='sector')return `圓心角 ${sp.a}°`;
+  return '';
+}
+/* line-chart plotting: tap above each label to place its point */
+function plotAnswer(sp,el){
+  const vals=sp.labels.map(()=>null);el.classList.add('gridans');
+  el.innerHTML=`<div class="vis-box"></div><p class="look-hint">在每個${sp.xname||'項目'}的上方點一下，放上點；點錯了再點一次就會移過去。</p>`;
+  const box=$('.vis-box',el);
+  function onTap(e){if(el.dataset.lock)return;const svg=e.currentTarget,r=svg.getBoundingClientRect(),G=chartGeom(sp),vb=svg.viewBox.baseVal;
+    const vx=(e.clientX-r.left)/r.width*vb.width,vy=(e.clientY-r.top)/r.height*vb.height;const i=Math.floor((vx-G.L)/(G.pw/G.n));if(i<0||i>=G.n)return;
+    let v=G.base+(1-(vy-G.T)/G.ph)*(sp.max-G.base);v=G.base+Math.round((v-G.base)/sp.step)*sp.step;v=Math.max(G.base,Math.min(sp.max,v));
+    vals[i]=r4(v);el.classList.remove('bad');draw();}
+  function draw(){box.innerHTML=lineChart(sp,vals,{guides:true,showVals:true});const svg=$('svg',box);svg.style.cursor='pointer';svg.style.touchAction='manipulation';svg.addEventListener('click',onTap);}
+  draw();
+  return{el,boxes:[],grid:true,check(){if(vals.some(v=>v==null))return null;const ok=vals.every((v,i)=>eq(v,sp.values[i]));el.classList.remove('ok','bad');el.classList.add(ok?'ok':'bad');return ok;},reveal(){},lock(){el.dataset.lock=1;}};
+}
+/* sector drawing: set the central angle with − / + */
+function sectorAnswer(sp,el){
+  let a=sp.a0||30,touched=false;const st=sp.step||15;el.classList.add('gridans');
+  el.innerHTML=`<div class="grid-draw"><div class="vis-box"></div><div class="grid-ctl"><div><span>圓心角</span><button type="button" class="opt" data-d="-">−</button><b data-v></b><span>度</span><button type="button" class="opt" data-d="+">＋</button></div><p class="look-hint">每按一次改 ${st} 度。</p></div></div>`;
+  const draw=()=>{$('.vis-box',el).innerHTML=sectorV(a,'半徑');$('[data-v]',el).textContent=a;};
+  $$('[data-d]',el).forEach(b=>b.onclick=()=>{if(el.dataset.lock)return;touched=true;el.classList.remove('bad');a=b.dataset.d==='+'?Math.min(360-st,a+st):Math.max(st,a-st);draw();});
+  draw();
+  return{el,boxes:[],grid:true,check(){if(!touched)return null;const ok=a===sp.a;el.classList.remove('ok','bad');el.classList.add(ok?'ok':'bad');return ok;},reveal(){},lock(){el.dataset.lock=1;}};
+}
+/* grid drawing: the student sizes a rectangle on grid paper with − / + buttons */
+const GC=10,GR=7;
+function gridSVG(w,h,ow,oh){const c=26;let g='';
+  for(let i=0;i<=GC;i++)g+=`<line x1="${i*c}" y1="0" x2="${i*c}" y2="${GR*c}" class="gl"/>`;
+  for(let j=0;j<=GR;j++)g+=`<line x1="0" y1="${j*c}" x2="${GC*c}" y2="${j*c}" class="gl"/>`;
+  if(ow)g+=`<rect x="0" y="${(GR-oh)*c}" width="${ow*c}" height="${oh*c}" class="dash"/>`;
+  g+=`<rect x="0" y="${(GR-h)*c}" width="${w*c}" height="${h*c}" class="fa st" style="fill-opacity:.85"/>`;
+  return S(GC*c,GR*c,g,`底 ${w} 格、高 ${h} 格的長方形`);}
+function gridAnswer(sp,el){
+  let w=sp.w0,hh=sp.h0,touched=false;el.classList.add('gridans');
+  el.innerHTML=`<div class="grid-draw"><div class="vis-box"></div><div class="grid-ctl">
+    <div><span>底</span><button type="button" class="opt" data-d="w-">−</button><b data-v="w"></b><button type="button" class="opt" data-d="w+">＋</button><span>格</span></div>
+    <div><span>高</span><button type="button" class="opt" data-d="h-">−</button><b data-v="h"></b><button type="button" class="opt" data-d="h+">＋</button><span>格</span></div>
+    <p class="look-hint">虛線是原來的圖。按 ＋ − 改變大小。</p></div></div>`;
+  const draw=()=>{$('.vis-box',el).innerHTML=gridSVG(w,hh,sp.w0,sp.h0);$('[data-v="w"]',el).textContent=w;$('[data-v="h"]',el).textContent=hh;};
+  $$('[data-d]',el).forEach(b=>b.onclick=()=>{if(el.dataset.lock)return;const d=b.dataset.d;touched=true;el.classList.remove('bad');
+    if(d==='w+')w=Math.min(GC,w+1);if(d==='w-')w=Math.max(1,w-1);if(d==='h+')hh=Math.min(GR,hh+1);if(d==='h-')hh=Math.max(1,hh-1);draw();});
+  draw();
+  return{el,boxes:[],grid:true,check(){if(!touched)return null;const ok=w===sp.w&&hh===sp.h;el.classList.remove('ok','bad');el.classList.add(ok?'ok':'bad');return ok;},reveal(){},lock(){el.dataset.lock=1;}};
+}
+const boxHTML=lab=>`<input class="box" type="text" inputmode="${store.set.pad?'none':'decimal'}" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="${lab||'答案'}">`;
+function answer(sp,{onPick}={}){
+  const el=document.createElement('div');el.className='ans';
+  if(sp.type==='choice'){
+    el.classList.add('choices');let sel=null;
+    sp.opts.forEach((o,i)=>{const b=h(`<button class="opt" type="button">${o}</button>`);b.onclick=()=>{if(el.dataset.lock)return;sel=i;$$('.opt',el).forEach(x=>{x.classList.toggle('sel',x===b);x.classList.remove('bad');});onPick&&onPick();};el.append(b);});
+    return{el,choice:true,boxes:[],check(){if(sel===null)return null;const ok=sel===sp.a;$$('.opt',el)[sel].classList.add(ok?'ok':'bad');return ok;},
+      reveal(){$$('.opt',el)[sp.a].classList.add('ok');},lock(){el.dataset.lock=1;}};
+  }
+  if(sp.type==='grid')return gridAnswer(sp,el);
+  if(sp.type==='plot')return plotAnswer(sp,el);
+  if(sp.type==='sector')return sectorAnswer(sp,el);
+  if(sp.type==='num')el.innerHTML=`<span class="part">${boxHTML()}${sp.unit?`<span>${sp.unit}</span>`:''}</span>`;
+  else if(sp.type==='multi')el.innerHTML=sp.parts.map(p=>`<span class="part">${p.pre?`<span>${p.pre}</span>`:''}${p.den?`<span class="fr">${boxHTML('分子')}<span>${p.den}</span></span>`:boxHTML()}${p.post?`<span>${p.post}</span>`:''}</span>`).join('');
+  else if(sp.type==='frac')el.innerHTML=`<span class="part">${sp.w!=null?boxHTML('整數'):''}<span class="fr">${boxHTML('分子')}${boxHTML('分母')}</span></span>`;
+  const boxes=$$('.box',el);
+  function check(){
+    const vals=boxes.map(b=>b.value.trim());
+    if(vals.every(v=>v===''))return null;
+    let ok=false;boxes.forEach(b=>b.classList.remove('ok','bad'));
+    if(sp.type==='num'){ok=eq(parseNum(vals[0]),sp.a);boxes[0].classList.add(ok?'ok':'bad');}
+    else if(sp.type==='multi'){ok=true;sp.parts.forEach((p,i)=>{const o=eq(parseNum(vals[i]),p.a);if(!o)ok=false;boxes[i].classList.add(o?'ok':'bad');});}
+    else{let i=0;const w=sp.w!=null?(parseNum(vals[i++])||0):0;const n=parseNum(vals[i]),d=vals[i+1]===''?1:parseNum(vals[i+1]);
+      ok=!isNaN(n)&&!isNaN(d)&&d!==0&&eq(w+n/d,(sp.w||0)+sp.n/sp.d);
+      if(ok&&sp.simplest)ok=gcd(Math.round(n),Math.round(d))===1&&vals[i+1]!=='';
+      boxes.forEach(b=>b.classList.add(ok?'ok':'bad'));}
+    return ok;
+  }
+  return{el,boxes,check,reveal(){},lock(){boxes.forEach(b=>b.readOnly=true);}};
+}
+
+/* one practice question: prompt + answer + check + feedback */
+function qa({prompt,spec,hint,onDone,onWrong,why,num,fallback}){
+  const wrap=h('<div class="step"></div>');
+  if(num)wrap.append(h(`<div class="step-n">第 ${num} 步</div>`));
+  const pr=h(`<div class="prompt"><div class="txt">${prompt}</div></div>`);pr.prepend(sayBtn(pr.querySelector('.txt')));wrap.append(pr);
+  const A=answer(spec,{onPick:()=>doCheck()});wrap.append(A.el);
+  const fb=h('<div class="fb-wrap" aria-live="polite"></div>');
+  let tries=0,done=false;
+  const btn=h(`<button class="btn small" type="button" data-role="check">${ICON.check}檢查</button>`);
+  if(!A.choice){btn.innerHTML=A.grid?`${ICON.check}畫好了，檢查`:btn.innerHTML;const r=h('<div class="row" style="margin-top:.7rem"></div>');r.append(btn);wrap.append(r);btn.onclick=()=>doCheck();
+    A.boxes.forEach((b,i)=>b.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();if(i<A.boxes.length-1&&A.boxes[i+1].value==='')A.boxes[i+1].focus();else doCheck();}}));}
+  wrap.append(fb);
+  function msg(cls,html){fb.innerHTML='';fb.append(h(`<div class="fb-msg ${cls}">${cls==='ok'?ICON.check:ICON.bulb}<div>${html}</div></div>`));}
+  function doCheck(){
+    if(done)return;const r=A.check();
+    if(r===null){msg('info',A.grid?'先按 ＋ − 把長方形畫出來，再按「檢查」。':'先寫下答案，再按「檢查」。');return;}
+    if(r){done=true;A.lock();btn.remove();wrap.classList.add('done');hidePad();msg('ok',pickMsg(OK_MSG)+(why?`<br><span style="font-weight:400;color:var(--ink)">${why}</span>`:''));onDone&&onDone(tries===0);return;}
+    tries++;
+    let special='';
+    if(spec.miss&&A.boxes[0]){const v=parseNum(A.boxes[0].value);const mm=spec.miss.find(x=>eq(x.a,v));if(mm)special=mm.m;}
+    if(spec.missF&&A.boxes.length){const vs=A.boxes.map(b=>b.value.trim());let i=0;const w=spec.w!=null?(parseNum(vs[i++])||0):0;const n=parseNum(vs[i]),d=vs[i+1]===''?1:parseNum(vs[i+1]);const mm=spec.missF.find(x=>eq(x.v,w+n/d));if(mm)special=mm.m;}
+    const tip=hint||(fallback?`想想「我看」的重點：${fallback}`:'');
+    if(tries===1)msg('bad',`${special||'差一點點，再試一次。'}${tip?'<br>提示：'+tip:''}`);
+    else msg('bad',`${special?special+'<br>':''}答案是 <b>${ansText(spec)}</b>。${why?why+'<br>':''}${A.choice?'請點正確的答案。':A.grid?'請照答案再畫一次。':'請你自己把它填進去。'}`);
+    onWrong&&onWrong(tries);
+  }
+  wrap.focusFirst=()=>{if(A.boxes[0])A.boxes[0].focus({preventScroll:true});};
+  return wrap;
+}
+
+/* ---------- number pad, docked under the box being typed in ---------- */
+const pad=h(`<div class="pad" hidden>
+  <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button><button type="button" data-k="del" aria-label="刪掉一個字">⌫</button>
+  <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button><button type="button" data-k=".">.</button>
+  <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button><button type="button" data-k="next" aria-label="下一格">→</button>
+  <button type="button" class="zero" data-k="0">0</button><button type="button" class="go" data-k="go">檢查</button></div>`);
+let lastBox=null;
+function hidePad(){pad.hidden=true;}
+document.addEventListener('focusin',e=>{const b=e.target;if(b.classList&&b.classList.contains('box')&&!b.readOnly){lastBox=b;if(!store.set.pad)return;
+  const host=b.closest('.step,.qitem .qbody');if(!host)return;
+  const anchor=host.querySelector('.ans');if(anchor&&pad.previousElementSibling!==anchor)anchor.after(pad);
+  pad.querySelector('.go').textContent=b.closest('.step')?'檢查':'下一題';pad.hidden=false;}});
+document.addEventListener('focusout',()=>setTimeout(()=>{const a=document.activeElement;if(!(a&&a.classList&&a.classList.contains('box')))hidePad();},150));
+pad.addEventListener('pointerdown',e=>e.preventDefault());
+pad.addEventListener('mousedown',e=>e.preventDefault());
+pad.addEventListener('click',e=>{
+  const k=e.target.closest('button')?.dataset.k;if(!k||!lastBox||lastBox.readOnly)return;
+  const all=$$('.box').filter(b=>!b.readOnly);const i=all.indexOf(lastBox);
+  if(k==='del')lastBox.value=lastBox.value.slice(0,-1);
+  else if(k==='next'){if(all[i+1])all[i+1].focus();return;}
+  else if(k==='go'){const btn=lastBox.closest('.step')?.querySelector('[data-role="check"]');if(btn){btn.click();return;}const nxt=all.slice(i+1).find(b=>!b.closest('.qitem')||b.closest('.qitem')!==lastBox.closest('.qitem'));if(nxt)nxt.focus();else hidePad();return;}
+  else{if(k==='.'&&lastBox.value.includes('.'))return;if(lastBox.value.length>=8)return;lastBox.value+=k;}
+  lastBox.classList.remove('bad');lastBox.focus({preventScroll:true});
+});
+
+/* ---------- routing ---------- */
+function go(hash){if(location.hash.slice(1)===hash)render();else location.hash=hash;}
+window.addEventListener('hashchange',render);
+const V=()=>$('#view');
+let stageSel={};
+function render(){
+  try{window.speechSynthesis&&speechSynthesis.cancel();}catch(e){}
+  hidePad();document.body.append(pad);
+  const hs=location.hash.slice(1);let m;
+  if((m=hs.match(/^u(\d+)-l(\d+)$/))&&U[m[1]-1]&&U[m[1]-1].levels[m[2]-1])viewLevel(+m[1]-1,+m[2]-1);
+  else if((m=hs.match(/^u(\d+)-quiz$/))&&U[m[1]-1])viewQuiz(+m[1]-1);
+  else if((m=hs.match(/^u(\d+)$/))&&U[m[1]-1])viewUnit(+m[1]-1);
+  else viewHome();
+  window.scrollTo(0,0);
+}
+const uvar=u=>`--u:var(--u${u+1})`;
+const bindGo=root=>$$('[data-go]',root).forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* ---------- home ---------- */
+function viewHome(){
+  const tot=Math.round(U.reduce((s,_,u)=>s+unitPct(u),0)/U.length);
+  const C=2*Math.PI*44;
+  V().innerHTML=`
+  <section class="hero">
+    <div><h1>五上數學小步走</h1>
+      <p class="lead">翰林五上 10 個單元。基礎模式每關分成四小步；進階模式確認重點後直接挑戰。答錯都可以一直重來。</p>
+      ${modeSeg()}</div>
+    <div class="ring" aria-label="全冊完成 ${tot}%"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" style="stroke:var(--grid)" stroke-width="10"/><circle cx="50" cy="50" r="44" fill="none" style="stroke:var(--accent)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C*tot/100} ${C}"/></svg><div class="pct"><div>${tot}%<small>全冊完成</small></div></div></div>
+  </section>
+  ${store.mode==='a'?`<div class="howto howto2">
+    <div><b>重點</b><span>看完整例題和重點，答對確認題</span></div>
+    <div><b>挑戰</b><span>3 題進階題，卡住可以分步做</span></div>
+  </div>`:`<div class="howto">
+    <div><b>我看</b><span>點「？」一步一步看例題</span></div>
+    <div><b>我懂</b><span>選一選，確認懂了</span></div>
+    <div><b>我做</b><span>跟著步驟一格一格填</span></div>
+    <div><b>我會</b><span>自己做 3 題拿星星</span></div>
+  </div>`}
+  <div class="units">${U.map((un,u)=>{const p=unitPct(u),bb=store.q[u+'b'],ba=store.q[u+'a'];return`
+    <article class="unit" style="${uvar(u)}">
+      <div class="unit-head"><span class="unit-no">${u+1}</span><span class="unit-name">${un.name}</span></div>
+      <div class="unit-body">
+        <div class="glyph">${un.glyph}</div>
+        <div class="topics">${un.topics}</div>
+        <div class="bar"><i style="width:${p}%"></i></div>
+        <div class="meta"><span>${p===0?'還沒開始':p===100?'全部完成':'完成 '+p+'%'}</span><span>${bb?`基礎 ${bb}`:''}${bb&&ba?'・':''}${ba?`進階 ${ba}`:''}</span></div>
+        <div class="row"><button class="btn" type="button" data-go="u${u+1}">互動教學</button><button class="btn ghost" type="button" data-go="u${u+1}-quiz">形成性評量</button></div>
+      </div></article>`;}).join('')}
+  </div>
+  <p class="note">進度只存在這台 iPad（或電腦）的瀏覽器裡，下次打開會接著做；基礎和進階的進度分開記。右上角「設定」可以開自動朗讀、減敏模式、大字和螢幕數字鍵盤。每一題旁邊的喇叭按鈕都可以唸題目。</p>`;
+  bindGo(V());bindMode(V(),viewHome);
+}
+
+/* ---------- unit map ---------- */
+function viewUnit(u){
+  const un=U[u];const nextL=un.levels.findIndex((_,l)=>!levelDone(u,l));
+  V().innerHTML=`<div style="${uvar(u)}" class="narrow">
+   <div class="crumbs"><button class="link" type="button" data-go="">${ICON.back}總目錄</button></div>
+   <div class="uhead"><div class="badge">${u+1}</div><div><h1>${un.name}</h1><p class="lead">一共 ${un.levels.length} 關，建議從第 1 關開始。每關都可以重複練習。</p></div></div>
+   ${modeSeg()}
+   <div class="levels">${un.levels.map((L,l)=>{const c=levelDoneCount(u,l),st=stagesOf(u,l),dn=levelDone(u,l);return`
+     <button class="lvl ${dn?'done':''} ${l===nextL?'next':''}" type="button" data-go="u${u+1}-l${l+1}">
+       <span class="lvl-no">${dn?ICON.check.replace('<svg','<svg width="22" height="22"'):l+1}</span>
+       <span>${l===nextL?'<span class="tag">建議下一關</span>':''}<span class="lvl-t">第 ${l+1} 關　${L.title}</span><br><span class="lvl-s">${L.sub}</span></span>
+       <span class="pips" aria-label="完成 ${c} 步">${stagesFor().map(s=>`<i class="${st[s[0]]?'on':''}"></i>`).join('')}</span>
+     </button>`;}).join('')}
+     <button class="lvl" type="button" data-go="u${u+1}-quiz"><span class="lvl-no">✎</span><span><span class="lvl-t">形成性評量</span><br><span class="lvl-s">基礎卷・進階卷${store.q[u+'b']?`（基礎最佳 ${store.q[u+'b']}）`:''}${store.q[u+'a']?`（進階最佳 ${store.q[u+'a']}）`:''}</span></span><span></span></button>
+   </div>
+   <div class="navrow">${u>0?`<button class="btn ghost small" type="button" data-go="u${u}">${ICON.back}上一單元</button>`:'<span></span>'}${u<U.length-1?`<button class="btn ghost small" type="button" data-go="u${u+2}">下一單元${ICON.next}</button>`:''}</div>
+  </div>`;
+  bindGo(V());bindMode(V(),()=>viewUnit(u));
+}
+
+/* ---------- level ---------- */
+function viewLevel(u,l){
+  const L=U[u].levels[l],key=lkey(u,l)+store.mode,st=stagesOf(u,l),SG=stagesFor(),first=SG[0][0];
+  let cur=stageSel[key]||(SG.find(s=>!st[s[0]])||SG[0])[0];
+  if(!SG.some(s=>s[0]===cur))cur=first;
+  if(!st[first])cur=first; /* later stages open only after the first one (我看 or 重點) */
+  const lockTxt=store.mode==='a'?'先完成重點':'先完成我看';
+  V().innerHTML=`<div style="${uvar(u)}">
+   <div class="crumbs"><button class="link" type="button" data-go="u${u+1}">${ICON.back}第 ${u+1} 單元　${U[u].name}</button><span class="pill-mode">${MODES[store.mode].name}模式</span></div>
+   <div class="lv-top"><div><h1>第 ${l+1} 關　${L.title}</h1><p class="lead">${L.sub}</p></div>
+   <nav class="stages ${SG.length===2?'two':''}" aria-label="學習步驟">${SG.map(s=>{const locked=!st[first]&&s[0]!==first;return`<button class="stage ${locked?'locked':''}" type="button" data-st="${s[0]}" ${s[0]===cur?'aria-current="step"':''} ${locked?'aria-disabled="true"':''}><span>${s[1]}<small>${locked?lockTxt:s[2]}</small></span>${st[s[0]]?`<span class="ck">${ICON.check}</span>`:locked?`<span class="ck lk">${ICON.lock}</span>`:''}</button>`;}).join('')}</nav></div>
+   <div id="lockmsg" aria-live="polite"></div>
+   <div id="stage"></div></div>`;
+  bindGo(V());
+  $$('[data-st]').forEach(b=>b.onclick=()=>{
+    if(b.classList.contains('locked')){$('#lockmsg').innerHTML=`<div class="fb-msg info" style="margin:0 0 .8rem">${ICON.bulb}<div>${store.mode==='a'?'先完成「重點」：看完重點，答對確認題，就可以挑戰。':'先完成「我看」：看完例題，再把重點唸一遍，就可以進到「我懂」。'}</div></div>`;return;}
+    stageSel[key]=b.dataset.st;viewLevel(u,l);});
+  window.unlockTabs=()=>{$$('.stage.locked').forEach(b=>{b.classList.remove('locked');b.removeAttribute('aria-disabled');const lk=$('.lk',b);if(lk)lk.remove();const sm=$('small',b);const d=SG.find(s=>s[0]===b.dataset.st);if(sm&&d)sm.textContent=d[2];});$('#lockmsg').innerHTML='';
+    const lb=$(`[data-st="${first}"]`);if(lb&&!$('.ck',lb))lb.insertAdjacentHTML('beforeend',`<span class="ck">${ICON.check}</span>`);};
+  const goStage=s=>{stageSel[key]=s;viewLevel(u,l);window.scrollTo(0,0);};
+  ({look:stLook,know:stKnow,do:stDo,can:stCan,akey:stAKey,achal:stAChal})[cur]($('#stage'),u,l,L,goStage);
+}
+/* 進階：重點 — the whole worked example at once, the key point, and one check question */
+function stAKey(box,u,l,L,goStage){
+  const X=L.look;const k=L.know[0];let lastV='';X.steps.forEach(s=>{if(s.v)lastV=s.v;});
+  box.innerHTML=`<div class="split">
+    <div class="sticky"><div class="card"><span class="ex-tag">例題</span><div class="prompt"><div class="txt">${X.ex}</div></div>${lastV?`<div class="vis-box">${lastV}</div>`:''}
+      <ol class="clues" style="margin-top:.8rem">${X.steps.map((s,j)=>`<li class="clue done"><div class="clue-k"><span class="n">${CIRC[j]}</span><span>${s.k}</span></div><div class="clue-t">${s.t.replace(/\{\{([\s\S]+?)\}\}/g,'<span class="peek-v">$1</span>')}</div></li>`).join('')}</ol></div></div>
+    <div><div class="keypt" style="margin-top:0"><b class="lab">重點</b><div class="key-txt">${X.key}</div></div><div id="akq" style="margin-top:1rem"></div></div></div>`;
+  $('.prompt',box).prepend(sayBtn($('.txt',box)));
+  const kp=$('.keypt',box);kp.prepend(sayBtn($('.key-txt',kp)));$('.say',kp).style.float='right';
+  const host=$('#akq',box);host.append(h('<div class="step-n">確認一下</div>'));
+  host.append(qa({prompt:k.q,spec:ch(k.opts,k.a),why:k.why,fallback:X.key,onDone(){markStage(u,l,'akey');unlockTabs();
+    const b=h(`<button class="btn" type="button" style="margin-top:1rem">去挑戰${ICON.next}</button>`);b.onclick=()=>goStage('achal');host.append(b);b.focus({preventScroll:true});}}));
+  autoSay($('.key-txt',box));
+}
+const stAChal=(box,u,l,L,goStage)=>stCan(box,u,l,L,goStage,true);
+const peekify=t=>t.replace(/\{\{([\s\S]+?)\}\}/g,(_,x)=>`<span class="peek"><button class="peek-b no-say" type="button" aria-label="點開答案">？</button><span class="peek-v" hidden>${x}</span></span>`);
+const CIRC='①②③④⑤⑥⑦⑧';
+function stLook(box,u,l,L,goStage){
+  const X=L.look,N=X.steps.length;let i=0;
+  box.innerHTML=`<div class="split">
+    <div class="sticky"><div class="card"><span class="ex-tag">例題</span><div class="prompt"><div class="txt">${X.ex}</div></div><div class="vis-box" id="lv"></div></div></div>
+    <div><div class="card"><div class="clue-head"><b>解題線索</b><span id="lc"></span></div><ol class="clues" id="cl"></ol>
+      <p class="look-hint">先想一想，再點 <b style="color:var(--accent)">？</b> 看答案。</p>
+      <div class="navrow"><button class="btn ghost" type="button" id="lp">${ICON.back}上一步</button><button class="btn" type="button" id="ln"></button></div>
+      <div id="lk"></div></div></div></div>`;
+  $('.prompt',box).prepend(sayBtn($('.txt',box)));
+  const vis=$('#lv',box),cl=$('#cl',box),nb=$('#ln',box),pb=$('#lp',box),kb=$('#lk',box);
+  function visFor(j){for(let k=j;k>=0;k--)if(X.steps[k].v)return X.steps[k].v;return '';}
+  function unrevealed(){return $$('.clue.cur .peek-v[hidden]',cl).length;}
+  function setBtn(){
+    if(unrevealed())nb.innerHTML=`${ICON.eye}看答案`;
+    else nb.innerHTML=i<N-1?`下一步${ICON.next}`:`看重點${ICON.next}`;
+  }
+  /* 重點: the student reads it aloud once; "我唸完了" unlocks after a short wait, then 我懂 opens */
+  function showKey(){
+    nb.hidden=true;pb.style.visibility='hidden';
+    kb.innerHTML=`<div class="keypt"><b class="lab">重點：請大聲唸一遍</b><div class="key-txt">${X.key}</div>
+      <div class="read-row"><button class="btn ghost" type="button" id="kl">${ICON.say}先聽一次</button><button class="btn read-btn" type="button" id="kr" disabled></button></div></div>`;
+    const kt=$('.key-txt',kb),kr=$('#kr',kb);
+    $('#kl',kb).onclick=()=>speak(toSpeech(kt));
+    const plain=kt.textContent.replace(/\s/g,'');const total=Math.min(12,Math.max(3,Math.ceil(plain.length*0.3)));let left=total;
+    const tick=()=>{if(!kr.isConnected)return;
+      if(left>0){kr.innerHTML=`請唸一遍…（${left} 秒）`;kr.style.setProperty('--p',`${(total-left)/total*100}%`);left--;setTimeout(tick,1000);}
+      else{kr.disabled=false;kr.style.setProperty('--p','100%');kr.innerHTML=`${ICON.check}我唸完了`;}};
+    tick();
+    kr.onclick=()=>{markStage(u,l,'look');kr.disabled=true;kr.innerHTML=`${ICON.check}唸完了，好棒！`;nb.hidden=false;nb.innerHTML=`去「我懂」${ICON.next}`;nb.focus({preventScroll:true});unlockTabs();};
+    kb.scrollIntoView({block:'nearest',behavior:store.set.calm?'auto':'smooth'});
+  }
+  function draw(){
+    const v=visFor(i);vis.innerHTML=v;vis.hidden=!v;
+    $('#lc',box).textContent=`第 ${i+1} 步 / 共 ${N} 步`;
+    cl.innerHTML=X.steps.map((s,j)=>{const cls=j<i?'done':j===i?'cur':'todo';return`<li class="clue ${cls}"><button class="clue-k" type="button" data-j="${j}" ${j>i?'disabled':''}><span class="n">${CIRC[j]}</span><span>${s.k}</span></button>${j<=i?`<div class="clue-t">${j<i?s.t.replace(/\{\{([\s\S]+?)\}\}/g,'<span class="peek-v">$1</span>'):peekify(s.t)}</div>`:''}</li>`;}).join('');
+    $$('.clue-k',cl).forEach(b=>b.onclick=()=>{const j=+b.dataset.j;if(j<i){i=j;draw();}});
+    $$('.peek-b',cl).forEach(b=>b.onclick=()=>{b.hidden=true;b.nextElementSibling.hidden=false;setBtn();});
+    const curEl=$('.clue.cur',cl);
+    if(curEl&&!curEl.querySelector('.say')){const sb=sayBtn($('.clue-t',curEl));sb.style.cssText='width:2.3rem;height:2.3rem;margin-left:auto';$('.clue-k',curEl).append(sb);}
+    pb.style.visibility=i===0?'hidden':'visible';
+    kb.innerHTML='';nb.hidden=false;setBtn();autoSay($('.clue.cur .clue-t',cl));
+  }
+  pb.onclick=()=>{if(i>0){i--;draw();}};
+  nb.onclick=()=>{
+    if(unrevealed()){$$('.clue.cur .peek',cl).forEach(p=>{$('.peek-b',p).hidden=true;$('.peek-v',p).hidden=false;});setBtn();return;}
+    if(i<N-1){i++;draw();return;}
+    if(!kb.innerHTML){showKey();return;}
+    if(stagesOf(u,l).look)goStage('know');
+  };
+  draw();
+}
+function stKnow(box,u,l,L,goStage){
+  let i=0;
+  function show(){
+    const k=L.know[i];box.innerHTML='';
+    const card=h(`<div class="card narrow"><div class="step-n">第 ${i+1} 題 / 共 ${L.know.length} 題</div></div>`);
+    const step=qa({prompt:k.q,spec:ch(k.opts,k.a),why:k.why,fallback:L.look.key,onDone(){
+      const last=i===L.know.length-1;
+      const b=h(`<button class="btn" type="button" style="margin-top:1rem">${last?'去「我做」':'下一題'}${ICON.next}</button>`);
+      b.onclick=()=>{if(last){markStage(u,l,'know');goStage('do');}else{i++;show();}};card.append(b);b.focus({preventScroll:true});}});
+    step.style.border='0';step.style.padding='0';card.append(step);box.append(card);autoSay($('.txt',step));
+  }
+  show();
+}
+/* small calculator: + − × ÷ with normal order of operations */
+function calcEval(s){
+  const t=s.match(/\d+(?:\.\d+)?|[+\-×÷]/g);if(!t)return '';
+  const nums=[],ops=[];let i=0;
+  const num=x=>{const v=Number(x);if(isNaN(v))throw 0;return v;};
+  nums.push(num(t[i++]));
+  while(i<t.length){const op=t[i++];if(i>=t.length)break;const b=num(t[i++]);
+    if(op==='×')nums.push(nums.pop()*b);else if(op==='÷'){if(b===0)throw 0;nums.push(nums.pop()/b);}else{ops.push(op);nums.push(b);}}
+  let r=nums[0];ops.forEach((op,j)=>{r=op==='+'?r+nums[j+1]:r-nums[j+1];});
+  return fmt(r);
+}
+function calcWidget(){
+  const w=h(`<div class="calc" hidden><div class="scr" aria-live="polite"></div>${['7','8','9','÷','4','5','6','×','1','2','3','−','0','.','=','+','C','⌫'].map(k=>`<button type="button" class="${'÷×−+'.includes(k)?'op':k==='='?'eq':''}" data-c="${k}">${k}</button>`).join('')}</div>`);
+  const scr=$('.scr',w);let s='';
+  w.addEventListener('pointerdown',e=>e.preventDefault());
+  w.addEventListener('click',e=>{const k=e.target.closest('button')?.dataset.c;if(!k)return;
+    if(k==='C')s='';else if(k==='⌫')s=s.slice(0,-1);
+    else if(k==='='){try{s=calcEval(s.replace(/−/g,'-').replace(/-/g,'-'));}catch(_){s='';scr.textContent='算式不完整';return;}}
+    else s+=k==='−'?'-':k;
+    scr.textContent=s.replace(/-/g,'−');});
+  return w;
+}
+function problemCard(p){
+  const card=h(`<div class="card"><div class="prompt"><div class="txt">${p.q}</div></div><div class="vis-box" ${p.v?'':'hidden'}>${p.v||''}</div></div>`);
+  $('.prompt',card).prepend(sayBtn($('.txt',card)));
+  if(store.set.calc){const b=h(`<button class="btn ghost small calc-btn no-say" type="button">計算機</button>`);const c=calcWidget();b.onclick=()=>{c.hidden=!c.hidden;};card.append(b,c);}
+  return card;
+}
+function stDo(box,u,l,L,goStage){
+  const p=L.gen(mkR(null));box.innerHTML='';
+  const sp=h('<div class="split"><div class="sticky"></div><div><div class="steps"></div><div class="end"></div></div></div>');
+  const card=problemCard(p);$('.sticky',sp).append(card);box.append(sp);
+  const vis=$('.vis-box',card),steps=$('.steps',sp),end=$('.end',sp);
+  let i=0;
+  function next(){
+    if(i>=p.steps.length){
+      end.append(h(`<div class="fb-msg ok" style="margin-top:1rem">${ICON.check}<div>全部步驟都做完了！答案：${ansText(p.ans)}</div></div>`));
+      const row=h('<div class="row" style="margin-top:1rem"></div>');
+      const again=h(`<button class="btn ghost" type="button">${ICON.retry}再做一題</button>`);again.onclick=()=>stDo(box,u,l,L,goStage);
+      const on=h(`<button class="btn" type="button">我準備好了，去「我會」${ICON.next}</button>`);on.onclick=()=>goStage('can');
+      row.append(again,on);end.append(row);markStage(u,l,'do');on.focus({preventScroll:true});return;
+    }
+    const s=p.steps[i];
+    const el=qa({prompt:s.p,spec:s.ans,hint:s.hint,fallback:L.look.key,num:i+1,onDone(){if(s.vis){vis.hidden=false;vis.innerHTML=s.vis;}i++;setTimeout(next,350);}});
+    steps.append(el);el.focusFirst();autoSay($('.txt',el));
+  }
+  autoSay($('.txt',card));next();
+}
+function stCan(box,u,l,L,goStage,adv){
+  const N=3;let n=0;const stars=[];
+  function show(){
+    box.innerHTML='';
+    const top=h(`<div class="stars" aria-label="已經拿到 ${stars.length} 顆星">${Array.from({length:N},(_,j)=>ICON.star.replace('<svg',`<svg class="${j<stars.length?'on':''}"`)).join('')}</div>`);
+    box.append(top);
+    if(n>=N){
+      markStage(u,l,adv?'achal':'can');
+      const hasNext=l+1<U[u].levels.length;
+      const st=h(`<div class="card stamp narrow"><div class="big">${ICON.check}</div><h2>第 ${l+1} 關${adv?'挑戰成功':'過關了'}！</h2><p class="lead">${stars.every(Boolean)?'三題都一次就答對，太厲害了！':'你很認真，每一題都完成了。'}</p><div class="row" style="justify-content:center;margin-top:1rem"></div></div>`);
+      const row=$('.row',st);
+      const again=h(`<button class="btn ghost" type="button">${ICON.retry}再練 3 題</button>`);again.onclick=()=>stCan(box,u,l,L,goStage,adv);
+      const nx=h(`<button class="btn" type="button">${hasNext?`下一關：${U[u].levels[l+1].title}`:'去做形成性評量'}${ICON.next}</button>`);
+      nx.onclick=()=>go(hasNext?`u${u+1}-l${l+2}`:`u${u+1}-quiz`);
+      row.append(again,nx);box.append(st);return;
+    }
+    const p=(adv?L.adv:L.gen).call(L,mkR(null));
+    const sp=h('<div class="split"><div class="sticky"></div><div class="right"></div></div>');
+    const card=problemCard(p);card.prepend(h(`<div class="step-n">第 ${n+1} 題 / 共 ${N} 題</div>`));$('.sticky',sp).append(card);
+    const right=$('.right',sp);const vis=$('.vis-box',card);
+    const guide=h(`<button class="btn ghost small" type="button" style="margin-top:.7rem">${ICON.bulb}卡住了？帶我一步一步做</button>`);
+    const gsteps=h('<div class="steps" style="margin-top:.8rem" hidden></div>');
+    const el=qa({prompt:p.ask,spec:p.ans,fallback:L.look.key,
+      onWrong(){guide.classList.add('pulse');},
+      onDone(first){stars.push(first);guide.remove();
+      const b=h(`<button class="btn" type="button" style="margin-top:1rem">${n+1<N?'下一題':'看結果'}${ICON.next}</button>`);b.onclick=()=>{n++;show();};right.append(b);b.focus({preventScroll:true});}});
+    /* fading scaffold: the same problem broken back into the 我做 steps, then the student answers it */
+    guide.onclick=()=>{guide.remove();gsteps.hidden=false;let j=0;
+      const nextG=()=>{if(j>=p.steps.length){gsteps.append(h(`<div class="fb-msg info">${ICON.bulb}<div>步驟都做完了！回到上面，把最後的答案填進去。</div></div>`));el.focusFirst();return;}
+        const s=p.steps[j];const st=qa({prompt:s.p,spec:s.ans,hint:s.hint,fallback:L.look.key,num:j+1,onDone(){if(s.vis){vis.hidden=false;vis.innerHTML=s.vis;}j++;setTimeout(nextG,300);}});
+        gsteps.append(st);st.focusFirst();};
+      nextG();};
+    right.append(el,guide,gsteps);box.append(sp);el.focusFirst();autoSay($('.txt',card));
+  }
+  show();
+}
+
+/* ---------- quiz ---------- */
+const DIFF={b:{name:'基礎卷',desc:'數字小、步驟少'},a:{name:'進階卷',desc:'數字大、多一步、反過來想'}};
+function quizItems(u,ver,diff){
+  const L=U[u].levels;const items=[];
+  if(diff==='a'){const g=mkR(1000*(u+1)+77*ver+5003);const per=Math.max(2,Math.ceil(10/L.length));
+    L.forEach((lv,li)=>{for(let j=0;j<per;j++){const p=lv.adv(g);items.push({li,q:p.q,v:p.v,ask:p.ask,ans:p.ans});}});return items;}
+  const g=mkR(1000*(u+1)+77*ver+1);const per=Math.max(1,Math.ceil(10/L.length)-1);
+  L.forEach((lv,li)=>{
+    const k=lv.know[ver%lv.know.length];items.push({li,q:k.q,v:'',ask:'',ans:ch(k.opts,k.a,g)});
+    for(let j=0;j<per;j++){const p=lv.gen(g);items.push({li,q:p.q,v:p.v,ask:p.ask,ans:p.ans});}
+  });
+  return items;
+}
+function viewQuiz(u){
+  const un=U[u];const ver=store.qv[u]||0;const diff=store.qd[u]||'b';const items=quizItems(u,ver,diff);const VN=['A','B','C'];
+  V().innerHTML=`<div style="${uvar(u)}">
+   <div class="crumbs"><button class="link" type="button" data-go="u${u+1}">${ICON.back}第 ${u+1} 單元　${un.name}</button></div>
+   <div class="qhead"><div><h1>形成性評量・${DIFF[diff].name}</h1><p class="lead">第 ${u+1} 單元《${un.name}》・共 ${items.length} 題。全部寫完再按最下面的「交卷」。</p></div>
+     <div class="qopts">
+       <div class="seg" role="group" aria-label="難度">${Object.entries(DIFF).map(([k,d])=>`<button type="button" data-diff="${k}" aria-pressed="${k===diff}">${d.name}<small>${d.desc}</small></button>`).join('')}</div>
+       <div class="ver">試卷版本：${VN.map((n,i)=>`<button class="chip" type="button" data-ver="${i}" aria-pressed="${i===ver}">${n} 卷</button>`).join('')}</div></div></div>
+   <div id="qres" aria-live="polite"></div>
+   <div class="qlist" id="qlist"></div>
+   <div class="row" style="margin-top:1.2rem"><button class="btn" type="button" id="qsubmit">${ICON.check}交卷</button><button class="btn ghost" type="button" id="qreset">${ICON.retry}重新作答</button></div>
+   <details class="teacher"><summary>教師解答與概念診斷（老師用）・${DIFF[diff].name} ${VN[ver]} 卷</summary>
+     <table class="key"><thead><tr><th>題號</th><th>正確答案</th><th>概念（關卡）</th></tr></thead><tbody>
+     ${items.map((it,i)=>`<tr><td>${i+1}</td><td>${ansText(it.ans)}</td><td>C${it.li+1}　${un.levels[it.li].title}</td></tr>`).join('')}</tbody></table>
+     <table class="key"><thead><tr><th>概念指標</th><th>對應題號</th><th>答錯時的補救方向</th></tr></thead><tbody>
+     ${un.levels.map((lv,li)=>`<tr><td>C${li+1}　${lv.title}</td><td>${items.map((it,i)=>it.li===li?i+1:null).filter(Boolean).join('、')}</td><td>${lv.fix}</td></tr>`).join('')}</tbody></table>
+     <p class="note">基礎卷：數字較小，含概念選擇題，適合需要較多支持的學生。進階卷：數字較大、多一個步驟或要反過來推。兩種難度各有 A／B／C 三卷，解答表會跟著換。</p>
+   </details></div>`;
+  bindGo(V());
+  $$('[data-ver]').forEach(b=>b.onclick=()=>{store.qv[u]=+b.dataset.ver;save();viewQuiz(u);});
+  $$('[data-diff]').forEach(b=>b.onclick=()=>{store.qd[u]=b.dataset.diff;save();viewQuiz(u);});
+  const list=$('#qlist');const W=[];
+  items.forEach((it,i)=>{
+    const el=h(`<div class="qitem"><div class="qno">${i+1}</div><div class="qbody ${it.v?'has-vis':''}"><div class="prompt"><div class="txt">${it.q}${it.ask?'<br>'+it.ask:''}</div></div>${it.v?`<div class="vis-box">${it.v}</div>`:''}</div></div>`);
+    $('.prompt',el).prepend(sayBtn($('.txt',el)));
+    const A=answer(it.ans);$('.qbody',el).append(A.el);
+    A.boxes.forEach(b=>b.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();const all=$$('.box',list);const j=all.indexOf(b);if(all[j+1])all[j+1].focus();}}));
+    list.append(el);W.push({A,el,it});
+  });
+  $('#qreset').onclick=()=>viewQuiz(u);
+  $('#qsubmit').onclick=()=>{
+    hidePad();let right=0;const per=un.levels.map(()=>({t:0,r:0}));
+    W.forEach(({A,el,it})=>{const ok=A.check()===true;A.lock();if(!ok&&A.choice)A.reveal();
+      el.classList.add(ok?'right':'wrong');per[it.li].t++;if(ok){right++;per[it.li].r++;}
+      if(!ok)$('.qbody',el).append(h(`<div class="fb-msg bad">${ICON.bulb}<div>正確答案：${ansText(it.ans)}</div></div>`));});
+    const sc=`${right}/${W.length}`;const kk=u+diff;const prev=store.q[kk];
+    if(!prev||right>parseInt(prev))store.q[kk]=sc;save();
+    $('#qres').innerHTML=`<div class="card" style="margin-bottom:1rem"><div class="score">${right} / ${W.length}</div><div class="lead">${right===W.length?'全部答對！':'答錯的題目，可以回到下面建議的關卡再練習。'}</div>
+      <table class="key"><thead><tr><th>關卡</th><th>答對</th><th>建議</th></tr></thead><tbody>${un.levels.map((lv,li)=>`<tr><td>第 ${li+1} 關　${lv.title}</td><td>${per[li].r} / ${per[li].t}</td><td>${per[li].r===per[li].t?'很好':`<button class="link" type="button" data-go="u${u+1}-l${li+1}">回去練習 ${ICON.next}</button>`}</td></tr>`).join('')}</tbody></table></div>`;
+    bindGo($('#qres'));
+    $('#qsubmit').disabled=true;window.scrollTo({top:0,behavior:store.set.calm?'auto':'smooth'});
+  };
+}
+
+applySet();render();
+</script>
+
+<script>
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+(function(){var t=document.querySelector('.top-in .top-sp');if(t){var a=document.createElement('a');a.className='chip';a.href='../';a.textContent='潛能教室首頁';a.style.textDecoration='none';a.style.color='var(--accent)';a.style.fontWeight='700';t.after(a);}})();
+</script>
+</body>
+</html>
